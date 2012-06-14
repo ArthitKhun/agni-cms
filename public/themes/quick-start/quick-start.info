@@ -1,0 +1,7 @@
+Theme Name: Quick Start
+Theme URL: http://www.agnicms.org
+Version: 1.0
+Description: For theme designer quick start theme.
+
+areas[navigation] = Navigation
+areas[sidebar] = Sidebar

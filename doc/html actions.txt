@@ -1,0 +1,3 @@
+action html จะต้องใช้ได้ในทั้ง admin/front จะต้องไม่เจาะจง ถ้าเจาะจงให้ใช้ front actions, admin actions
+
+html_title = เรียกใช้ action ให้ทำงานกับค่า title ที่ส่งไป
