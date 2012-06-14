@@ -17,6 +17,11 @@ application/config/database.php
 4. config some settings about hash text, cookie prefix, cookie domain, ...more in
 application/config/config.php
 
+5. change mod rewrite settings
+open .htaccess
+change RewriteBase to your install base eg. /
+save and close.
+
 
 =====TEST=====
 
