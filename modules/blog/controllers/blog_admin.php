@@ -11,6 +11,8 @@ class blog_admin extends MX_Controller {
 		parent::__construct();
 		// load helper
 		$this->load->helper(array( 'url' ));
+		// load langauge (for use in permission setting page)
+		$this->lang->load( 'blog/blog' );
 	}// __construct
 	
 	
