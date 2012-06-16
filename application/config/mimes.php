@@ -103,7 +103,7 @@
 
 // vee w. rewrite mimes.
 $mimes = array (
-			'7z'	=>	array( 'application/x-7z-compressed' ),
+			'7z'	=>	array( 'application/x-7z-compressed', 'application/octet-stream' ),
 			'aac'	=>	array( 'audio/x-aac', 'audio/aacp', 'audio/aac' ),
 			'ace'	=>	array( 'application/x-compressed', 'application/x-ace' ),
 			'ai' => 'application/postscript',
@@ -122,7 +122,7 @@ $mimes = array (
 			'dll' => 'application/octet-stream',
 			'dms' => 'application/octet-stream',
 			'doc' => 'application/msword',
-			'docx' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+			'docx' => array( 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/zip' ),
 			'dvi' => 'application/x-dvi',
 			'dxr' => 'application/x-director',
 			'eml' => 'message/rfc822',
@@ -197,7 +197,7 @@ $mimes = array (
 			'xhtml' => 'application/xhtml+xml',
 			'xl' => 'application/excel',
 			'xls' => array( 'application/excel', 'application/msexcel', 'application/vnd.ms-excel' ),
-			'xlsx' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+			'xlsx' => array( 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/zip' ),
 			'xml' => 'text/xml',
 			'xsl' => 'text/xml',
 			'zip' => array( 'application/x-zip', 'application/x-zip-compressed', 'application/zip' ),
