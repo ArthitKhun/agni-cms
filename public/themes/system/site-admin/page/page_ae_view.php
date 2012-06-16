@@ -232,6 +232,9 @@
 			// Location of TinyMCE script
 			script_url : base_url+'public/js/tiny_mce/tiny_mce.js',
 			content_css : '<?php echo $this->theme_path; ?>front/style.css',
+			// fix bug when open and tinymce not show in first time.
+			height: '150px',
+			width: '100%',
 			theme : "advanced",
 			theme_advanced_toolbar_align : "left",
 			theme_advanced_toolbar_location : "top",
@@ -251,6 +254,9 @@
 			inline_styles : true,
 			preformatted : false,
 			relative_urls : false,
+			// fix bug when open and tinymce not show in first time.
+			height: '400px',
+			width: '100%',
 			// General options
 			theme : "advanced",
 			plugins : "autolink,lists,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,advlist",
