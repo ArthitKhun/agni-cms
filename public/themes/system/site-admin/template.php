@@ -23,7 +23,7 @@
 						<li><?php echo anchor( '#', lang( 'admin_nav_website' ), array( 'onclick' => 'return false;' ) ); ?> 
 							<ul>
 								<li><?php echo anchor( 'site-admin', lang( 'admin_home' ) ); ?></li>
-								<li><?php echo anchor( base_url(), lang( 'admin_nav_visit_site' ) ); ?></li>
+								<li><?php echo anchor( site_url(), lang( 'admin_nav_visit_site' ) ); ?></li>
 								<?php if ( check_admin_permission( 'config_global', 'config_global' ) ): ?><li><?php echo anchor( 'site-admin/config', lang( 'admin_nav_global_config' ) ); ?></li><?php endif; ?> 
 							</ul>
 						</li>

@@ -51,6 +51,13 @@ body {background: #fff; color: #555; font-family: tahoma,Geneva,Arial,Helvetica,
 .site-name {font-size: 19px; font-weight: bold; margin-bottom: 18px; padding: 0;}
 
 
+/* error, success, comment, alert styles */
+.txt_comment {color: #aaa; font-size: 11px;}
+.txt_error {background: #ffecec; border:2px solid #ffc4c4; color:#f00; font-weight: bold; margin: 0 0 10px 0; padding: 3px;}
+.txt_require {color: #f00; font-weight: bold;}
+.txt_success {background: #f7fff2; border: 2px solid #8bfa49; color: #307f00; margin: 0 0 10px 0; padding: 3px;}
+
+
 /* language switch block */
 .area-sidebar .each-block .language-switch-block {display: block; color: #ff4200; cursor: pointer; list-style: none; margin: 0 0 8px 0; position: relative; text-transform:capitalize; width: auto;}
 .area-sidebar .each-block .language-switch-block li {margin: 0; padding: 0;}

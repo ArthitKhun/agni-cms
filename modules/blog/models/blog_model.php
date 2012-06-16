@@ -23,6 +23,7 @@ class blog_model extends CI_Model {
 		$this->db->set( 'account_id', $ca_account['id'] );
 		$this->db->set( 'blog_title', $data['blog_title'] );
 		$this->db->set( 'blog_content', $data['blog_content'] );
+		$this->db->set( 'blog_date', time() );
 		$this->db->insert( 'blog' );
 		return true;
 	}// add
