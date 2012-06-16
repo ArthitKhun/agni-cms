@@ -99,7 +99,7 @@
 							<?php echo $this->modules_model->load_admin_nav(); ?> 
 						</li>
 						<li><?php echo anchor( '#', lang( 'admin_nav_extensions' ), array( 'onclick' => 'return false;' ) ); ?> 
-							<?php if ( check_admin_permission( 'modules_manage_perm', 'modules_viewall_perm' ) || check_admin_permission( 'plugins_manage_perm', 'plugins_manage_perm' ) || check_admin_permission( 'themes_manage_perm', 'themes_viewall_perm' ) ): ?> 
+							<?php if ( check_admin_permission( 'modules_manage_perm', 'modules_viewall_perm' ) || check_admin_permission( 'themes_manage_perm', 'themes_viewall_perm' ) ): ?> 
 							<ul>
 								<?php if ( check_admin_permission( 'modules_manage_perm', 'modules_viewall_perm' ) ): ?><li><?php echo anchor( 'site-admin/module', lang( 'admin_nav_modules_manager' ) ); ?></li><?php endif; ?> 
 								<?php if ( check_admin_permission( 'themes_manage_perm', 'themes_viewall_perm' ) ): ?><li><?php echo anchor( 'site-admin/themes', lang( 'admin_nav_themes_manager' ) ); ?></li><?php endif; ?> 

@@ -360,28 +360,47 @@ class account_model extends CI_Model {
 		// check for required attribute
 		if ( !is_numeric( $account_id ) || $page_name == null || $action == null ) {return false;}
 		if ( $account_id == '1' ) {return true;}// permanent owner's account
-		$this->db->where( 'account_id', $account_id );
-		$query = $this->db->get( 'account_level' );
-		if ( $query->num_rows() > 0 ) {
-			foreach ( $query->result() as $row ) {
-				if ( $row->level_group_id == '1' ) {$query->free_result(); return true;}// super admin group allow all by default.
-				$this->db->where( 'permission_page', $page_name );
-				$this->db->where( 'permission_action', $action );
-				$this->db->where( 'level_group_id', $row->level_group_id );
-				$query2 = $this->db->get( 'account_level_permission' );
-				if ( $query2->num_rows() > 0 ) {
-					$query->free_result();
+		// load cache driver
+		$this->load->driver( 'cache', array( 'adapter' => 'file' ) );
+		// check cached
+		if ( false === $check_admin_permission = $this->cache->get( 'check_admin_permission_'.$page_name.'_'.$action.'_'.$account_id ) ) {
+			$this->db->where( 'account_id', $account_id );
+			$query = $this->db->get( 'account_level' );
+			if ( $query->num_rows() > 0 ) {
+				foreach ( $query->result() as $row ) {
+					if ( $row->level_group_id == '1' ) {
+						// super admin group allow all by default.
+						$query->free_result();
+						$this->cache->save( 'check_admin_permission_'.$page_name.'_'.$action.'_'.$account_id, 'true', 600 );
+						return true;
+					}
+					$this->db->where( 'permission_page', $page_name );
+					$this->db->where( 'permission_action', $action );
+					$this->db->where( 'level_group_id', $row->level_group_id );
+					$query2 = $this->db->get( 'account_level_permission' );
+					if ( $query2->num_rows() > 0 ) {
+						$query->free_result();
+						$query2->free_result();
+						$this->cache->save( 'check_admin_permission_'.$page_name.'_'.$action.'_'.$account_id, 'true', 600 );
+						return true;
+
+					}
 					$query2->free_result();
-					return true;
-					
 				}
-				$query2->free_result();
+				$query->free_result();
+				$this->cache->save( 'check_admin_permission_'.$page_name.'_'.$action.'_'.$account_id, 'false', 600 );
+				return false;
 			}
 			$query->free_result();
+			$this->cache->save( 'check_admin_permission_'.$page_name.'_'.$action.'_'.$account_id, 'false', 600 );
 			return false;
 		}
-		$query->free_result();
-		return false;
+		// check cached
+		if ( $check_admin_permission == 'true' ) {
+			return true;
+		} else {
+			return false;
+		}
 	}// check_admin_permission
 	
 	

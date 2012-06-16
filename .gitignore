@@ -1,0 +1,31 @@
+
+############
+## Windows
+############
+
+# Windows image file caches
+Thumbs.db
+
+# Folder config file
+Desktop.ini
+
+
+###########
+# github
+###########
+#*.gitignore
+
+###########
+# project image source
+###########
+_img_src
+_img_src/*
+###########
+# project ignore files
+###########
+/*.7z
+application/cache/*
+application/cache/!index.html
+*/logs/log-*.php
+todo.txt
+public/upload/media/*

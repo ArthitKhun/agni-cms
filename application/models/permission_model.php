@@ -64,7 +64,6 @@ class permission_model extends CI_Model {
 						$obj = new $file_to_class;
 						if ( method_exists( $obj, '_define_permission' ) ) {
 							$permission_array = array_merge( $permission_array, $obj->_define_permission() );
-							$this->load->module( $row->module_system_name );// load module for use language from autoload in each module.
 						}
 						unset( $obj, $file_to_clas );
 					}
@@ -113,6 +112,7 @@ class permission_model extends CI_Model {
 	 * @return boolean 
 	 */
 	function reset_permissions() {
+		$this->config_model->delete_cache( 'check_admin_permission_' );
 		// empty permissions db
 		$this->db->truncate( 'account_level_permission' );
 		return true;

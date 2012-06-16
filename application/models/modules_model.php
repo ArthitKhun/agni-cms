@@ -331,13 +331,22 @@ class modules_model extends CI_Model {
 			$output = '';
 			foreach ( $query->result() as $row ) {
 				if ( file_exists( $this->module_dir.$row->module_system_name.'/controllers/'.$row->module_system_name.'_admin.php' ) ) {
-					$this->load->module( $row->module_system_name.'/'.$row->module_system_name.'_admin' );
+					//$this->load->module( $row->module_system_name.'/'.$row->module_system_name.'_admin' );// use include way to fix error sql not valid link resource
+					include_once( $this->module_dir.$row->module_system_name.'/controllers/'.$row->module_system_name.'_admin.php' );
 					$controller = $row->module_system_name.'_admin';
-					if ( method_exists( $this->$controller, 'admin_nav' ) ) {
+					$obj = new $controller;
+					/*if ( method_exists( $this->$controller, 'admin_nav' ) ) {
 						$list_prefix = ''; $list_suffix = '';
 						if ( strpos( $this->$controller->admin_nav(), '<li' ) === false ) {$list_prefix = '<li>';}
 						if ( strpos( $this->$controller->admin_nav(), '</li>' ) === false ) {$list_suffix = '</li>';}
 						$output .= $list_prefix . $this->$controller->admin_nav() . $list_suffix . "\n";
+					}
+					unset( $this->$controller );*/ // use include way to fix error sql not valid link resource
+					if ( method_exists( $obj, 'admin_nav' ) ) {
+						$list_prefix = ''; $list_suffix = '';
+						if ( strpos( $obj->admin_nav(), '<li' ) === false ) {$list_prefix = '<li>';}
+						if ( strpos( $obj->admin_nav(), '</li>' ) === false ) {$list_suffix = '</li>';}
+						$output .= $list_prefix . $obj->admin_nav() . $list_suffix . "\n";
 					}
 				}
 			}
