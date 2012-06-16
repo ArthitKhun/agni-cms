@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 14, 2012 at 01:33 PM
+-- Generation Time: Jun 16, 2012 at 10:15 PM
 -- Server version: 5.5.23
 -- PHP Version: 5.3.11
 
@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS `an_accounts` (
   `account_new_password` varchar(255) DEFAULT NULL,
   `account_confirm_code` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`account_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `an_accounts`
@@ -55,9 +55,7 @@ CREATE TABLE IF NOT EXISTS `an_accounts` (
 
 INSERT INTO `an_accounts` (`account_id`, `account_username`, `account_email`, `account_password`, `account_fullname`, `account_birthdate`, `account_avatar`, `account_signature`, `account_timezone`, `account_language`, `account_create`, `account_create_gmt`, `account_last_login`, `account_last_login_gmt`, `account_online_code`, `account_status`, `account_status_text`, `account_new_email`, `account_new_password`, `account_confirm_code`) VALUES
 (0, 'Guest', 'none@localhost', NULL, 'Guest', NULL, NULL, NULL, 'UP7', NULL, '2012-04-03 19:25:44', '2012-04-03 12:25:44', NULL, NULL, NULL, 0, 'You can''t login with this account.', NULL, NULL, NULL),
-(1, 'admin', 'admin@localhost.com', '6e6f59d20ef87183781895cb20d13c6663f3890c', NULL, NULL, NULL, NULL, 'UP7', NULL, '2011-04-20 19:20:04', '2011-04-20 12:20:04', '2012-06-14 12:58:08', '2012-06-14 05:58:08', '1d5b1fa0cb9c364a3442e526f590e25e', 1, NULL, NULL, NULL, NULL),
-(2, 'v', 'v@localhost.com', '4494062feb662a2eb1bfb1ee1ea196ec460bb7d9', NULL, NULL, 'public/upload/avatar/30c042987041d605b6dbabf290e52c3b.jpg', NULL, 'UP7', NULL, '2012-04-11 04:13:50', '2012-04-10 21:13:50', '2012-06-09 05:41:13', '2012-06-08 22:41:13', '9b928c82083a8385a023f9355e36de8c', 1, NULL, NULL, NULL, NULL),
-(10, 'user', 'user@localhost.com', 'd74453871076682cdcdc28c5708793af9e89a2ec', NULL, NULL, 'public/upload/avatar/7cfbd2b5e92a1913740b04034b72f6c6.jpg', NULL, 'UP7', NULL, '2012-04-22 16:27:19', '2012-04-22 09:27:19', '2012-05-19 09:39:37', '2012-05-19 02:39:37', '4effbb8a8f9b639fd37dcc31b53a25ad', 1, NULL, NULL, NULL, NULL);
+(1, 'admin', 'admin@localhost.com', '6e6f59d20ef87183781895cb20d13c6663f3890c', NULL, NULL, NULL, NULL, 'UP7', NULL, '2011-04-20 19:20:04', '2011-04-20 12:20:04', '2012-06-16 21:33:06', '2012-06-16 14:33:06', '55ca0d35eced54479685815c25f09d6f', 1, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -72,7 +70,7 @@ CREATE TABLE IF NOT EXISTS `an_account_level` (
   PRIMARY KEY (`level_id`),
   KEY `level_group_id` (`level_group_id`),
   KEY `account_id` (`account_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `an_account_level`
@@ -80,9 +78,7 @@ CREATE TABLE IF NOT EXISTS `an_account_level` (
 
 INSERT INTO `an_account_level` (`level_id`, `level_group_id`, `account_id`) VALUES
 (1, 4, 0),
-(2, 1, 1),
-(3, 2, 2),
-(4, 3, 10);
+(2, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -121,105 +117,12 @@ CREATE TABLE IF NOT EXISTS `an_account_level_permission` (
   `permission_action` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`permission_id`),
   KEY `level_group_id` (`level_group_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=93 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `an_account_level_permission`
 --
 
-INSERT INTO `an_account_level_permission` (`permission_id`, `level_group_id`, `permission_page`, `permission_action`) VALUES
-(1, 1, 'account_perm', 'account_manage_perm'),
-(2, 2, 'account_perm', 'account_manage_perm'),
-(3, 1, 'account_perm', 'account_add_perm'),
-(4, 1, 'account_perm', 'account_edit_perm'),
-(5, 1, 'account_perm', 'account_delete_perm'),
-(6, 1, 'account_perm', 'account_viewlog_perm'),
-(7, 2, 'account_perm', 'account_viewlog_perm'),
-(8, 1, 'account_perm', 'account_deletelog_perm'),
-(9, 1, 'account_lv_perm', 'account_lv_manage_perm'),
-(10, 1, 'account_lv_perm', 'account_lv_add_perm'),
-(11, 1, 'account_lv_perm', 'account_lv_edit_perm'),
-(12, 1, 'account_lv_perm', 'account_lv_delete_perm'),
-(13, 1, 'account_lv_perm', 'account_lv_sort_perm'),
-(14, 1, 'account_permission_perm', 'account_permission_manage_perm'),
-(15, 1, 'post_article_perm', 'post_article_viewall_perm'),
-(16, 2, 'post_article_perm', 'post_article_viewall_perm'),
-(17, 1, 'post_article_perm', 'post_article_add_perm'),
-(18, 2, 'post_article_perm', 'post_article_add_perm'),
-(19, 1, 'post_article_perm', 'post_article_publish_unpublish_perm'),
-(20, 1, 'post_article_perm', 'post_article_edit_own_perm'),
-(21, 2, 'post_article_perm', 'post_article_edit_own_perm'),
-(22, 1, 'post_article_perm', 'post_article_edit_other_perm'),
-(23, 1, 'post_article_perm', 'post_article_delete_own_perm'),
-(24, 2, 'post_article_perm', 'post_article_delete_own_perm'),
-(25, 1, 'post_article_perm', 'post_article_delete_other_perm'),
-(26, 1, 'post_article_perm', 'post_article_sort_perm'),
-(27, 1, 'post_article_perm', 'post_revert_revision'),
-(28, 1, 'post_article_perm', 'post_delete_revision'),
-(29, 1, 'block_perm', 'block_viewall_perm'),
-(30, 1, 'block_perm', 'block_add_perm'),
-(31, 1, 'block_perm', 'block_edit_perm'),
-(32, 1, 'block_perm', 'block_delete_perm'),
-(33, 1, 'block_perm', 'block_sort_perm'),
-(34, 1, 'category_perm', 'category_viewall_perm'),
-(35, 2, 'category_perm', 'category_viewall_perm'),
-(36, 1, 'category_perm', 'category_add_perm'),
-(37, 1, 'category_perm', 'category_edit_perm'),
-(38, 1, 'category_perm', 'category_delete_perm'),
-(39, 1, 'category_perm', 'category_sort_perm'),
-(40, 1, 'comment_perm', 'comment_viewall_perm'),
-(41, 1, 'comment_perm', 'comment_approve_unapprove_perm'),
-(42, 1, 'comment_perm', 'comment_edit_own_perm'),
-(43, 2, 'comment_perm', 'comment_edit_own_perm'),
-(44, 3, 'comment_perm', 'comment_edit_own_perm'),
-(45, 4, 'comment_perm', 'comment_edit_own_perm'),
-(46, 1, 'comment_perm', 'comment_edit_other_perm'),
-(47, 1, 'comment_perm', 'comment_delete_own_perm'),
-(48, 2, 'comment_perm', 'comment_delete_own_perm'),
-(49, 1, 'comment_perm', 'comment_delete_other_perm'),
-(50, 1, 'comment_perm', 'comment_allowpost_perm'),
-(51, 2, 'comment_perm', 'comment_allowpost_perm'),
-(52, 3, 'comment_perm', 'comment_allowpost_perm'),
-(53, 4, 'comment_perm', 'comment_allowpost_perm'),
-(54, 1, 'comment_perm', 'comment_nomoderation_perm'),
-(55, 2, 'comment_perm', 'comment_nomoderation_perm'),
-(56, 3, 'comment_perm', 'comment_nomoderation_perm'),
-(57, 1, 'config_global', 'config_global'),
-(58, 2, 'config_global', 'config_global'),
-(59, 1, 'account_admin_login', 'account_admin_login'),
-(60, 2, 'account_admin_login', 'account_admin_login'),
-(61, 3, 'account_admin_login', 'account_admin_login'),
-(62, 1, 'menu_perm', 'menu_viewall_group_perm'),
-(63, 1, 'menu_perm', 'menu_add_group_perm'),
-(64, 1, 'menu_perm', 'menu_edit_group_perm'),
-(65, 1, 'menu_perm', 'menu_delete_group_perm'),
-(66, 1, 'menu_perm', 'menu_viewall_menu_perm'),
-(67, 1, 'menu_perm', 'menu_add_perm'),
-(68, 1, 'menu_perm', 'menu_edit_perm'),
-(69, 1, 'menu_perm', 'menu_delete_perm'),
-(70, 1, 'menu_perm', 'menu_sort_perm'),
-(71, 1, 'modules_manage_perm', 'modules_viewall_perm'),
-(72, 1, 'modules_manage_perm', 'modules_add_perm'),
-(73, 1, 'modules_manage_perm', 'modules_activate_deactivate_perm'),
-(74, 1, 'modules_manage_perm', 'modules_delete_perm'),
-(75, 1, 'post_page_perm', 'post_page_viewall_perm'),
-(76, 1, 'post_page_perm', 'post_page_add_perm'),
-(77, 1, 'post_page_perm', 'post_page_publish_unpublish_perm'),
-(78, 1, 'post_page_perm', 'post_page_edit_own_perm'),
-(79, 1, 'post_page_perm', 'post_page_edit_other_perm'),
-(80, 1, 'post_page_perm', 'post_page_delete_own_perm'),
-(81, 1, 'post_page_perm', 'post_page_delete_other_perm'),
-(82, 1, 'post_page_perm', 'post_revert_revision'),
-(83, 1, 'post_page_perm', 'post_delete_revision'),
-(84, 1, 'tag_perm', 'tag_viewall_perm'),
-(85, 1, 'tag_perm', 'tag_add_perm'),
-(86, 1, 'tag_perm', 'tag_edit_perm'),
-(87, 1, 'tag_perm', 'tag_delete_perm'),
-(88, 1, 'themes_manage_perm', 'themes_viewall_perm'),
-(89, 1, 'themes_manage_perm', 'themes_add_perm'),
-(90, 1, 'themes_manage_perm', 'themes_enable_disable_perm'),
-(91, 1, 'themes_manage_perm', 'themes_set_default_perm'),
-(92, 1, 'themes_manage_perm', 'themes_delete_perm');
 
 -- --------------------------------------------------------
 
@@ -240,57 +143,23 @@ CREATE TABLE IF NOT EXISTS `an_account_logins` (
   `login_attempt_text` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`account_login_id`),
   KEY `account_id` (`account_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=65 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `an_account_logins`
 --
 
 INSERT INTO `an_account_logins` (`account_login_id`, `account_id`, `login_ua`, `login_os`, `login_browser`, `login_ip`, `login_time`, `login_time_gmt`, `login_attempt`, `login_attempt_text`) VALUES
-(6, 2, 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.5 (KHTML, like Gecko) Chrome/19.0.1084.52 Safari/536.5', 'Windows', 'Chrome 19.0.1084.52', '::1', '2012-05-24 12:28:16', '2012-05-24 05:28:16', 1, 'Success'),
-(15, 2, 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0)', 'Windows', 'Internet Explorer 9.0', '::1', '2012-05-30 06:21:59', '2012-05-29 23:21:59', 1, 'Success'),
-(21, 2, 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.5 (KHTML, like Gecko) Chrome/19.0.1084.52 Safari/536.5', 'Windows', 'Chrome 19.0.1084.52', '::1', '2012-06-06 12:20:31', '2012-06-06 05:20:31', 1, 'Success'),
-(24, 2, 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.5 (KHTML, like Gecko) Chrome/19.0.1084.52 Safari/536.5', 'Windows', 'Chrome 19.0.1084.52', '::1', '2012-06-06 09:18:19', '2012-06-06 14:18:19', 1, 'Success'),
-(25, 1, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0', 'Windows', 'Firefox 13.0', '::1', '2012-06-07 02:12:38', '2012-06-07 07:12:38', 1, 'Success'),
-(26, 1, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0', 'Windows', 'Firefox 13.0', '::1', '2012-06-07 08:14:11', '2012-06-07 13:14:11', 1, 'Success'),
-(27, 1, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0', 'Windows', 'Firefox 13.0', '::1', '2012-06-08 03:22:31', '2012-06-07 20:22:31', 1, 'Success'),
-(28, 1, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0', 'Windows', 'Firefox 13.0', '::1', '2012-06-08 03:22:41', '2012-06-07 20:22:41', 1, 'Success'),
-(29, 1, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0', 'Windows', 'Firefox 13.0', '::1', '2012-06-08 01:56:18', '2012-06-08 06:56:18', 1, 'Success'),
-(30, 1, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0', 'Windows', 'Firefox 13.0', '::1', '2012-06-08 01:56:30', '2012-06-08 06:56:30', 1, 'Success'),
-(31, 1, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0', 'Windows', 'Firefox 13.0', '::1', '2012-06-08 01:58:20', '2012-06-08 06:58:20', 1, 'Success'),
-(32, 1, 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.5 (KHTML, like Gecko) Chrome/19.0.1084.52 Safari/536.5', 'Windows', 'Chrome 19.0.1084.52', '::1', '2012-06-08 02:16:17', '2012-06-08 07:16:17', 0, 'Wrong username or password'),
-(33, 1, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0', 'Windows', 'Firefox 13.0', '::1', '2012-06-08 02:33:11', '2012-06-08 07:33:11', 1, 'Success'),
-(34, 1, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0', 'Windows', 'Firefox 13.0', '::1', '2012-06-08 02:33:36', '2012-06-08 07:33:36', 1, 'Success'),
-(35, 1, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0', 'Windows', 'Firefox 13.0', '::1', '2012-06-08 02:33:50', '2012-06-08 07:33:50', 1, 'Success'),
-(36, 1, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0', 'Windows', 'Firefox 13.0', '::1', '2012-06-08 02:33:56', '2012-06-08 07:33:56', 1, 'Success'),
-(37, 1, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0', 'Windows', 'Firefox 13.0', '::1', '2012-06-08 02:34:06', '2012-06-08 07:34:06', 1, 'Success'),
-(38, 1, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0', 'Windows', 'Firefox 13.0', '::1', '2012-06-08 08:11:19', '2012-06-08 13:11:19', 1, 'Success'),
-(39, 2, 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.5 (KHTML, like Gecko) Chrome/19.0.1084.52 Safari/536.5', 'Windows', 'Chrome 19.0.1084.52', '::1', '2012-06-09 04:17:38', '2012-06-08 21:17:38', 1, 'Success'),
-(40, 2, 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.5 (KHTML, like Gecko) Chrome/19.0.1084.52 Safari/536.5', 'Windows', 'Chrome 19.0.1084.52', '::1', '2012-06-09 04:17:43', '2012-06-08 21:17:43', 1, 'Success'),
-(41, 1, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0', 'Windows', 'Firefox 13.0', '::1', '2012-06-09 05:37:05', '2012-06-08 22:37:05', 1, 'Success'),
-(42, 2, 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.5 (KHTML, like Gecko) Chrome/19.0.1084.52 Safari/536.5', 'Windows', 'Chrome 19.0.1084.52', '::1', '2012-06-09 05:41:10', '2012-06-08 22:41:10', 1, 'Success'),
-(43, 2, 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.5 (KHTML, like Gecko) Chrome/19.0.1084.52 Safari/536.5', 'Windows', 'Chrome 19.0.1084.52', '::1', '2012-06-09 05:41:14', '2012-06-08 22:41:14', 1, 'Success'),
-(44, 1, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0', 'Windows', 'Firefox 13.0', '::1', '2012-06-09 02:52:11', '2012-06-09 07:52:11', 1, 'Success'),
-(45, 1, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0', 'Windows', 'Firefox 13.0', '::1', '2012-06-11 12:27:37', '2012-06-11 05:27:37', 1, 'Success'),
-(46, 1, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0', 'Windows', 'Firefox 13.0', '::1', '2012-06-11 01:33:21', '2012-06-11 06:33:21', 1, 'Success'),
-(47, 1, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0', 'Windows', 'Firefox 13.0', '::1', '2012-06-11 06:22:51', '2012-06-11 11:22:51', 1, 'Success'),
-(48, 1, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0', 'Windows', 'Firefox 13.0', '::1', '2012-06-12 12:35:34', '2012-06-11 17:35:34', 1, 'Success'),
-(49, 1, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0', 'Windows', 'Firefox 13.0', '::1', '2012-06-12 12:06:53', '2012-06-12 05:06:53', 1, 'Success'),
-(50, 1, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0', 'Windows', 'Firefox 13.0', '::1', '2012-06-12 03:46:09', '2012-06-12 08:46:09', 1, 'Success'),
-(51, 1, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0', 'Windows', 'Firefox 13.0', '::1', '2012-06-12 04:20:22', '2012-06-12 09:20:22', 1, 'Success'),
-(52, 1, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0', 'Windows', 'Firefox 13.0', '::1', '2012-06-12 06:19:17', '2012-06-12 11:19:17', 1, 'Success'),
-(53, 1, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0', 'Windows', 'Firefox 13.0', '::1', '2012-06-13 01:50:57', '2012-06-12 18:50:57', 1, 'Success'),
-(54, 1, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0', 'Windows', 'Firefox 13.0', '::1', '2012-06-13 03:29:04', '2012-06-13 08:29:04', 1, 'Success'),
-(55, 1, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0', 'Windows', 'Firefox 13.0', '::1', '2012-06-14 12:57:37', '2012-06-13 17:57:37', 1, 'Success'),
-(56, 1, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0', 'Windows', 'Firefox 13.0', '::1', '2012-06-14 11:31:05', '2012-06-14 04:31:05', 1, 'Success'),
-(57, 1, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0', 'Windows', 'Firefox 13.0', '::1', '2012-06-14 12:48:21', '2012-06-14 05:48:21', 1, 'Success'),
-(58, 1, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0', 'Windows', 'Firefox 13.0', '::1', '2012-06-14 12:48:32', '2012-06-14 05:48:32', 1, 'Success'),
-(59, 1, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0', 'Windows', 'Firefox 13.0', '::1', '2012-06-14 12:48:37', '2012-06-14 05:48:37', 1, 'Success'),
-(60, 1, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0', 'Windows', 'Firefox 13.0', '::1', '2012-06-14 12:48:50', '2012-06-14 05:48:50', 1, 'Success'),
-(61, 1, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0', 'Windows', 'Firefox 13.0', '::1', '2012-06-14 12:51:43', '2012-06-14 05:51:43', 1, 'Success'),
-(62, 1, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0', 'Windows', 'Firefox 13.0', '::1', '2012-06-14 12:57:49', '2012-06-14 05:57:49', 1, 'Success'),
-(63, 1, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0', 'Windows', 'Firefox 13.0', '::1', '2012-06-14 12:58:03', '2012-06-14 05:58:03', 1, 'Success'),
-(64, 1, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0', 'Windows', 'Firefox 13.0', '::1', '2012-06-14 12:58:08', '2012-06-14 05:58:08', 1, 'Success');
+(1, 1, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0', 'Windows', 'Firefox 13.0', '::1', '2012-06-16 09:28:40', '2012-06-16 14:28:40', 1, 'Success'),
+(2, 1, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0', 'Windows', 'Firefox 13.0', '::1', '2012-06-16 09:29:12', '2012-06-16 14:29:12', 1, 'Success'),
+(3, 1, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0', 'Windows', 'Firefox 13.0', '::1', '2012-06-16 09:29:19', '2012-06-16 14:29:19', 1, 'Success'),
+(4, 1, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0', 'Windows', 'Firefox 13.0', '::1', '2012-06-16 09:29:25', '2012-06-16 14:29:25', 1, 'Success'),
+(5, 1, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0', 'Windows', 'Firefox 13.0', '::1', '2012-06-16 09:32:28', '2012-06-16 14:32:28', 1, 'Success'),
+(6, 1, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0', 'Windows', 'Firefox 13.0', '::1', '2012-06-16 09:32:33', '2012-06-16 14:32:33', 1, 'Success'),
+(7, 1, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0', 'Windows', 'Firefox 13.0', '::1', '2012-06-16 09:32:37', '2012-06-16 14:32:37', 1, 'Success'),
+(8, 1, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0', 'Windows', 'Firefox 13.0', '::1', '2012-06-16 09:32:42', '2012-06-16 14:32:42', 1, 'Success'),
+(9, 1, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0', 'Windows', 'Firefox 13.0', '::1', '2012-06-16 09:32:59', '2012-06-16 14:32:59', 1, 'Success'),
+(10, 1, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0', 'Windows', 'Firefox 13.0', '::1', '2012-06-16 09:33:06', '2012-06-16 14:33:06', 1, 'Success');
 
 -- --------------------------------------------------------
 
@@ -312,49 +181,23 @@ CREATE TABLE IF NOT EXISTS `an_blocks` (
   PRIMARY KEY (`block_id`),
   KEY `theme_system_name` (`theme_system_name`),
   KEY `area_name` (`area_name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=23 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `an_blocks`
 --
 
 INSERT INTO `an_blocks` (`block_id`, `theme_system_name`, `area_name`, `position`, `language`, `block_name`, `block_file`, `block_values`, `block_status`, `block_except_uri`) VALUES
-(2, 'system', 'sidebar', 1, 'th', 'corelangswitch', 'core/widgets/corelangswitch/corelangswitch.php', 'a:1:{s:11:"block_title";s:12:"ภาษา";}', 1, NULL),
-(4, 'system', 'sidebar', 4, 'th', 'corecategories', 'core/widgets/corecategories/corecategories.php', 'a:2:{s:11:"block_title";s:24:"หมวดหมู่";s:12:"block_nohome";s:1:"1";}', 1, NULL),
-(7, 'system', 'sidebar', 3, 'th', 'corelogin', 'core/widgets/corelogin/corelogin.php', 'a:2:{s:11:"block_title";s:18:"สมาชิก";s:15:"show_admin_link";s:1:"1";}', 1, NULL),
-(9, 'system', 'sidebar', 5, 'th', 'corerecentarticle', 'core/widgets/corerecentarticle/corerecentarticle.php', 'a:2:{s:11:"block_title";s:36:"บทความล่าสุด";s:10:"recent_num";s:2:"10";}', 1, NULL),
-(10, 'system', 'sidebar', 2, 'th', 'coresearch', 'core/widgets/coresearch/coresearch.php', 'a:1:{s:11:"block_title";s:15:"ค้นหา";}', 1, 'search'),
-(13, 'system', 'navigation', 1, 'th', 'corelinks', 'core/widgets/corelinks/corelinks.php', 'a:2:{s:11:"block_title";s:0:"";s:5:"mg_id";s:1:"1";}', 1, NULL),
-(14, 'system', 'footer', 1, 'th', 'corehtmlbox', 'core/widgets/corehtmlbox/corehtmlbox.php', 'a:2:{s:11:"block_title";s:0:"";s:4:"html";s:22:"footer html in htmlbox";}', 1, NULL),
-(17, 'system', 'breadcrumb', 1, 'th', 'corebreadcrumb', 'core/widgets/corebreadcrumb/corebreadcrumb.php', NULL, 1, NULL),
-(18, 'system', 'sidebar', 6, 'th', 'corelinks', 'core/widgets/corelinks/corelinks.php', 'a:2:{s:11:"block_title";s:4:"Menu";s:5:"mg_id";s:1:"2";}', 1, NULL),
-(19, 'quick-start', 'sidebar', 2, 'th', 'corelogin', 'core/widgets/corelogin/corelogin.php', 'a:2:{s:11:"block_title";s:6:"Member";s:15:"show_admin_link";s:1:"1";}', 1, NULL),
-(20, 'quick-start', 'sidebar', 1, 'th', 'corelangswitch', 'core/widgets/corelangswitch/corelangswitch.php', NULL, 1, NULL),
-(21, 'quick-start', 'navigation', 1, 'th', 'corelinks', 'core/widgets/corelinks/corelinks.php', 'a:2:{s:11:"block_title";s:0:"";s:5:"mg_id";s:1:"1";}', 1, NULL),
-(22, 'quick-start', 'sidebar', 3, 'th', 'corelinks', 'core/widgets/corelinks/corelinks.php', 'a:2:{s:11:"block_title";s:4:"Menu";s:5:"mg_id";s:1:"2";}', 1, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `an_blog`
---
-
-CREATE TABLE IF NOT EXISTS `an_blog` (
-  `blog_id` int(11) NOT NULL AUTO_INCREMENT,
-  `account_id` int(11) NOT NULL,
-  `blog_title` varchar(255) DEFAULT NULL,
-  `blog_content` text,
-  `blog_date` bigint(20) DEFAULT NULL,
-  PRIMARY KEY (`blog_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
-
---
--- Dumping data for table `an_blog`
---
-
-INSERT INTO `an_blog` (`blog_id`, `account_id`, `blog_title`, `blog_content`, `blog_date`) VALUES
-(1, 1, 'frist blog post', '<p>this is my first blog post.</p>', NULL),
-(3, 1, 'test rich text in blog.', '<p>cat <strong>cat</strong> <em>cat <span style="text-decoration: underline; color: #ff6600;"><strong>cat</strong></span></em> <span style="color: #339966;"><strong>cat</strong></span></p>\r\n<p>&nbsp;</p>', NULL);
+(1, 'system', 'sidebar', 2, 'th', 'corelogin', 'core/widgets/corelogin/corelogin.php', 'a:2:{s:11:"block_title";s:18:"สมาชิก";s:15:"show_admin_link";s:1:"1";}', 1, NULL),
+(2, 'system', 'navigation', 1, 'th', 'corelinks', 'core/widgets/corelinks/corelinks.php', 'a:2:{s:11:"block_title";s:0:"";s:5:"mg_id";s:1:"1";}', 1, NULL),
+(3, 'system', 'sidebar', 1, 'th', 'corelangswitch', 'core/widgets/corelangswitch/corelangswitch.php', 'a:1:{s:11:"block_title";s:12:"ภาษา";}', 1, NULL),
+(4, 'system', 'sidebar', 3, 'th', 'coresearch', 'core/widgets/coresearch/coresearch.php', 'a:1:{s:11:"block_title";s:15:"ค้นหา";}', 1, 'search'),
+(5, 'system', 'breadcrumb', 1, 'th', 'corebreadcrumb', 'core/widgets/corebreadcrumb/corebreadcrumb.php', NULL, 1, NULL),
+(6, 'system', 'navigation', 1, 'en', 'corelinks', 'core/widgets/corelinks/corelinks.php', 'a:2:{s:11:"block_title";s:0:"";s:5:"mg_id";s:1:"2";}', 1, NULL),
+(7, 'system', 'breadcrumb', 1, 'en', 'corebreadcrumb', 'core/widgets/corebreadcrumb/corebreadcrumb.php', NULL, 1, NULL),
+(8, 'system', 'sidebar', 1, 'en', 'corelangswitch', 'core/widgets/corelangswitch/corelangswitch.php', 'a:1:{s:11:"block_title";s:9:"Languages";}', 1, NULL),
+(9, 'system', 'sidebar', 2, 'en', 'corelogin', 'core/widgets/corelogin/corelogin.php', 'a:2:{s:11:"block_title";s:6:"Member";s:15:"show_admin_link";s:1:"1";}', 1, NULL),
+(10, 'system', 'sidebar', 3, 'en', 'coresearch', 'core/widgets/coresearch/coresearch.php', 'a:1:{s:11:"block_title";s:6:"Search";}', 1, 'search');
 
 -- --------------------------------------------------------
 
@@ -377,7 +220,9 @@ CREATE TABLE IF NOT EXISTS `an_ci_sessions` (
 --
 
 INSERT INTO `an_ci_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activity`, `user_data`) VALUES
-('c02e74db6c7a18e59c1dbd542c4c0328', '::1', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0', 1339655432, '');
+('00c984e21a18d109509b4a722ba59e1e', '::1', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0', 1339859174, ''),
+('00f91f0a97736233a8acecee9308820b', '::1', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0', 1339859479, 'a:1:{s:9:"user_data";s:0:"";}'),
+('57142e7800ddc7aa73c54db2b1a6ebb2', '::1', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0', 1339855628, 'a:1:{s:9:"user_data";s:0:"";}');
 
 -- --------------------------------------------------------
 
@@ -408,24 +253,14 @@ CREATE TABLE IF NOT EXISTS `an_comments` (
   KEY `account_id` (`account_id`),
   KEY `post_id` (`post_id`),
   KEY `parent_id` (`parent_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=35 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `an_comments`
 --
 
 INSERT INTO `an_comments` (`comment_id`, `parent_id`, `post_id`, `account_id`, `name`, `subject`, `comment_body_value`, `email`, `homepage`, `comment_status`, `comment_spam_status`, `ip_address`, `user_agent`, `comment_add`, `comment_add_gmt`, `comment_update`, `comment_update_gmt`, `thread`) VALUES
-(2, 0, 43, 2, 'v', '1', '1', NULL, NULL, 1, 'normal', '::1', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.5 (KHTML, like Gecko) Chrome/19.0.1084.46 Safari/536.5', 1337557722, 1337532522, 1337562258, 1337537058, '01/'),
-(3, 0, 43, 2, 'v', '2', '2', NULL, NULL, 1, 'normal', '::1', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.5 (KHTML, like Gecko) Chrome/19.0.1084.46 Safari/536.5', 1337557724, 1337532524, 1337557724, 1337532524, '02/'),
-(4, 0, 43, 2, 'v', '3', '3', NULL, NULL, 1, 'normal', '::1', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.5 (KHTML, like Gecko) Chrome/19.0.1084.46 Safari/536.5', 1337557726, 1337532526, 1337562274, 1337537074, '03/'),
-(20, 0, 44, 1, 'admin', 'ha ha', 'ha ha', NULL, NULL, 1, 'normal', '::1', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:12.0) Gecko/20100101 Firefox/12.0', 1337562518, 1337537318, 1337562518, 1337537318, '01/'),
-(23, 2, 43, 1, 'admin', '1.1', '1.1', NULL, NULL, 1, 'normal', '::1', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:12.0) Gecko/20100101 Firefox/12.0', 1337572549, 1337547349, 1337572549, 1337547349, '01.00/'),
-(26, 0, 43, 2, 'v', 'asdfsda sdaf fsg afs wer wtr sra', 'asdfsda sdaf fsg afs wer wtr sra\r\n\r\nsadf asd sadf as.', NULL, NULL, 1, 'normal', '::1', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.5 (KHTML, like Gecko) Chrome/19.0.1084.46 Safari/536.5', 1337600121, 1337574921, 1337626622, 1337601422, '05/'),
-(28, 23, 43, 1, 'admin', 'ตอบ: 1.1', '1.1.1', NULL, NULL, 1, 'normal', '::1', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:12.0) Gecko/20100101 Firefox/12.0', 1337608121, 1337582921, 1337608121, 1337582921, '01.00.00/'),
-(29, 28, 43, 1, 'admin', 'ตอบ: 1.1', '1.1.1.1', NULL, NULL, 1, 'normal', '::1', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:12.0) Gecko/20100101 Firefox/12.0', 1337608735, 1337583535, 1337608735, 1337583535, '01.00.00.00/'),
-(32, 0, 44, 2, 'v', 'sdf sdf a asdasd', 'sdf sdf a asdasd', NULL, NULL, 1, 'normal', '::1', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.5 (KHTML, like Gecko) Chrome/19.0.1084.52 Safari/536.5', 1337837300, 1337812100, 1337837300, 1337812100, '02/'),
-(33, 0, 44, 0, 'v', 'as guest', 'as guest', NULL, NULL, 1, 'normal', '::1', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.5 (KHTML, like Gecko) Chrome/19.0.1084.52 Safari/536.5', 1337837375, 1337812175, 1337837410, 1337812210, '03/'),
-(34, 29, 43, 1, 'admin', 'ตอบ: 1.1', '1.1.1.1.1', NULL, NULL, 1, 'normal', '::1', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0', 1339652443, 1339627243, 1339652443, 1339627243, '01.00.00.00.00/');
+(1, 0, 7, 1, 'admin', 'ความคิดเห็นแรก', 'สวัสดี\r\nนี่คือความคิดเห็น. คุณสามารถเข้ามาจัดการลบ, แก้, เผยแพร่, เลิกเผยแพร่ ความคิดเห็นได้ผ่านทางหน้าผู้ดูแล.', NULL, NULL, 1, 'normal', '::1', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0', 1339858841, 1339833641, 1339858859, 1339833659, '01/');
 
 -- --------------------------------------------------------
 
@@ -499,7 +334,7 @@ CREATE TABLE IF NOT EXISTS `an_files` (
   `file_add` bigint(20) DEFAULT NULL,
   `file_add_gmt` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`file_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=56 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `an_files`
@@ -523,8 +358,7 @@ CREATE TABLE IF NOT EXISTS `an_frontpage_category` (
 --
 
 INSERT INTO `an_frontpage_category` (`tid`, `language`) VALUES
-(NULL, 'en'),
-(15, 'th');
+(1, 'th');
 
 -- --------------------------------------------------------
 
@@ -545,8 +379,8 @@ CREATE TABLE IF NOT EXISTS `an_menu_groups` (
 --
 
 INSERT INTO `an_menu_groups` (`mg_id`, `mg_name`, `mg_description`, `language`) VALUES
-(1, 'นำทาง', 'navigation', 'th'),
-(2, 'เมนูหลัก', NULL, 'th');
+(1, 'นำทาง', 'navigation menu', 'th'),
+(2, 'Navigation', 'navigation menu', 'en');
 
 -- --------------------------------------------------------
 
@@ -568,44 +402,31 @@ CREATE TABLE IF NOT EXISTS `an_menu_items` (
   `nlevel` int(10) NOT NULL DEFAULT '1',
   PRIMARY KEY (`mi_id`),
   KEY `mg_id` (`mg_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=59 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
 
 --
 -- Dumping data for table `an_menu_items`
 --
 
 INSERT INTO `an_menu_items` (`mi_id`, `parent_id`, `mg_id`, `position`, `language`, `mi_type`, `type_id`, `link_url`, `link_text`, `custom_link`, `nlevel`) VALUES
-(16, 33, 1, 15, 'th', 'category', 19, 'cat2', 'cat2', '', 2),
-(17, 29, 1, 18, 'th', 'tag', 21, 'tag1', 'tag1', '', 2),
-(18, 29, 1, 19, 'th', 'tag', 22, 'tag2', 'tag2', '', 2),
-(19, 30, 1, 22, 'th', 'article', 55, 'p-6', 'test', '', 2),
-(21, 30, 1, 21, 'th', 'article', 43, '%E0%B8%9A%E0%B8%97%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1%E0%B9%84%E0%B8%97%E0%B8%A2', 'บทความไทย', '', 2),
-(22, 29, 1, 17, 'th', 'tag', 20, '%E0%B9%81%E0%B8%97%E0%B9%87%E0%B8%81%E0%B9%84%E0%B8%97%E0%B8%A2', 'แท็กไทย', '', 2),
-(23, 31, 1, 26, 'th', 'page', 56, '%E0%B9%80%E0%B8%81%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%A7%E0%B8%81%E0%B8%B1%E0%B8%9A%E0%B9%80%E0%B8%A3%E0%B8%B2', 'เกี่ยวกับเรา', '', 2),
-(25, 31, 1, 27, 'th', 'page', 58, '%E0%B8%82%E0%B9%89%E0%B8%AD%E0%B8%95%E0%B8%81%E0%B8%A5%E0%B8%87', 'ข้อตกลง', '', 2),
-(29, 0, 1, 16, 'th', 'custom_link', NULL, NULL, NULL, '<a href="#" onclick="return false;">TAG</a>', 1),
-(30, 0, 1, 20, 'th', 'custom_link', NULL, NULL, NULL, '<a href="#" onclick="return false;">ARTICLE</a>', 1),
-(31, 0, 1, 23, 'th', 'custom_link', NULL, NULL, NULL, '<a href="#" onclick="return false;">PAGE</a>', 1),
-(33, 0, 1, 13, 'th', 'custom_link', NULL, NULL, NULL, '<a href="#" onclick="return false;">CATEGORY</a>', 1),
-(35, 0, 1, 28, 'th', 'custom_link', NULL, NULL, NULL, '#LINK#', 1),
-(36, 35, 1, 29, 'th', 'link', NULL, 'http://www.google.com', 'google', '', 2),
-(38, 0, 2, 1, 'th', 'link', NULL, '/', 'หน้าแรก', '', 1),
-(40, 33, 1, 14, 'th', 'category', 16, 'cat1', 'cat1', '', 2),
-(44, 55, 1, 2, 'th', 'category', 16, 'cat1', 'cat1', '', 2),
-(45, 44, 1, 3, 'th', 'category', 17, 'cat1/cat1.1', 'cat1.1', '', 3),
-(46, 45, 1, 4, 'th', 'category', 18, 'cat1/cat1.1/cat1.1.1', 'cat1.1.1', '', 4),
-(47, 46, 1, 5, 'th', 'page', 59, '%E0%B8%99%E0%B9%82%E0%B8%A2%E0%B8%9A%E0%B8%B2%E0%B8%A2', 'นโยบาย', '', 5),
-(48, 47, 1, 6, 'th', 'page', 58, '%E0%B8%82%E0%B9%89%E0%B8%AD%E0%B8%95%E0%B8%81%E0%B8%A5%E0%B8%87', 'ข้อตกลง', '', 6),
-(49, 48, 1, 7, 'th', 'page', 56, '%E0%B9%80%E0%B8%81%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%A7%E0%B8%81%E0%B8%B1%E0%B8%9A%E0%B9%80%E0%B8%A3%E0%B8%B2', 'เกี่ยวกับเรา', '', 7),
-(50, 46, 1, 8, 'th', 'page', 59, '%E0%B8%99%E0%B9%82%E0%B8%A2%E0%B8%9A%E0%B8%B2%E0%B8%A2', 'นโยบาย', '', 5),
-(51, 50, 1, 9, 'th', 'page', 58, '%E0%B8%82%E0%B9%89%E0%B8%AD%E0%B8%95%E0%B8%81%E0%B8%A5%E0%B8%87', 'ข้อตกลง', '', 6),
-(52, 51, 1, 10, 'th', 'page', 56, '%E0%B9%80%E0%B8%81%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%A7%E0%B8%81%E0%B8%B1%E0%B8%9A%E0%B9%80%E0%B8%A3%E0%B8%B2', 'เกี่ยวกับเรา', '', 7),
-(53, 44, 1, 11, 'th', 'category', 19, 'cat2', 'cat2', '', 3),
-(54, 44, 1, 12, 'th', 'category', 15, '%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B9%81%E0%B8%A3%E0%B8%81', 'หน้าแรก', '', 3),
-(55, 0, 1, 1, 'th', 'custom_link', NULL, NULL, NULL, '#TEST NESTED UL#', 1),
-(56, 31, 1, 24, 'th', 'page', 59, '%E0%B8%99%E0%B9%82%E0%B8%A2%E0%B8%9A%E0%B8%B2%E0%B8%A2', 'นโยบาย', '', 2),
-(57, 31, 1, 25, 'th', 'page', 62, '%E0%B8%97%E0%B8%94%E0%B8%A5%E0%B8%AD%E0%B8%87%E0%B8%81%E0%B8%B3%E0%B8%AB%E0%B8%99%E0%B8%94%E0%B8%AA%E0%B9%84%E0%B8%95%E0%B8%A5%E0%B9%8C', 'ทดลองกำหนดสไตล์', '', 2),
-(58, 0, 2, 2, 'th', 'link', NULL, 'blog', 'Blog', '', 1);
+(1, 0, 1, 1, 'th', 'link', NULL, '/', 'หน้าแรก', '', 1),
+(2, 0, 1, 2, 'th', 'category', 5, '%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%9B%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B9%81%E0%B8%95%E0%B9%88%E0%B8%87', 'การปรับแต่ง', '', 1),
+(3, 2, 1, 3, 'th', 'category', 6, '%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%9B%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B9%81%E0%B8%95%E0%B9%88%E0%B8%87/%E0%B8%9B%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B9%81%E0%B8%95%E0%B9%88%E0%B8%87-%E0%B8%98%E0%B8%B5%E0%B8%A1', 'ธีม', '', 2),
+(4, 2, 1, 4, 'th', 'category', 7, '%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%9B%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B9%81%E0%B8%95%E0%B9%88%E0%B8%87/%E0%B8%9B%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B9%81%E0%B8%95%E0%B9%88%E0%B8%87-%E0%B9%82%E0%B8%A1%E0%B8%94%E0%B8%B9%E0%B8%A5', 'โมดูล', '', 2),
+(5, 0, 1, 5, 'th', 'category', 2, '%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%83%E0%B8%8A%E0%B9%89%E0%B8%87%E0%B8%B2%E0%B8%99', 'การใช้งาน', '', 1),
+(6, 5, 1, 6, 'th', 'category', 4, '%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%83%E0%B8%8A%E0%B9%89%E0%B8%87%E0%B8%B2%E0%B8%99/%E0%B8%98%E0%B8%B5%E0%B8%A1', 'ธีม', '', 2),
+(7, 5, 1, 7, 'th', 'category', 3, '%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%83%E0%B8%8A%E0%B9%89%E0%B8%87%E0%B8%B2%E0%B8%99/%E0%B9%82%E0%B8%A1%E0%B8%94%E0%B8%B9%E0%B8%A5', 'โมดูล', '', 2),
+(8, 0, 1, 8, 'th', 'page', 6, '%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%AD%E0%B8%99%E0%B8%B8%E0%B8%8D%E0%B8%B2%E0%B8%95', 'การอนุญาต', '', 1),
+(9, 0, 1, 9, 'th', 'page', 5, '%E0%B9%80%E0%B8%81%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%A7%E0%B8%81%E0%B8%B1%E0%B8%9A%E0%B9%80%E0%B8%A3%E0%B8%B2', 'เกี่ยวกับเรา', '', 1),
+(10, 0, 2, 1, 'en', 'link', NULL, '/', 'Home', '', 1),
+(11, 0, 2, 2, 'en', 'category', 14, 'To-modify', 'To modify', '', 1),
+(12, 11, 2, 4, 'en', 'category', 16, 'To-modify/modify-module', 'Module', '', 2),
+(13, 11, 2, 3, 'en', 'category', 15, 'To-modify/modify-theme', 'Theme', '', 2),
+(14, 0, 2, 5, 'en', 'category', 11, 'To-use', 'To use', '', 1),
+(15, 14, 2, 7, 'en', 'category', 13, 'To-use/Module', 'Module', '', 2),
+(16, 14, 2, 6, 'en', 'category', 12, 'To-use/Theme', 'Theme', '', 2),
+(17, 0, 2, 8, 'en', 'page', 14, 'License', 'License', '', 1),
+(18, 0, 2, 9, 'en', 'page', 13, 'About-us', 'About us', '', 1);
 
 -- --------------------------------------------------------
 
@@ -626,15 +447,14 @@ CREATE TABLE IF NOT EXISTS `an_modules` (
   `module_install` int(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`module_id`),
   UNIQUE KEY `module_system_name` (`module_system_name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=25 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `an_modules`
 --
 
 INSERT INTO `an_modules` (`module_id`, `module_system_name`, `module_name`, `module_url`, `module_version`, `module_description`, `module_author`, `module_author_url`, `module_enable`, `module_install`) VALUES
-(19, 'core', 'Agni core module.', 'http://www.agnicms.org', NULL, 'Agni cms core module.', 'vee w.', 'http://okvee.net', 1, 0),
-(24, 'blog', 'Blog', 'http://agnicms.org/blog', '1.0', 'Sample module that works on its own table, show how component menu works.', 'vee w.', 'http://okvee.net', 0, 1);
+(1, 'core', 'Agni core module.', 'http://www.agnicms.org', NULL, 'Agni cms core module.', 'vee w.', 'http://okvee.net', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -692,33 +512,28 @@ CREATE TABLE IF NOT EXISTS `an_posts` (
   `content_settings` text COMMENT 'store serialize array of settings',
   `comment_count` int(9) NOT NULL DEFAULT '0',
   PRIMARY KEY (`post_id`),
-  UNIQUE KEY `post_uri` (`post_uri`),
   KEY `account_id` (`account_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='for content-type article, pages, static content.' AUTO_INCREMENT=65 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='for content-type article, pages, static content.' AUTO_INCREMENT=15 ;
 
 --
 -- Dumping data for table `an_posts`
 --
 
 INSERT INTO `an_posts` (`post_id`, `revision_id`, `account_id`, `post_type`, `language`, `theme_system_name`, `post_name`, `post_uri`, `post_uri_encoded`, `post_feature_image`, `post_comment`, `post_status`, `post_add`, `post_add_gmt`, `post_update`, `post_update_gmt`, `post_publish_date`, `post_publish_date_gmt`, `meta_title`, `meta_description`, `meta_keywords`, `content_settings`, `comment_count`) VALUES
-(43, 48, 1, 'article', 'th', NULL, 'บทความไทย', 'บทความไทย', '%E0%B8%9A%E0%B8%97%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1%E0%B9%84%E0%B8%97%E0%B8%A2', NULL, 1, 1, 1337409077, 1337383877, 1337409077, 1337383877, 1337409077, 1337383877, NULL, NULL, NULL, NULL, 8),
-(44, 49, 1, 'article', 'th', NULL, '2nd บทความ', '2nd-บทความ', '2nd-%E0%B8%9A%E0%B8%97%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1', NULL, 1, 1, 1337409147, 1337383947, 1337409147, 1337383947, 1337409147, 1337383947, NULL, NULL, NULL, NULL, 3),
-(45, 50, 1, 'article', 'th', 'quick-start', 'กำหนดธีมในบทความ', 'กำหนดธีมในบทความ', '%E0%B8%81%E0%B8%B3%E0%B8%AB%E0%B8%99%E0%B8%94%E0%B8%98%E0%B8%B5%E0%B8%A1%E0%B9%83%E0%B8%99%E0%B8%9A%E0%B8%97%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1', NULL, 1, 1, 1337409194, 1337383994, 1337635046, 1337609846, 1337409194, 1337383994, NULL, NULL, NULL, NULL, 0),
-(46, 52, 1, 'article', 'th', NULL, 'ใช้ธีมที่อยู่กับหมวดหมู่', 'ใช้ธีมที่อยู่กับหมวดหมู่', '%E0%B9%83%E0%B8%8A%E0%B9%89%E0%B8%98%E0%B8%B5%E0%B8%A1%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%AD%E0%B8%A2%E0%B8%B9%E0%B9%88%E0%B8%81%E0%B8%B1%E0%B8%9A%E0%B8%AB%E0%B8%A1%E0%B8%A7%E0%B8%94%E0%B8%AB%E0%B8%A1%E0%B8%B9%E0%B9%88', NULL, 1, 1, 1337409278, 1337384078, 1337410227, 1337385027, 1337409278, 1337384078, NULL, NULL, NULL, NULL, 0),
-(47, 53, 1, 'article', 'th', NULL, 'เพิ่มแทกจากในบทความ', 'เพิ่มแทกจากในบทความ', '%E0%B9%80%E0%B8%9E%E0%B8%B4%E0%B9%88%E0%B8%A1%E0%B9%81%E0%B8%97%E0%B8%81%E0%B8%88%E0%B8%B2%E0%B8%81%E0%B9%83%E0%B8%99%E0%B8%9A%E0%B8%97%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1', NULL, 1, 1, 1337409467, 1337384267, 1337410211, 1337385011, 1337409467, 1337384267, NULL, NULL, NULL, NULL, 0),
-(48, 54, 1, 'article', 'th', NULL, 'test', 'test', 'test', NULL, 1, 1, 1337410044, 1337384844, 1337410044, 1337384844, 1337410044, 1337384844, NULL, NULL, NULL, NULL, 0),
-(49, 55, 1, 'article', 'th', NULL, 'test', 'p', 'p', NULL, 1, 1, 1337410047, 1337384847, 1338288187, 1338262987, 1337410047, 1337384847, NULL, NULL, NULL, NULL, 0),
-(53, 59, 1, 'article', 'th', NULL, 'test', 'p-4', 'p-4', NULL, 1, 1, 1337410062, 1337384862, 1337410062, 1337384862, 1337410062, 1337384862, NULL, NULL, NULL, NULL, 0),
-(55, 61, 1, 'article', 'th', NULL, 'test', 'p-6', 'p-6', NULL, 1, 1, 1337410070, 1337384870, 1337410070, 1337384870, 1337410070, 1337384870, NULL, NULL, NULL, NULL, 0),
-(56, 62, 1, 'page', 'th', NULL, 'เกี่ยวกับเรา', 'เกี่ยวกับเรา', '%E0%B9%80%E0%B8%81%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%A7%E0%B8%81%E0%B8%B1%E0%B8%9A%E0%B9%80%E0%B8%A3%E0%B8%B2', NULL, 0, 1, 1337410597, 1337385397, 1337410597, 1337385397, 1337410597, 1337385397, NULL, NULL, NULL, NULL, 0),
-(57, 63, 2, 'article', 'th', NULL, 'asdf', 'asdf', 'asdf', NULL, 1, 1, 1337599092, 1337573892, 1339501183, 1339475983, 1337634576, 1337609376, NULL, NULL, NULL, NULL, 0),
-(58, 64, 1, 'page', 'th', NULL, 'ข้อตกลง', 'ข้อตกลง', '%E0%B8%82%E0%B9%89%E0%B8%AD%E0%B8%95%E0%B8%81%E0%B8%A5%E0%B8%87', NULL, 0, 1, 1338204594, 1338179394, 1338204594, 1338179394, 1338204594, 1338179394, NULL, NULL, NULL, NULL, 0),
-(59, 65, 1, 'page', 'th', NULL, 'นโยบาย', 'นโยบาย', '%E0%B8%99%E0%B9%82%E0%B8%A2%E0%B8%9A%E0%B8%B2%E0%B8%A2', NULL, 0, 1, 1338204609, 1338179409, 1338204609, 1338179409, 1338204609, 1338179409, NULL, NULL, NULL, NULL, 0),
-(60, 70, 1, 'article', 'th', NULL, 'ทดสอบใช้ฟิลด์ script &amp; style', 'ทดสอบใช้ฟิลด์-script-style', '%E0%B8%97%E0%B8%94%E0%B8%AA%E0%B8%AD%E0%B8%9A%E0%B9%83%E0%B8%8A%E0%B9%89%E0%B8%9F%E0%B8%B4%E0%B8%A5%E0%B8%94%E0%B9%8C-script-style', NULL, 1, 1, 1339197735, 1339172535, 1339228372, 1339203172, 1339197735, 1339172535, NULL, NULL, NULL, NULL, 0),
-(61, 67, 1, 'article', 'th', NULL, 'test style &amp; script 2', 'test-style-script-2', 'test-style-script-2', NULL, 1, 1, 1339197889, 1339172689, 1339198099, 1339172899, 1339197889, 1339172689, NULL, NULL, NULL, NULL, 0),
-(62, 68, 1, 'page', 'th', NULL, 'ทดลองกำหนดสไตล์', 'ทดลองกำหนดสไตล์', '%E0%B8%97%E0%B8%94%E0%B8%A5%E0%B8%AD%E0%B8%87%E0%B8%81%E0%B8%B3%E0%B8%AB%E0%B8%99%E0%B8%94%E0%B8%AA%E0%B9%84%E0%B8%95%E0%B8%A5%E0%B9%8C', NULL, 0, 1, 1339198379, 1339173179, 1339591800, 1339566600, 1339198379, 1339173179, NULL, NULL, NULL, NULL, 0),
-(63, 71, 1, 'article', 'th', NULL, 'ไก่กับไข่', 'ไก่กับไข่', '%E0%B9%84%E0%B8%81%E0%B9%88%E0%B8%81%E0%B8%B1%E0%B8%9A%E0%B9%84%E0%B8%82%E0%B9%88', NULL, 1, 1, 1339491732, 1339466532, 1339491732, 1339466532, 1339491732, 1339466532, NULL, NULL, NULL, NULL, 0),
-(64, 73, 1, 'article', 'th', NULL, 'test richtext', 'test-richtext', 'test-richtext', NULL, 1, 1, 1339588536, 1339563336, 1339655454, 1339630254, 1339588536, 1339563336, NULL, NULL, NULL, NULL, 0);
+(1, 1, 1, 'article', 'th', NULL, 'การเลือกใช้ธีม', 'การเลือกใช้ธีม', '%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%80%E0%B8%A5%E0%B8%B7%E0%B8%AD%E0%B8%81%E0%B9%83%E0%B8%8A%E0%B9%89%E0%B8%98%E0%B8%B5%E0%B8%A1', NULL, 1, 1, 1339857793, 1339832593, 1339857793, 1339832593, 1339857793, 1339832593, NULL, NULL, NULL, NULL, 0),
+(2, 2, 1, 'article', 'th', NULL, 'การใช้งานโมดูล', 'การใช้งานโมดูล', '%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%83%E0%B8%8A%E0%B9%89%E0%B8%87%E0%B8%B2%E0%B8%99%E0%B9%82%E0%B8%A1%E0%B8%94%E0%B8%B9%E0%B8%A5', NULL, 1, 1, 1339857850, 1339832650, 1339857850, 1339832650, 1339857850, 1339832650, NULL, NULL, NULL, NULL, 0),
+(3, 3, 1, 'article', 'th', 'quick-start', 'การสร้างธีม', 'การสร้างธีม', '%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%AA%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%87%E0%B8%98%E0%B8%B5%E0%B8%A1', NULL, 1, 1, 1339857882, 1339832682, 1339857882, 1339832682, 1339857882, 1339832682, NULL, NULL, NULL, NULL, 0),
+(4, 4, 1, 'article', 'th', NULL, 'การสร้างโมดูล', 'การสร้างโมดูล', '%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%AA%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%87%E0%B9%82%E0%B8%A1%E0%B8%94%E0%B8%B9%E0%B8%A5', NULL, 1, 1, 1339857908, 1339832708, 1339857908, 1339832708, 1339857908, 1339832708, NULL, NULL, NULL, NULL, 0),
+(5, 5, 1, 'page', 'th', NULL, 'เกี่ยวกับเรา', 'เกี่ยวกับเรา', '%E0%B9%80%E0%B8%81%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%A7%E0%B8%81%E0%B8%B1%E0%B8%9A%E0%B9%80%E0%B8%A3%E0%B8%B2', NULL, 0, 1, 1339858312, 1339833112, 1339858312, 1339833112, 1339858312, 1339833112, NULL, NULL, NULL, NULL, 0),
+(6, 6, 1, 'page', 'th', NULL, 'การอนุญาต', 'การอนุญาต', '%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%AD%E0%B8%99%E0%B8%B8%E0%B8%8D%E0%B8%B2%E0%B8%95', NULL, 0, 1, 1339858346, 1339833146, 1339858346, 1339833146, 1339858346, 1339833146, NULL, NULL, NULL, NULL, 0),
+(7, 7, 1, 'article', 'th', NULL, 'ยินดีต้อนรับ', 'ยินดีต้อนรับ', '%E0%B8%A2%E0%B8%B4%E0%B8%99%E0%B8%94%E0%B8%B5%E0%B8%95%E0%B9%89%E0%B8%AD%E0%B8%99%E0%B8%A3%E0%B8%B1%E0%B8%9A', NULL, 1, 1, 1339858746, 1339833546, 1339859452, 1339834252, 1339858746, 1339833546, 'ยินดีต้อนรับ', NULL, 'อัคนี CMS, Agni CMS, Codeigniter CMS', 'a:3:{s:18:"content_show_title";s:0:"";s:17:"content_show_time";s:1:"0";s:19:"content_show_author";s:1:"0";}', 1),
+(8, 8, 1, 'article', 'en', NULL, 'Choose theme', 'Choose-theme', 'Choose-theme', NULL, 1, 1, 1339859139, 1339833939, 1339859156, 1339833956, 1339859139, 1339833939, NULL, NULL, NULL, NULL, 0),
+(9, 9, 1, 'article', 'en', NULL, 'How to use module', 'How-to-use-module', 'How-to-use-module', NULL, 1, 1, 1339859266, 1339834066, 1339859266, 1339834066, 1339859266, 1339834066, NULL, NULL, NULL, NULL, 0),
+(10, 10, 1, 'article', 'en', 'quick-start', 'Create a theme', 'Create-a-theme', 'Create-a-theme', NULL, 1, 1, 1339859301, 1339834101, 1339859301, 1339834101, 1339859301, 1339834101, NULL, NULL, NULL, NULL, 0),
+(11, 11, 1, 'article', 'en', NULL, 'Create a module', 'Create-a-module', 'Create-a-module', NULL, 1, 1, 1339859342, 1339834142, 1339859342, 1339834142, 1339859342, 1339834142, NULL, NULL, NULL, NULL, 0),
+(12, 12, 1, 'article', 'en', NULL, 'Welcome', 'Welcome', 'Welcome', NULL, 1, 1, 1339859471, 1339834271, 1339859471, 1339834271, 1339859471, 1339834271, 'Welcome', NULL, 'Agni CMS, Codeigniter CMS', 'a:3:{s:18:"content_show_title";s:0:"";s:17:"content_show_time";s:1:"0";s:19:"content_show_author";s:1:"0";}', 0),
+(13, 13, 1, 'page', 'en', NULL, 'About us', 'About-us', 'About-us', NULL, 0, 1, 1339859518, 1339834318, 1339859518, 1339834318, 1339859518, 1339834318, NULL, NULL, NULL, NULL, 0),
+(14, 14, 1, 'page', 'en', NULL, 'License', 'License', 'License', NULL, 0, 1, 1339859534, 1339834334, 1339859534, 1339834334, 1339859534, 1339834334, NULL, NULL, NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -756,35 +571,27 @@ CREATE TABLE IF NOT EXISTS `an_post_revision` (
   `revision_date_gmt` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`revision_id`),
   KEY `post_id` (`post_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=74 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
 
 --
 -- Dumping data for table `an_post_revision`
 --
 
 INSERT INTO `an_post_revision` (`revision_id`, `post_id`, `account_id`, `header_value`, `body_value`, `body_summary`, `log`, `revision_date`, `revision_date_gmt`) VALUES
-(48, 43, 1, NULL, 'ทดสอบภาษาไทย', NULL, NULL, 1337409077, 1337383877),
-(49, 44, 1, NULL, 'ฟหกด ฟหกด ฟหกด ฟหกด\r\n<p>รนยบ</p>\r\n<p>ผปอทม</p>', NULL, NULL, 1337409147, 1337383947),
-(50, 45, 1, NULL, 'บทความนี้กำหนดธีมในตัวมันเอง', NULL, NULL, 1337409194, 1337383994),
-(51, 46, 1, NULL, 'บทความนี้ไม่กำหนดธีมเอง แต่ใช้ธีมจากหมวดหมู่', NULL, NULL, 1337409278, 1337384078),
-(52, 46, 1, NULL, '<p>บทความนี้ไม่กำหนดธีมเอง แต่ใช้ธีมจากหมวดหมู่</p>\r\n\r\n<p>ต้องเปิดดูจากหมวดหมู่ c2 มาก่อนเท่านั้น</p>', NULL, 'อธิบายรายละเอียด', 1337409323, 1337384123),
-(53, 47, 1, NULL, '<p>ทดลองเพิ่มแทกที่ไม่มีอยู่เข้าไปจากในบทความเลย</p>', NULL, NULL, 1337409467, 1337384267),
-(54, 48, 1, NULL, '<p>test test test test</p>\r\n<p>test test test test</p>\r\n<p>test test test test</p>\r\n<p>test test test test</p>', NULL, NULL, 1337410044, 1337384844),
-(55, 49, 1, NULL, '<p>test test test test</p>\r\n<p>test test test test</p>\r\n<p>test test test test</p>\r\n<p>test test test test</p>', NULL, NULL, 1337410047, 1337384847),
-(59, 53, 1, NULL, '<p>test test test test</p>\r\n<p>test test test test</p>\r\n<p>test test test test</p>\r\n<p>test test test test</p>', NULL, NULL, 1337410062, 1337384862),
-(61, 55, 1, NULL, '<p>test test test test</p>\r\n<p>test test test test</p>\r\n<p>test test test test</p>\r\n<p>test test test test</p>', NULL, NULL, 1337410070, 1337384870),
-(62, 56, 1, NULL, '<p>เนื้อหาหน้าเกี่ยวกับเรา</p>\r\n<p>asdf asdf qweqrew tert we</p>', NULL, NULL, 1337410597, 1337385397),
-(63, 57, 2, NULL, 'fdsa', NULL, NULL, 1337599092, 1337573892),
-(64, 58, 1, NULL, 'ฟหกดฟหกด ฟหกด หกฟด หกฟด กหฟด หกฟ กหฟ หกฟ', NULL, NULL, 1338204594, 1338179394),
-(65, 59, 1, NULL, 'กฟหกดกห ฟดหกฟ หกด หกฟด กหฟ หกฟ หกฟ', NULL, NULL, 1338204609, 1338179409),
-(66, 60, 1, NULL, 'ทดลองใช้ field <span class="test-style-custom">style</span> & script', NULL, NULL, 1339197735, 1339172535),
-(67, 61, 1, '<style>\r\n.custom-style {color: #f54; font-size:15px; font-weight: bolder;}\r\n</style>', '<span class="custom-style">test</span> &lt; custom style', NULL, NULL, 1339197889, 1339172689),
-(68, 62, 1, '<style>\r\n.custom-style {color: #f0f;}\r\n</style>', '<p><span class="custom-style">กำหนด</span> style เอาเอง</p>', NULL, NULL, 1339198380, 1339173180),
-(69, 60, 1, '<style>\r\n.test-style-custom {color: #ff0;}\r\n</style>', 'ทดลองใช้ field <span class="test-style-custom">style</span> & script', NULL, 'add style', 1339198697, 1339173497),
-(70, 60, 1, '<style>\r\n.test-style-custom {color: #0c9; font-size: 20px;}\r\n</style>', 'ทดลองใช้ field <span class="test-style-custom">style</span> &amp; script', NULL, 'modify style', 1339198901, 1339173701),
-(71, 63, 1, NULL, 'อะไรเกิดทีหลัง', NULL, NULL, 1339491732, 1339466532),
-(72, 64, 1, NULL, '<p>dsf <strong>bold</strong> <em>italic</em> <span style="text-decoration: underline;">underline</span> <em><strong>mixed <span style="text-decoration: underline;">all</span></strong></em>&nbsp;</p>\r\n<p>aaaa <span style="color: #ff6600; background-color: #0000ff;">aaaa</span> aaaa</p>\r\n<h3><img src="http://localhost/agni-cms/public/upload/media/th/537032-bigthumbnail1.jpg" alt="" /> cat</h3>\r\n<p>ffff ffff ffff</p>\r\n<p><a href="http://localhost/agni-cms/public/upload/media/th/bd315c6034a85edf3d7d269e49540923dc54759e.jpg"><img src="http://localhost/agni-cms/public/upload/media/th/bd315c6034a85edf3d7d269e49540923dc54759e(1).jpg" alt="" /></a></p>', '<p>test tinymce + insert media</p>\r\n<p>&nbsp;</p>', NULL, 1339588536, 1339563336),
-(73, 64, 1, NULL, '<p>dsf <strong>bold</strong> <em>italic</em> <span style="text-decoration: underline;">underline</span> <em><strong>mixed <span style="text-decoration: underline;">all</span></strong></em>&nbsp;</p>\r\n<p>aaaa <span style="color: #ff6600; background-color: #0000ff;">aaaa</span> aaaa</p>\r\n<div style="background-color: #333333;">\r\n<h3><span style="font-size: x-large;"><span style="color: #ff00ff;">c</span><span style="color: #ff9900;">o</span><span style="color: #ffff00;">l</span><span style="color: #00ff00;">o</span><span style="color: #993366;">r</span><span style="color: #8c9ff6;">e</span><span style="color: #fd5252;">d</span></span></h3>\r\n</div>\r\n<p>ffff ffff ffff</p>', '<p>test tinymce+media</p>\r\n<p>&nbsp;</p>', NULL, 1339591603, 1339566403);
+(1, 1, 1, NULL, '<div id="lipsum">\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nec ante auctor est pulvinar dictum. Morbi bibendum ipsum vel metus condimentum rhoncus id sed lorem. Nullam fermentum dapibus eros vitae feugiat. Donec vel mollis tortor. Mauris felis urna, posuere et pharetra et, luctus at diam. Etiam faucibus orci a sem blandit at posuere odio consequat. Maecenas sem mauris, interdum vel varius ac, lobortis ut magna. Etiam sed felis diam, id sagittis sem. Morbi rutrum interdum lacus ornare congue. Suspendisse dignissim ligula ut eros egestas et fermentum felis congue.</p>\r\n<p>Vestibulum malesuada varius metus non ultrices. Phasellus eget enim urna. Fusce ac erat sit amet ante convallis ornare. Nulla facilisi. Nulla accumsan tempor venenatis. Cras faucibus, diam nec posuere ullamcorper, eros mi pellentesque quam, vel semper purus elit ut est. Duis congue varius massa ac faucibus. Nulla facilisi.</p>\r\n<p>Nam pretium egestas est, eu scelerisque magna bibendum in. Quisque eros augue, luctus ac gravida sed, tristique vel turpis. Proin ut nisi lectus, in rhoncus mi. Nulla varius erat nec nunc sagittis consectetur. Integer non augue augue. Cras nec tellus in ipsum faucibus malesuada sagittis in elit. Ut egestas, felis sit amet auctor scelerisque, lacus risus fermentum magna, non rhoncus tellus tellus at nulla. Pellentesque id quam sed purus tempus fringilla non vel ipsum. Nulla dapibus consectetur ante, eget hendrerit neque lacinia vel. Cras vehicula vehicula mauris, quis placerat ipsum egestas in.</p>\r\n<p>Pellentesque arcu ante, tincidunt eu dapibus id, mattis a neque. Cras quis mauris est. Aliquam dolor velit, elementum vel consectetur ut, dapibus ac nisl. Pellentesque tempor pharetra quam in blandit. Duis felis dolor, pretium nec imperdiet vitae, malesuada ac nulla. Fusce adipiscing luctus purus, vitae egestas arcu mattis vel. Nunc rhoncus varius ultricies. Nulla urna urna, congue vitae pulvinar non, suscipit ut dui. Fusce et sollicitudin dui. Ut nisl mauris, gravida in placerat in, adipiscing ac nisi. Mauris lorem est, pellentesque nec euismod sit amet, facilisis non nulla. Ut porttitor, nibh a congue volutpat, ipsum ipsum suscipit ligula, sit amet blandit dolor velit at nisi. Cras eget sem nibh, sed lacinia quam. Ut luctus lectus vel est vulputate placerat. Maecenas turpis mauris, consequat vitae blandit a, facilisis sed libero.</p>\r\n<p>Integer placerat elementum rhoncus. Cras hendrerit tortor non eros condimentum vel fringilla tellus congue. Cras ut justo sit amet lectus sodales pretium non nec mauris. Vestibulum non ligula massa, eu semper ante. Aenean neque nibh, fermentum accumsan porta vel, facilisis at elit. Sed a justo non urna blandit pellentesque quis sit amet nunc. Etiam eget ligula ac lorem dapibus commodo. In arcu sem, volutpat a tempor quis, suscipit ac velit. Etiam vel metus eget mauris feugiat dapibus nec non nisl. Curabitur gravida nunc at purus aliquet sollicitudin. Integer rutrum porttitor elit, sed tempor mauris viverra id. Quisque pulvinar risus non tellus condimentum sed tristique ligula varius. Morbi tristique mauris vitae est imperdiet a porttitor tortor congue. Ut sollicitudin, mauris molestie mattis gravida, enim justo rutrum augue, id dignissim erat mauris vel mi. Pellentesque mauris elit, luctus ac blandit vel, ultrices vel nisi. Donec dictum sagittis vestibulum.</p>\r\n</div>', NULL, NULL, 1339857793, 1339832593),
+(2, 2, 1, NULL, '<div id="lipsum">\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nec ante auctor est pulvinar dictum. Morbi bibendum ipsum vel metus condimentum rhoncus id sed lorem. Nullam fermentum dapibus eros vitae feugiat. Donec vel mollis tortor. Mauris felis urna, posuere et pharetra et, luctus at diam. Etiam faucibus orci a sem blandit at posuere odio consequat. Maecenas sem mauris, interdum vel varius ac, lobortis ut magna. Etiam sed felis diam, id sagittis sem. Morbi rutrum interdum lacus ornare congue. Suspendisse dignissim ligula ut eros egestas et fermentum felis congue.</p>\r\n<p>Vestibulum malesuada varius metus non ultrices. Phasellus eget enim urna. Fusce ac erat sit amet ante convallis ornare. Nulla facilisi. Nulla accumsan tempor venenatis. Cras faucibus, diam nec posuere ullamcorper, eros mi pellentesque quam, vel semper purus elit ut est. Duis congue varius massa ac faucibus. Nulla facilisi.</p>\r\n<p>Nam pretium egestas est, eu scelerisque magna bibendum in. Quisque eros augue, luctus ac gravida sed, tristique vel turpis. Proin ut nisi lectus, in rhoncus mi. Nulla varius erat nec nunc sagittis consectetur. Integer non augue augue. Cras nec tellus in ipsum faucibus malesuada sagittis in elit. Ut egestas, felis sit amet auctor scelerisque, lacus risus fermentum magna, non rhoncus tellus tellus at nulla. Pellentesque id quam sed purus tempus fringilla non vel ipsum. Nulla dapibus consectetur ante, eget hendrerit neque lacinia vel. Cras vehicula vehicula mauris, quis placerat ipsum egestas in.</p>\r\n<p>Pellentesque arcu ante, tincidunt eu dapibus id, mattis a neque. Cras quis mauris est. Aliquam dolor velit, elementum vel consectetur ut, dapibus ac nisl. Pellentesque tempor pharetra quam in blandit. Duis felis dolor, pretium nec imperdiet vitae, malesuada ac nulla. Fusce adipiscing luctus purus, vitae egestas arcu mattis vel. Nunc rhoncus varius ultricies. Nulla urna urna, congue vitae pulvinar non, suscipit ut dui. Fusce et sollicitudin dui. Ut nisl mauris, gravida in placerat in, adipiscing ac nisi. Mauris lorem est, pellentesque nec euismod sit amet, facilisis non nulla. Ut porttitor, nibh a congue volutpat, ipsum ipsum suscipit ligula, sit amet blandit dolor velit at nisi. Cras eget sem nibh, sed lacinia quam. Ut luctus lectus vel est vulputate placerat. Maecenas turpis mauris, consequat vitae blandit a, facilisis sed libero.</p>\r\n<p>Integer placerat elementum rhoncus. Cras hendrerit tortor non eros condimentum vel fringilla tellus congue. Cras ut justo sit amet lectus sodales pretium non nec mauris. Vestibulum non ligula massa, eu semper ante. Aenean neque nibh, fermentum accumsan porta vel, facilisis at elit. Sed a justo non urna blandit pellentesque quis sit amet nunc. Etiam eget ligula ac lorem dapibus commodo. In arcu sem, volutpat a tempor quis, suscipit ac velit. Etiam vel metus eget mauris feugiat dapibus nec non nisl. Curabitur gravida nunc at purus aliquet sollicitudin. Integer rutrum porttitor elit, sed tempor mauris viverra id. Quisque pulvinar risus non tellus condimentum sed tristique ligula varius. Morbi tristique mauris vitae est imperdiet a porttitor tortor congue. Ut sollicitudin, mauris molestie mattis gravida, enim justo rutrum augue, id dignissim erat mauris vel mi. Pellentesque mauris elit, luctus ac blandit vel, ultrices vel nisi. Donec dictum sagittis vestibulum.</p>\r\n</div>', NULL, NULL, 1339857850, 1339832650),
+(3, 3, 1, NULL, '<div id="lipsum">\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nec ante auctor est pulvinar dictum. Morbi bibendum ipsum vel metus condimentum rhoncus id sed lorem. Nullam fermentum dapibus eros vitae feugiat. Donec vel mollis tortor. Mauris felis urna, posuere et pharetra et, luctus at diam. Etiam faucibus orci a sem blandit at posuere odio consequat. Maecenas sem mauris, interdum vel varius ac, lobortis ut magna. Etiam sed felis diam, id sagittis sem. Morbi rutrum interdum lacus ornare congue. Suspendisse dignissim ligula ut eros egestas et fermentum felis congue.</p>\r\n<p>Vestibulum malesuada varius metus non ultrices. Phasellus eget enim urna. Fusce ac erat sit amet ante convallis ornare. Nulla facilisi. Nulla accumsan tempor venenatis. Cras faucibus, diam nec posuere ullamcorper, eros mi pellentesque quam, vel semper purus elit ut est. Duis congue varius massa ac faucibus. Nulla facilisi.</p>\r\n<p>Nam pretium egestas est, eu scelerisque magna bibendum in. Quisque eros augue, luctus ac gravida sed, tristique vel turpis. Proin ut nisi lectus, in rhoncus mi. Nulla varius erat nec nunc sagittis consectetur. Integer non augue augue. Cras nec tellus in ipsum faucibus malesuada sagittis in elit. Ut egestas, felis sit amet auctor scelerisque, lacus risus fermentum magna, non rhoncus tellus tellus at nulla. Pellentesque id quam sed purus tempus fringilla non vel ipsum. Nulla dapibus consectetur ante, eget hendrerit neque lacinia vel. Cras vehicula vehicula mauris, quis placerat ipsum egestas in.</p>\r\n<p>Pellentesque arcu ante, tincidunt eu dapibus id, mattis a neque. Cras quis mauris est. Aliquam dolor velit, elementum vel consectetur ut, dapibus ac nisl. Pellentesque tempor pharetra quam in blandit. Duis felis dolor, pretium nec imperdiet vitae, malesuada ac nulla. Fusce adipiscing luctus purus, vitae egestas arcu mattis vel. Nunc rhoncus varius ultricies. Nulla urna urna, congue vitae pulvinar non, suscipit ut dui. Fusce et sollicitudin dui. Ut nisl mauris, gravida in placerat in, adipiscing ac nisi. Mauris lorem est, pellentesque nec euismod sit amet, facilisis non nulla. Ut porttitor, nibh a congue volutpat, ipsum ipsum suscipit ligula, sit amet blandit dolor velit at nisi. Cras eget sem nibh, sed lacinia quam. Ut luctus lectus vel est vulputate placerat. Maecenas turpis mauris, consequat vitae blandit a, facilisis sed libero.</p>\r\n<p>Integer placerat elementum rhoncus. Cras hendrerit tortor non eros condimentum vel fringilla tellus congue. Cras ut justo sit amet lectus sodales pretium non nec mauris. Vestibulum non ligula massa, eu semper ante. Aenean neque nibh, fermentum accumsan porta vel, facilisis at elit. Sed a justo non urna blandit pellentesque quis sit amet nunc. Etiam eget ligula ac lorem dapibus commodo. In arcu sem, volutpat a tempor quis, suscipit ac velit. Etiam vel metus eget mauris feugiat dapibus nec non nisl. Curabitur gravida nunc at purus aliquet sollicitudin. Integer rutrum porttitor elit, sed tempor mauris viverra id. Quisque pulvinar risus non tellus condimentum sed tristique ligula varius. Morbi tristique mauris vitae est imperdiet a porttitor tortor congue. Ut sollicitudin, mauris molestie mattis gravida, enim justo rutrum augue, id dignissim erat mauris vel mi. Pellentesque mauris elit, luctus ac blandit vel, ultrices vel nisi. Donec dictum sagittis vestibulum.</p>\r\n</div>', NULL, NULL, 1339857882, 1339832682),
+(4, 4, 1, NULL, '<div id="lipsum">\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nec ante auctor est pulvinar dictum. Morbi bibendum ipsum vel metus condimentum rhoncus id sed lorem. Nullam fermentum dapibus eros vitae feugiat. Donec vel mollis tortor. Mauris felis urna, posuere et pharetra et, luctus at diam. Etiam faucibus orci a sem blandit at posuere odio consequat. Maecenas sem mauris, interdum vel varius ac, lobortis ut magna. Etiam sed felis diam, id sagittis sem. Morbi rutrum interdum lacus ornare congue. Suspendisse dignissim ligula ut eros egestas et fermentum felis congue.</p>\r\n<p>Vestibulum malesuada varius metus non ultrices. Phasellus eget enim urna. Fusce ac erat sit amet ante convallis ornare. Nulla facilisi. Nulla accumsan tempor venenatis. Cras faucibus, diam nec posuere ullamcorper, eros mi pellentesque quam, vel semper purus elit ut est. Duis congue varius massa ac faucibus. Nulla facilisi.</p>\r\n<p>Nam pretium egestas est, eu scelerisque magna bibendum in. Quisque eros augue, luctus ac gravida sed, tristique vel turpis. Proin ut nisi lectus, in rhoncus mi. Nulla varius erat nec nunc sagittis consectetur. Integer non augue augue. Cras nec tellus in ipsum faucibus malesuada sagittis in elit. Ut egestas, felis sit amet auctor scelerisque, lacus risus fermentum magna, non rhoncus tellus tellus at nulla. Pellentesque id quam sed purus tempus fringilla non vel ipsum. Nulla dapibus consectetur ante, eget hendrerit neque lacinia vel. Cras vehicula vehicula mauris, quis placerat ipsum egestas in.</p>\r\n<p>Pellentesque arcu ante, tincidunt eu dapibus id, mattis a neque. Cras quis mauris est. Aliquam dolor velit, elementum vel consectetur ut, dapibus ac nisl. Pellentesque tempor pharetra quam in blandit. Duis felis dolor, pretium nec imperdiet vitae, malesuada ac nulla. Fusce adipiscing luctus purus, vitae egestas arcu mattis vel. Nunc rhoncus varius ultricies. Nulla urna urna, congue vitae pulvinar non, suscipit ut dui. Fusce et sollicitudin dui. Ut nisl mauris, gravida in placerat in, adipiscing ac nisi. Mauris lorem est, pellentesque nec euismod sit amet, facilisis non nulla. Ut porttitor, nibh a congue volutpat, ipsum ipsum suscipit ligula, sit amet blandit dolor velit at nisi. Cras eget sem nibh, sed lacinia quam. Ut luctus lectus vel est vulputate placerat. Maecenas turpis mauris, consequat vitae blandit a, facilisis sed libero.</p>\r\n<p>Integer placerat elementum rhoncus. Cras hendrerit tortor non eros condimentum vel fringilla tellus congue. Cras ut justo sit amet lectus sodales pretium non nec mauris. Vestibulum non ligula massa, eu semper ante. Aenean neque nibh, fermentum accumsan porta vel, facilisis at elit. Sed a justo non urna blandit pellentesque quis sit amet nunc. Etiam eget ligula ac lorem dapibus commodo. In arcu sem, volutpat a tempor quis, suscipit ac velit. Etiam vel metus eget mauris feugiat dapibus nec non nisl. Curabitur gravida nunc at purus aliquet sollicitudin. Integer rutrum porttitor elit, sed tempor mauris viverra id. Quisque pulvinar risus non tellus condimentum sed tristique ligula varius. Morbi tristique mauris vitae est imperdiet a porttitor tortor congue. Ut sollicitudin, mauris molestie mattis gravida, enim justo rutrum augue, id dignissim erat mauris vel mi. Pellentesque mauris elit, luctus ac blandit vel, ultrices vel nisi. Donec dictum sagittis vestibulum.</p>\r\n</div>', NULL, NULL, 1339857908, 1339832708),
+(5, 5, 1, NULL, '<div id="lipsum">\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nec ante auctor est pulvinar dictum. Morbi bibendum ipsum vel metus condimentum rhoncus id sed lorem. Nullam fermentum dapibus eros vitae feugiat. Donec vel mollis tortor. Mauris felis urna, posuere et pharetra et, luctus at diam. Etiam faucibus orci a sem blandit at posuere odio consequat. Maecenas sem mauris, interdum vel varius ac, lobortis ut magna. Etiam sed felis diam, id sagittis sem. Morbi rutrum interdum lacus ornare congue. Suspendisse dignissim ligula ut eros egestas et fermentum felis congue.</p>\r\n<p>Vestibulum malesuada varius metus non ultrices. Phasellus eget enim urna. Fusce ac erat sit amet ante convallis ornare. Nulla facilisi. Nulla accumsan tempor venenatis. Cras faucibus, diam nec posuere ullamcorper, eros mi pellentesque quam, vel semper purus elit ut est. Duis congue varius massa ac faucibus. Nulla facilisi.</p>\r\n<p>Nam pretium egestas est, eu scelerisque magna bibendum in. Quisque eros augue, luctus ac gravida sed, tristique vel turpis. Proin ut nisi lectus, in rhoncus mi. Nulla varius erat nec nunc sagittis consectetur. Integer non augue augue. Cras nec tellus in ipsum faucibus malesuada sagittis in elit. Ut egestas, felis sit amet auctor scelerisque, lacus risus fermentum magna, non rhoncus tellus tellus at nulla. Pellentesque id quam sed purus tempus fringilla non vel ipsum. Nulla dapibus consectetur ante, eget hendrerit neque lacinia vel. Cras vehicula vehicula mauris, quis placerat ipsum egestas in.</p>\r\n<p>Pellentesque arcu ante, tincidunt eu dapibus id, mattis a neque. Cras quis mauris est. Aliquam dolor velit, elementum vel consectetur ut, dapibus ac nisl. Pellentesque tempor pharetra quam in blandit. Duis felis dolor, pretium nec imperdiet vitae, malesuada ac nulla. Fusce adipiscing luctus purus, vitae egestas arcu mattis vel. Nunc rhoncus varius ultricies. Nulla urna urna, congue vitae pulvinar non, suscipit ut dui. Fusce et sollicitudin dui. Ut nisl mauris, gravida in placerat in, adipiscing ac nisi. Mauris lorem est, pellentesque nec euismod sit amet, facilisis non nulla. Ut porttitor, nibh a congue volutpat, ipsum ipsum suscipit ligula, sit amet blandit dolor velit at nisi. Cras eget sem nibh, sed lacinia quam. Ut luctus lectus vel est vulputate placerat. Maecenas turpis mauris, consequat vitae blandit a, facilisis sed libero.</p>\r\n<p>Integer placerat elementum rhoncus. Cras hendrerit tortor non eros condimentum vel fringilla tellus congue. Cras ut justo sit amet lectus sodales pretium non nec mauris. Vestibulum non ligula massa, eu semper ante. Aenean neque nibh, fermentum accumsan porta vel, facilisis at elit. Sed a justo non urna blandit pellentesque quis sit amet nunc. Etiam eget ligula ac lorem dapibus commodo. In arcu sem, volutpat a tempor quis, suscipit ac velit. Etiam vel metus eget mauris feugiat dapibus nec non nisl. Curabitur gravida nunc at purus aliquet sollicitudin. Integer rutrum porttitor elit, sed tempor mauris viverra id. Quisque pulvinar risus non tellus condimentum sed tristique ligula varius. Morbi tristique mauris vitae est imperdiet a porttitor tortor congue. Ut sollicitudin, mauris molestie mattis gravida, enim justo rutrum augue, id dignissim erat mauris vel mi. Pellentesque mauris elit, luctus ac blandit vel, ultrices vel nisi. Donec dictum sagittis vestibulum.</p>\r\n</div>', NULL, NULL, 1339858312, 1339833112),
+(6, 6, 1, NULL, '<div id="lipsum">\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nec ante auctor est pulvinar dictum. Morbi bibendum ipsum vel metus condimentum rhoncus id sed lorem. Nullam fermentum dapibus eros vitae feugiat. Donec vel mollis tortor. Mauris felis urna, posuere et pharetra et, luctus at diam. Etiam faucibus orci a sem blandit at posuere odio consequat. Maecenas sem mauris, interdum vel varius ac, lobortis ut magna. Etiam sed felis diam, id sagittis sem. Morbi rutrum interdum lacus ornare congue. Suspendisse dignissim ligula ut eros egestas et fermentum felis congue.</p>\r\n<p>Vestibulum malesuada varius metus non ultrices. Phasellus eget enim urna. Fusce ac erat sit amet ante convallis ornare. Nulla facilisi. Nulla accumsan tempor venenatis. Cras faucibus, diam nec posuere ullamcorper, eros mi pellentesque quam, vel semper purus elit ut est. Duis congue varius massa ac faucibus. Nulla facilisi.</p>\r\n<p>Nam pretium egestas est, eu scelerisque magna bibendum in. Quisque eros augue, luctus ac gravida sed, tristique vel turpis. Proin ut nisi lectus, in rhoncus mi. Nulla varius erat nec nunc sagittis consectetur. Integer non augue augue. Cras nec tellus in ipsum faucibus malesuada sagittis in elit. Ut egestas, felis sit amet auctor scelerisque, lacus risus fermentum magna, non rhoncus tellus tellus at nulla. Pellentesque id quam sed purus tempus fringilla non vel ipsum. Nulla dapibus consectetur ante, eget hendrerit neque lacinia vel. Cras vehicula vehicula mauris, quis placerat ipsum egestas in.</p>\r\n<p>Pellentesque arcu ante, tincidunt eu dapibus id, mattis a neque. Cras quis mauris est. Aliquam dolor velit, elementum vel consectetur ut, dapibus ac nisl. Pellentesque tempor pharetra quam in blandit. Duis felis dolor, pretium nec imperdiet vitae, malesuada ac nulla. Fusce adipiscing luctus purus, vitae egestas arcu mattis vel. Nunc rhoncus varius ultricies. Nulla urna urna, congue vitae pulvinar non, suscipit ut dui. Fusce et sollicitudin dui. Ut nisl mauris, gravida in placerat in, adipiscing ac nisi. Mauris lorem est, pellentesque nec euismod sit amet, facilisis non nulla. Ut porttitor, nibh a congue volutpat, ipsum ipsum suscipit ligula, sit amet blandit dolor velit at nisi. Cras eget sem nibh, sed lacinia quam. Ut luctus lectus vel est vulputate placerat. Maecenas turpis mauris, consequat vitae blandit a, facilisis sed libero.</p>\r\n<p>Integer placerat elementum rhoncus. Cras hendrerit tortor non eros condimentum vel fringilla tellus congue. Cras ut justo sit amet lectus sodales pretium non nec mauris. Vestibulum non ligula massa, eu semper ante. Aenean neque nibh, fermentum accumsan porta vel, facilisis at elit. Sed a justo non urna blandit pellentesque quis sit amet nunc. Etiam eget ligula ac lorem dapibus commodo. In arcu sem, volutpat a tempor quis, suscipit ac velit. Etiam vel metus eget mauris feugiat dapibus nec non nisl. Curabitur gravida nunc at purus aliquet sollicitudin. Integer rutrum porttitor elit, sed tempor mauris viverra id. Quisque pulvinar risus non tellus condimentum sed tristique ligula varius. Morbi tristique mauris vitae est imperdiet a porttitor tortor congue. Ut sollicitudin, mauris molestie mattis gravida, enim justo rutrum augue, id dignissim erat mauris vel mi. Pellentesque mauris elit, luctus ac blandit vel, ultrices vel nisi. Donec dictum sagittis vestibulum.</p>\r\n</div>', NULL, NULL, 1339858346, 1339833146),
+(7, 7, 1, NULL, '<p>คุณกำลังเริ่มใช้งานอัคนี CMS คุณสามารถบันทึกเข้าทางหน้าผู้ดูแล และเข้ามาจัดการได้ทุกๆอย่างที่คุณต้องการ</p>', '<p>คุณกำลังใช้งานอัคนี CMS</p>', NULL, 1339858746, 1339833546),
+(8, 8, 1, NULL, '<div id="lipsum">\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nec ante auctor est pulvinar dictum. Morbi bibendum ipsum vel metus condimentum rhoncus id sed lorem. Nullam fermentum dapibus eros vitae feugiat. Donec vel mollis tortor. Mauris felis urna, posuere et pharetra et, luctus at diam. Etiam faucibus orci a sem blandit at posuere odio consequat. Maecenas sem mauris, interdum vel varius ac, lobortis ut magna. Etiam sed felis diam, id sagittis sem. Morbi rutrum interdum lacus ornare congue. Suspendisse dignissim ligula ut eros egestas et fermentum felis congue.</p>\r\n<p>Vestibulum malesuada varius metus non ultrices. Phasellus eget enim urna. Fusce ac erat sit amet ante convallis ornare. Nulla facilisi. Nulla accumsan tempor venenatis. Cras faucibus, diam nec posuere ullamcorper, eros mi pellentesque quam, vel semper purus elit ut est. Duis congue varius massa ac faucibus. Nulla facilisi.</p>\r\n<p>Nam pretium egestas est, eu scelerisque magna bibendum in. Quisque eros augue, luctus ac gravida sed, tristique vel turpis. Proin ut nisi lectus, in rhoncus mi. Nulla varius erat nec nunc sagittis consectetur. Integer non augue augue. Cras nec tellus in ipsum faucibus malesuada sagittis in elit. Ut egestas, felis sit amet auctor scelerisque, lacus risus fermentum magna, non rhoncus tellus tellus at nulla. Pellentesque id quam sed purus tempus fringilla non vel ipsum. Nulla dapibus consectetur ante, eget hendrerit neque lacinia vel. Cras vehicula vehicula mauris, quis placerat ipsum egestas in.</p>\r\n<p>Pellentesque arcu ante, tincidunt eu dapibus id, mattis a neque. Cras quis mauris est. Aliquam dolor velit, elementum vel consectetur ut, dapibus ac nisl. Pellentesque tempor pharetra quam in blandit. Duis felis dolor, pretium nec imperdiet vitae, malesuada ac nulla. Fusce adipiscing luctus purus, vitae egestas arcu mattis vel. Nunc rhoncus varius ultricies. Nulla urna urna, congue vitae pulvinar non, suscipit ut dui. Fusce et sollicitudin dui. Ut nisl mauris, gravida in placerat in, adipiscing ac nisi. Mauris lorem est, pellentesque nec euismod sit amet, facilisis non nulla. Ut porttitor, nibh a congue volutpat, ipsum ipsum suscipit ligula, sit amet blandit dolor velit at nisi. Cras eget sem nibh, sed lacinia quam. Ut luctus lectus vel est vulputate placerat. Maecenas turpis mauris, consequat vitae blandit a, facilisis sed libero.</p>\r\n<p>Integer placerat elementum rhoncus. Cras hendrerit tortor non eros condimentum vel fringilla tellus congue. Cras ut justo sit amet lectus sodales pretium non nec mauris. Vestibulum non ligula massa, eu semper ante. Aenean neque nibh, fermentum accumsan porta vel, facilisis at elit. Sed a justo non urna blandit pellentesque quis sit amet nunc. Etiam eget ligula ac lorem dapibus commodo. In arcu sem, volutpat a tempor quis, suscipit ac velit. Etiam vel metus eget mauris feugiat dapibus nec non nisl. Curabitur gravida nunc at purus aliquet sollicitudin. Integer rutrum porttitor elit, sed tempor mauris viverra id. Quisque pulvinar risus non tellus condimentum sed tristique ligula varius. Morbi tristique mauris vitae est imperdiet a porttitor tortor congue. Ut sollicitudin, mauris molestie mattis gravida, enim justo rutrum augue, id dignissim erat mauris vel mi. Pellentesque mauris elit, luctus ac blandit vel, ultrices vel nisi. Donec dictum sagittis vestibulum.</p>\r\n</div>', NULL, NULL, 1339859139, 1339833939),
+(9, 9, 1, NULL, '<div id="lipsum">\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nec ante auctor est pulvinar dictum. Morbi bibendum ipsum vel metus condimentum rhoncus id sed lorem. Nullam fermentum dapibus eros vitae feugiat. Donec vel mollis tortor. Mauris felis urna, posuere et pharetra et, luctus at diam. Etiam faucibus orci a sem blandit at posuere odio consequat. Maecenas sem mauris, interdum vel varius ac, lobortis ut magna. Etiam sed felis diam, id sagittis sem. Morbi rutrum interdum lacus ornare congue. Suspendisse dignissim ligula ut eros egestas et fermentum felis congue.</p>\r\n<p>Vestibulum malesuada varius metus non ultrices. Phasellus eget enim urna. Fusce ac erat sit amet ante convallis ornare. Nulla facilisi. Nulla accumsan tempor venenatis. Cras faucibus, diam nec posuere ullamcorper, eros mi pellentesque quam, vel semper purus elit ut est. Duis congue varius massa ac faucibus. Nulla facilisi.</p>\r\n<p>Nam pretium egestas est, eu scelerisque magna bibendum in. Quisque eros augue, luctus ac gravida sed, tristique vel turpis. Proin ut nisi lectus, in rhoncus mi. Nulla varius erat nec nunc sagittis consectetur. Integer non augue augue. Cras nec tellus in ipsum faucibus malesuada sagittis in elit. Ut egestas, felis sit amet auctor scelerisque, lacus risus fermentum magna, non rhoncus tellus tellus at nulla. Pellentesque id quam sed purus tempus fringilla non vel ipsum. Nulla dapibus consectetur ante, eget hendrerit neque lacinia vel. Cras vehicula vehicula mauris, quis placerat ipsum egestas in.</p>\r\n<p>Pellentesque arcu ante, tincidunt eu dapibus id, mattis a neque. Cras quis mauris est. Aliquam dolor velit, elementum vel consectetur ut, dapibus ac nisl. Pellentesque tempor pharetra quam in blandit. Duis felis dolor, pretium nec imperdiet vitae, malesuada ac nulla. Fusce adipiscing luctus purus, vitae egestas arcu mattis vel. Nunc rhoncus varius ultricies. Nulla urna urna, congue vitae pulvinar non, suscipit ut dui. Fusce et sollicitudin dui. Ut nisl mauris, gravida in placerat in, adipiscing ac nisi. Mauris lorem est, pellentesque nec euismod sit amet, facilisis non nulla. Ut porttitor, nibh a congue volutpat, ipsum ipsum suscipit ligula, sit amet blandit dolor velit at nisi. Cras eget sem nibh, sed lacinia quam. Ut luctus lectus vel est vulputate placerat. Maecenas turpis mauris, consequat vitae blandit a, facilisis sed libero.</p>\r\n<p>Integer placerat elementum rhoncus. Cras hendrerit tortor non eros condimentum vel fringilla tellus congue. Cras ut justo sit amet lectus sodales pretium non nec mauris. Vestibulum non ligula massa, eu semper ante. Aenean neque nibh, fermentum accumsan porta vel, facilisis at elit. Sed a justo non urna blandit pellentesque quis sit amet nunc. Etiam eget ligula ac lorem dapibus commodo. In arcu sem, volutpat a tempor quis, suscipit ac velit. Etiam vel metus eget mauris feugiat dapibus nec non nisl. Curabitur gravida nunc at purus aliquet sollicitudin. Integer rutrum porttitor elit, sed tempor mauris viverra id. Quisque pulvinar risus non tellus condimentum sed tristique ligula varius. Morbi tristique mauris vitae est imperdiet a porttitor tortor congue. Ut sollicitudin, mauris molestie mattis gravida, enim justo rutrum augue, id dignissim erat mauris vel mi. Pellentesque mauris elit, luctus ac blandit vel, ultrices vel nisi. Donec dictum sagittis vestibulum.</p>\r\n</div>', NULL, NULL, 1339859266, 1339834066),
+(10, 10, 1, NULL, '<div id="lipsum">\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nec ante auctor est pulvinar dictum. Morbi bibendum ipsum vel metus condimentum rhoncus id sed lorem. Nullam fermentum dapibus eros vitae feugiat. Donec vel mollis tortor. Mauris felis urna, posuere et pharetra et, luctus at diam. Etiam faucibus orci a sem blandit at posuere odio consequat. Maecenas sem mauris, interdum vel varius ac, lobortis ut magna. Etiam sed felis diam, id sagittis sem. Morbi rutrum interdum lacus ornare congue. Suspendisse dignissim ligula ut eros egestas et fermentum felis congue.</p>\r\n<p>Vestibulum malesuada varius metus non ultrices. Phasellus eget enim urna. Fusce ac erat sit amet ante convallis ornare. Nulla facilisi. Nulla accumsan tempor venenatis. Cras faucibus, diam nec posuere ullamcorper, eros mi pellentesque quam, vel semper purus elit ut est. Duis congue varius massa ac faucibus. Nulla facilisi.</p>\r\n<p>Nam pretium egestas est, eu scelerisque magna bibendum in. Quisque eros augue, luctus ac gravida sed, tristique vel turpis. Proin ut nisi lectus, in rhoncus mi. Nulla varius erat nec nunc sagittis consectetur. Integer non augue augue. Cras nec tellus in ipsum faucibus malesuada sagittis in elit. Ut egestas, felis sit amet auctor scelerisque, lacus risus fermentum magna, non rhoncus tellus tellus at nulla. Pellentesque id quam sed purus tempus fringilla non vel ipsum. Nulla dapibus consectetur ante, eget hendrerit neque lacinia vel. Cras vehicula vehicula mauris, quis placerat ipsum egestas in.</p>\r\n<p>Pellentesque arcu ante, tincidunt eu dapibus id, mattis a neque. Cras quis mauris est. Aliquam dolor velit, elementum vel consectetur ut, dapibus ac nisl. Pellentesque tempor pharetra quam in blandit. Duis felis dolor, pretium nec imperdiet vitae, malesuada ac nulla. Fusce adipiscing luctus purus, vitae egestas arcu mattis vel. Nunc rhoncus varius ultricies. Nulla urna urna, congue vitae pulvinar non, suscipit ut dui. Fusce et sollicitudin dui. Ut nisl mauris, gravida in placerat in, adipiscing ac nisi. Mauris lorem est, pellentesque nec euismod sit amet, facilisis non nulla. Ut porttitor, nibh a congue volutpat, ipsum ipsum suscipit ligula, sit amet blandit dolor velit at nisi. Cras eget sem nibh, sed lacinia quam. Ut luctus lectus vel est vulputate placerat. Maecenas turpis mauris, consequat vitae blandit a, facilisis sed libero.</p>\r\n<p>Integer placerat elementum rhoncus. Cras hendrerit tortor non eros condimentum vel fringilla tellus congue. Cras ut justo sit amet lectus sodales pretium non nec mauris. Vestibulum non ligula massa, eu semper ante. Aenean neque nibh, fermentum accumsan porta vel, facilisis at elit. Sed a justo non urna blandit pellentesque quis sit amet nunc. Etiam eget ligula ac lorem dapibus commodo. In arcu sem, volutpat a tempor quis, suscipit ac velit. Etiam vel metus eget mauris feugiat dapibus nec non nisl. Curabitur gravida nunc at purus aliquet sollicitudin. Integer rutrum porttitor elit, sed tempor mauris viverra id. Quisque pulvinar risus non tellus condimentum sed tristique ligula varius. Morbi tristique mauris vitae est imperdiet a porttitor tortor congue. Ut sollicitudin, mauris molestie mattis gravida, enim justo rutrum augue, id dignissim erat mauris vel mi. Pellentesque mauris elit, luctus ac blandit vel, ultrices vel nisi. Donec dictum sagittis vestibulum.</p>\r\n</div>', NULL, NULL, 1339859301, 1339834101),
+(11, 11, 1, NULL, '<div id="lipsum">\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nec ante auctor est pulvinar dictum. Morbi bibendum ipsum vel metus condimentum rhoncus id sed lorem. Nullam fermentum dapibus eros vitae feugiat. Donec vel mollis tortor. Mauris felis urna, posuere et pharetra et, luctus at diam. Etiam faucibus orci a sem blandit at posuere odio consequat. Maecenas sem mauris, interdum vel varius ac, lobortis ut magna. Etiam sed felis diam, id sagittis sem. Morbi rutrum interdum lacus ornare congue. Suspendisse dignissim ligula ut eros egestas et fermentum felis congue.</p>\r\n<p>Vestibulum malesuada varius metus non ultrices. Phasellus eget enim urna. Fusce ac erat sit amet ante convallis ornare. Nulla facilisi. Nulla accumsan tempor venenatis. Cras faucibus, diam nec posuere ullamcorper, eros mi pellentesque quam, vel semper purus elit ut est. Duis congue varius massa ac faucibus. Nulla facilisi.</p>\r\n<p>Nam pretium egestas est, eu scelerisque magna bibendum in. Quisque eros augue, luctus ac gravida sed, tristique vel turpis. Proin ut nisi lectus, in rhoncus mi. Nulla varius erat nec nunc sagittis consectetur. Integer non augue augue. Cras nec tellus in ipsum faucibus malesuada sagittis in elit. Ut egestas, felis sit amet auctor scelerisque, lacus risus fermentum magna, non rhoncus tellus tellus at nulla. Pellentesque id quam sed purus tempus fringilla non vel ipsum. Nulla dapibus consectetur ante, eget hendrerit neque lacinia vel. Cras vehicula vehicula mauris, quis placerat ipsum egestas in.</p>\r\n<p>Pellentesque arcu ante, tincidunt eu dapibus id, mattis a neque. Cras quis mauris est. Aliquam dolor velit, elementum vel consectetur ut, dapibus ac nisl. Pellentesque tempor pharetra quam in blandit. Duis felis dolor, pretium nec imperdiet vitae, malesuada ac nulla. Fusce adipiscing luctus purus, vitae egestas arcu mattis vel. Nunc rhoncus varius ultricies. Nulla urna urna, congue vitae pulvinar non, suscipit ut dui. Fusce et sollicitudin dui. Ut nisl mauris, gravida in placerat in, adipiscing ac nisi. Mauris lorem est, pellentesque nec euismod sit amet, facilisis non nulla. Ut porttitor, nibh a congue volutpat, ipsum ipsum suscipit ligula, sit amet blandit dolor velit at nisi. Cras eget sem nibh, sed lacinia quam. Ut luctus lectus vel est vulputate placerat. Maecenas turpis mauris, consequat vitae blandit a, facilisis sed libero.</p>\r\n<p>Integer placerat elementum rhoncus. Cras hendrerit tortor non eros condimentum vel fringilla tellus congue. Cras ut justo sit amet lectus sodales pretium non nec mauris. Vestibulum non ligula massa, eu semper ante. Aenean neque nibh, fermentum accumsan porta vel, facilisis at elit. Sed a justo non urna blandit pellentesque quis sit amet nunc. Etiam eget ligula ac lorem dapibus commodo. In arcu sem, volutpat a tempor quis, suscipit ac velit. Etiam vel metus eget mauris feugiat dapibus nec non nisl. Curabitur gravida nunc at purus aliquet sollicitudin. Integer rutrum porttitor elit, sed tempor mauris viverra id. Quisque pulvinar risus non tellus condimentum sed tristique ligula varius. Morbi tristique mauris vitae est imperdiet a porttitor tortor congue. Ut sollicitudin, mauris molestie mattis gravida, enim justo rutrum augue, id dignissim erat mauris vel mi. Pellentesque mauris elit, luctus ac blandit vel, ultrices vel nisi. Donec dictum sagittis vestibulum.</p>\r\n</div>', NULL, NULL, 1339859342, 1339834142),
+(12, 12, 1, NULL, '<p>You are starting to use Agni CMS, you can log in to administrator page and manage everything you want.</p>', '<p>You are using Agni CMS</p>', NULL, 1339859471, 1339834271),
+(13, 13, 1, NULL, '<div id="lipsum">\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nec ante auctor est pulvinar dictum. Morbi bibendum ipsum vel metus condimentum rhoncus id sed lorem. Nullam fermentum dapibus eros vitae feugiat. Donec vel mollis tortor. Mauris felis urna, posuere et pharetra et, luctus at diam. Etiam faucibus orci a sem blandit at posuere odio consequat. Maecenas sem mauris, interdum vel varius ac, lobortis ut magna. Etiam sed felis diam, id sagittis sem. Morbi rutrum interdum lacus ornare congue. Suspendisse dignissim ligula ut eros egestas et fermentum felis congue.</p>\r\n<p>Vestibulum malesuada varius metus non ultrices. Phasellus eget enim urna. Fusce ac erat sit amet ante convallis ornare. Nulla facilisi. Nulla accumsan tempor venenatis. Cras faucibus, diam nec posuere ullamcorper, eros mi pellentesque quam, vel semper purus elit ut est. Duis congue varius massa ac faucibus. Nulla facilisi.</p>\r\n<p>Nam pretium egestas est, eu scelerisque magna bibendum in. Quisque eros augue, luctus ac gravida sed, tristique vel turpis. Proin ut nisi lectus, in rhoncus mi. Nulla varius erat nec nunc sagittis consectetur. Integer non augue augue. Cras nec tellus in ipsum faucibus malesuada sagittis in elit. Ut egestas, felis sit amet auctor scelerisque, lacus risus fermentum magna, non rhoncus tellus tellus at nulla. Pellentesque id quam sed purus tempus fringilla non vel ipsum. Nulla dapibus consectetur ante, eget hendrerit neque lacinia vel. Cras vehicula vehicula mauris, quis placerat ipsum egestas in.</p>\r\n<p>Pellentesque arcu ante, tincidunt eu dapibus id, mattis a neque. Cras quis mauris est. Aliquam dolor velit, elementum vel consectetur ut, dapibus ac nisl. Pellentesque tempor pharetra quam in blandit. Duis felis dolor, pretium nec imperdiet vitae, malesuada ac nulla. Fusce adipiscing luctus purus, vitae egestas arcu mattis vel. Nunc rhoncus varius ultricies. Nulla urna urna, congue vitae pulvinar non, suscipit ut dui. Fusce et sollicitudin dui. Ut nisl mauris, gravida in placerat in, adipiscing ac nisi. Mauris lorem est, pellentesque nec euismod sit amet, facilisis non nulla. Ut porttitor, nibh a congue volutpat, ipsum ipsum suscipit ligula, sit amet blandit dolor velit at nisi. Cras eget sem nibh, sed lacinia quam. Ut luctus lectus vel est vulputate placerat. Maecenas turpis mauris, consequat vitae blandit a, facilisis sed libero.</p>\r\n<p>Integer placerat elementum rhoncus. Cras hendrerit tortor non eros condimentum vel fringilla tellus congue. Cras ut justo sit amet lectus sodales pretium non nec mauris. Vestibulum non ligula massa, eu semper ante. Aenean neque nibh, fermentum accumsan porta vel, facilisis at elit. Sed a justo non urna blandit pellentesque quis sit amet nunc. Etiam eget ligula ac lorem dapibus commodo. In arcu sem, volutpat a tempor quis, suscipit ac velit. Etiam vel metus eget mauris feugiat dapibus nec non nisl. Curabitur gravida nunc at purus aliquet sollicitudin. Integer rutrum porttitor elit, sed tempor mauris viverra id. Quisque pulvinar risus non tellus condimentum sed tristique ligula varius. Morbi tristique mauris vitae est imperdiet a porttitor tortor congue. Ut sollicitudin, mauris molestie mattis gravida, enim justo rutrum augue, id dignissim erat mauris vel mi. Pellentesque mauris elit, luctus ac blandit vel, ultrices vel nisi. Donec dictum sagittis vestibulum.</p>\r\n</div>', NULL, NULL, 1339859518, 1339834318),
+(14, 14, 1, NULL, '<div id="lipsum">\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nec ante auctor est pulvinar dictum. Morbi bibendum ipsum vel metus condimentum rhoncus id sed lorem. Nullam fermentum dapibus eros vitae feugiat. Donec vel mollis tortor. Mauris felis urna, posuere et pharetra et, luctus at diam. Etiam faucibus orci a sem blandit at posuere odio consequat. Maecenas sem mauris, interdum vel varius ac, lobortis ut magna. Etiam sed felis diam, id sagittis sem. Morbi rutrum interdum lacus ornare congue. Suspendisse dignissim ligula ut eros egestas et fermentum felis congue.</p>\r\n<p>Vestibulum malesuada varius metus non ultrices. Phasellus eget enim urna. Fusce ac erat sit amet ante convallis ornare. Nulla facilisi. Nulla accumsan tempor venenatis. Cras faucibus, diam nec posuere ullamcorper, eros mi pellentesque quam, vel semper purus elit ut est. Duis congue varius massa ac faucibus. Nulla facilisi.</p>\r\n<p>Nam pretium egestas est, eu scelerisque magna bibendum in. Quisque eros augue, luctus ac gravida sed, tristique vel turpis. Proin ut nisi lectus, in rhoncus mi. Nulla varius erat nec nunc sagittis consectetur. Integer non augue augue. Cras nec tellus in ipsum faucibus malesuada sagittis in elit. Ut egestas, felis sit amet auctor scelerisque, lacus risus fermentum magna, non rhoncus tellus tellus at nulla. Pellentesque id quam sed purus tempus fringilla non vel ipsum. Nulla dapibus consectetur ante, eget hendrerit neque lacinia vel. Cras vehicula vehicula mauris, quis placerat ipsum egestas in.</p>\r\n<p>Pellentesque arcu ante, tincidunt eu dapibus id, mattis a neque. Cras quis mauris est. Aliquam dolor velit, elementum vel consectetur ut, dapibus ac nisl. Pellentesque tempor pharetra quam in blandit. Duis felis dolor, pretium nec imperdiet vitae, malesuada ac nulla. Fusce adipiscing luctus purus, vitae egestas arcu mattis vel. Nunc rhoncus varius ultricies. Nulla urna urna, congue vitae pulvinar non, suscipit ut dui. Fusce et sollicitudin dui. Ut nisl mauris, gravida in placerat in, adipiscing ac nisi. Mauris lorem est, pellentesque nec euismod sit amet, facilisis non nulla. Ut porttitor, nibh a congue volutpat, ipsum ipsum suscipit ligula, sit amet blandit dolor velit at nisi. Cras eget sem nibh, sed lacinia quam. Ut luctus lectus vel est vulputate placerat. Maecenas turpis mauris, consequat vitae blandit a, facilisis sed libero.</p>\r\n<p>Integer placerat elementum rhoncus. Cras hendrerit tortor non eros condimentum vel fringilla tellus congue. Cras ut justo sit amet lectus sodales pretium non nec mauris. Vestibulum non ligula massa, eu semper ante. Aenean neque nibh, fermentum accumsan porta vel, facilisis at elit. Sed a justo non urna blandit pellentesque quis sit amet nunc. Etiam eget ligula ac lorem dapibus commodo. In arcu sem, volutpat a tempor quis, suscipit ac velit. Etiam vel metus eget mauris feugiat dapibus nec non nisl. Curabitur gravida nunc at purus aliquet sollicitudin. Integer rutrum porttitor elit, sed tempor mauris viverra id. Quisque pulvinar risus non tellus condimentum sed tristique ligula varius. Morbi tristique mauris vitae est imperdiet a porttitor tortor congue. Ut sollicitudin, mauris molestie mattis gravida, enim justo rutrum augue, id dignissim erat mauris vel mi. Pellentesque mauris elit, luctus ac blandit vel, ultrices vel nisi. Donec dictum sagittis vestibulum.</p>\r\n</div>', NULL, NULL, 1339859534, 1339834334);
 
 -- --------------------------------------------------------
 
@@ -801,40 +608,47 @@ CREATE TABLE IF NOT EXISTS `an_taxonomy_index` (
   PRIMARY KEY (`index_id`),
   KEY `post_id` (`post_id`),
   KEY `tid` (`tid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='store id between taxonomy/posts' AUTO_INCREMENT=193 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='store id between taxonomy/posts' AUTO_INCREMENT=35 ;
 
 --
 -- Dumping data for table `an_taxonomy_index`
 --
 
 INSERT INTO `an_taxonomy_index` (`index_id`, `post_id`, `tid`, `position`, `create`) VALUES
-(162, 43, 16, 1, 1337409077),
-(163, 43, 15, 11, 1337409077),
-(164, 43, 20, 1, 1337409077),
-(165, 44, 18, 1, 1337409147),
-(166, 44, 15, 10, 1337409147),
-(167, 44, 22, 1, 1337409147),
-(168, 45, 17, 1, 1337409194),
-(169, 45, 15, 9, 1337409195),
-(170, 45, 20, 1, 1337409195),
-(171, 46, 19, 1, 1337409278),
-(172, 47, 23, 1, 1337409467),
-(173, 48, 15, 1, 1337410044),
-(174, 48, 21, 1, 1337410044),
-(175, 49, 15, 2, 1337410047),
-(179, 53, 15, 6, 1337410062),
-(181, 55, 15, 8, 1337410070),
-(182, 47, 19, 2, 1337410211),
-(183, 46, 15, 12, 1337410227),
-(184, 57, 17, 2, 1337599106),
-(185, 49, 16, 2, 1338288141),
-(186, 60, 19, 3, 1339197754),
-(187, 60, 15, 13, 1339197754),
-(188, 61, 17, 3, 1339197911),
-(189, 61, 15, 14, 1339197911),
-(190, 63, 16, 3, 1339491732),
-(191, 64, 19, 4, 1339588548),
-(192, 64, 15, 15, 1339588548);
+(1, 1, 2, 1, 1339857793),
+(2, 1, 4, 1, 1339857793),
+(3, 1, 1, 1, 1339857793),
+(4, 1, 8, 1, 1339857793),
+(5, 2, 2, 2, 1339857850),
+(6, 2, 3, 1, 1339857850),
+(7, 2, 1, 2, 1339857850),
+(8, 2, 9, 1, 1339857850),
+(9, 3, 5, 1, 1339857882),
+(10, 3, 6, 1, 1339857882),
+(11, 3, 1, 3, 1339857882),
+(12, 3, 8, 1, 1339857882),
+(13, 4, 5, 2, 1339857908),
+(14, 4, 7, 1, 1339857908),
+(15, 4, 1, 4, 1339857908),
+(16, 4, 9, 1, 1339857908),
+(17, 7, 1, 5, 1339858746),
+(18, 8, 10, 1, 1339859139),
+(19, 8, 11, 1, 1339859140),
+(20, 8, 12, 1, 1339859140),
+(21, 8, 17, 1, 1339859156),
+(22, 9, 10, 2, 1339859266),
+(23, 9, 11, 2, 1339859266),
+(24, 9, 13, 1, 1339859266),
+(25, 9, 18, 1, 1339859266),
+(26, 10, 10, 3, 1339859301),
+(27, 10, 14, 1, 1339859301),
+(28, 10, 15, 1, 1339859301),
+(29, 10, 17, 1, 1339859301),
+(30, 11, 10, 4, 1339859342),
+(31, 11, 14, 2, 1339859342),
+(32, 11, 16, 1, 1339859342),
+(33, 11, 18, 1, 1339859342),
+(34, 12, 10, 5, 1339859472);
 
 -- --------------------------------------------------------
 
@@ -859,28 +673,31 @@ CREATE TABLE IF NOT EXISTS `an_taxonomy_term_data` (
   `theme_system_name` varchar(255) DEFAULT NULL,
   `nlevel` int(10) NOT NULL DEFAULT '1',
   PRIMARY KEY (`tid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=30 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
 
 --
 -- Dumping data for table `an_taxonomy_term_data`
 --
 
 INSERT INTO `an_taxonomy_term_data` (`tid`, `parent_id`, `language`, `t_type`, `t_total`, `t_name`, `t_description`, `t_uri`, `t_uri_encoded`, `t_uris`, `meta_title`, `meta_description`, `meta_keywords`, `theme_system_name`, `nlevel`) VALUES
-(15, 0, 'th', 'category', 11, 'หน้าแรก', NULL, 'หน้าแรก', '%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B9%81%E0%B8%A3%E0%B8%81', '%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B9%81%E0%B8%A3%E0%B8%81', NULL, NULL, NULL, NULL, 1),
-(16, 0, 'th', 'category', 3, 'cat1', NULL, 'cat1', 'cat1', 'cat1', NULL, NULL, NULL, NULL, 1),
-(17, 16, 'th', 'category', 3, 'cat1.1', NULL, 'cat1.1', 'cat1.1', 'cat1/cat1.1', NULL, NULL, NULL, NULL, 2),
-(18, 17, 'th', 'category', 1, 'cat1.1.1', NULL, 'cat1.1.1', 'cat1.1.1', 'cat1/cat1.1/cat1.1.1', NULL, NULL, NULL, NULL, 3),
-(19, 0, 'th', 'category', 4, 'cat2', 'หมวดหมู่นี้มีธีมที่กำหนดเองต่างหากจากธีมหลัก', 'cat2', 'cat2', 'cat2', NULL, NULL, NULL, NULL, 1),
-(20, 0, 'th', 'tag', 2, 'แท็กไทย', NULL, 'แท็กไทย', '%E0%B9%81%E0%B8%97%E0%B9%87%E0%B8%81%E0%B9%84%E0%B8%97%E0%B8%A2', '%E0%B9%81%E0%B8%97%E0%B9%87%E0%B8%81%E0%B9%84%E0%B8%97%E0%B8%A2', NULL, NULL, NULL, NULL, 1),
-(21, 0, 'th', 'tag', 1, 'tag1', NULL, 'tag1', 'tag1', 'tag1', NULL, NULL, NULL, NULL, 1),
-(22, 0, 'th', 'tag', 1, 'tag2', NULL, 'tag2', 'tag2', 'tag2', NULL, NULL, NULL, NULL, 1),
-(23, 0, 'th', 'tag', 1, 'tag3', NULL, 'tag3', 'tag3', 'tag3', NULL, NULL, NULL, NULL, 1),
-(24, 0, 'en', 'category', 0, 'category1', NULL, 'category1', 'category1', 'category1', NULL, NULL, NULL, NULL, 1),
-(25, 24, 'en', 'category', 0, 'category1.1', NULL, 'category1.1', 'category1.1', 'category1/category1.1', NULL, NULL, NULL, NULL, 2),
-(26, 25, 'en', 'category', 0, 'category1.1.1', NULL, 'category1.1.1', 'category1.1.1', 'category1/category1.1/category1.1.1', NULL, NULL, NULL, NULL, 3),
-(27, 26, 'en', 'category', 0, 'category1.1.1.1', NULL, 'category1.1.1-1', 'category1.1.1-1', 'category1/category1.1/category1.1.1/category1.1.1-1', NULL, NULL, NULL, NULL, 4),
-(28, 0, 'en', 'category', 0, 'category2', NULL, 'category2', 'category2', 'category2', NULL, NULL, NULL, NULL, 1),
-(29, 0, 'en', 'category', 0, 'category3', NULL, 'category3', 'category3', 'category3', NULL, NULL, NULL, NULL, 1);
+(1, 0, 'th', 'category', 5, 'หน้าแรก', NULL, 'หน้าแรก', '%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B9%81%E0%B8%A3%E0%B8%81', '%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B9%81%E0%B8%A3%E0%B8%81', NULL, NULL, NULL, NULL, 1),
+(2, 0, 'th', 'category', 2, 'การใช้งาน', NULL, 'การใช้งาน', '%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%83%E0%B8%8A%E0%B9%89%E0%B8%87%E0%B8%B2%E0%B8%99', '%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%83%E0%B8%8A%E0%B9%89%E0%B8%87%E0%B8%B2%E0%B8%99', NULL, NULL, NULL, NULL, 1),
+(3, 2, 'th', 'category', 1, 'โมดูล', NULL, 'โมดูล', '%E0%B9%82%E0%B8%A1%E0%B8%94%E0%B8%B9%E0%B8%A5', '%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%83%E0%B8%8A%E0%B9%89%E0%B8%87%E0%B8%B2%E0%B8%99/%E0%B9%82%E0%B8%A1%E0%B8%94%E0%B8%B9%E0%B8%A5', NULL, NULL, NULL, 'quick-start', 2),
+(4, 2, 'th', 'category', 1, 'ธีม', NULL, 'ธีม', '%E0%B8%98%E0%B8%B5%E0%B8%A1', '%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%83%E0%B8%8A%E0%B9%89%E0%B8%87%E0%B8%B2%E0%B8%99/%E0%B8%98%E0%B8%B5%E0%B8%A1', NULL, NULL, NULL, 'quick-start', 2),
+(5, 0, 'th', 'category', 2, 'การปรับแต่ง', NULL, 'การปรับแต่ง', '%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%9B%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B9%81%E0%B8%95%E0%B9%88%E0%B8%87', '%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%9B%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B9%81%E0%B8%95%E0%B9%88%E0%B8%87', NULL, NULL, NULL, NULL, 1),
+(6, 5, 'th', 'category', 1, 'ธีม', NULL, 'ปรับแต่ง-ธีม', '%E0%B8%9B%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B9%81%E0%B8%95%E0%B9%88%E0%B8%87-%E0%B8%98%E0%B8%B5%E0%B8%A1', '%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%9B%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B9%81%E0%B8%95%E0%B9%88%E0%B8%87/%E0%B8%9B%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B9%81%E0%B8%95%E0%B9%88%E0%B8%87-%E0%B8%98%E0%B8%B5%E0%B8%A1', NULL, NULL, NULL, NULL, 2),
+(7, 5, 'th', 'category', 1, 'โมดูล', NULL, 'ปรับแต่ง-โมดูล', '%E0%B8%9B%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B9%81%E0%B8%95%E0%B9%88%E0%B8%87-%E0%B9%82%E0%B8%A1%E0%B8%94%E0%B8%B9%E0%B8%A5', '%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%9B%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B9%81%E0%B8%95%E0%B9%88%E0%B8%87/%E0%B8%9B%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B9%81%E0%B8%95%E0%B9%88%E0%B8%87-%E0%B9%82%E0%B8%A1%E0%B8%94%E0%B8%B9%E0%B8%A5', NULL, NULL, NULL, NULL, 2),
+(8, 0, 'th', 'tag', 2, 'ธีม', NULL, 'ธีม', '%E0%B8%98%E0%B8%B5%E0%B8%A1', '%E0%B8%98%E0%B8%B5%E0%B8%A1', NULL, NULL, NULL, NULL, 1),
+(9, 0, 'th', 'tag', 2, 'โมดูล', NULL, 'โมดูล', '%E0%B9%82%E0%B8%A1%E0%B8%94%E0%B8%B9%E0%B8%A5', '%E0%B9%82%E0%B8%A1%E0%B8%94%E0%B8%B9%E0%B8%A5', NULL, NULL, NULL, NULL, 1),
+(10, 0, 'en', 'category', 5, 'Front page', NULL, 'Front-page', 'Front-page', 'Front-page', NULL, NULL, NULL, NULL, 1),
+(11, 0, 'en', 'category', 2, 'To use', NULL, 'To-use', 'To-use', 'To-use', NULL, NULL, NULL, NULL, 1),
+(12, 11, 'en', 'category', 1, 'Theme', NULL, 'Theme', 'Theme', 'To-use/Theme', NULL, NULL, NULL, NULL, 2),
+(13, 11, 'en', 'category', 1, 'Module', NULL, 'Module', 'Module', 'To-use/Module', NULL, NULL, NULL, NULL, 2),
+(14, 0, 'en', 'category', 2, 'To modify', NULL, 'To-modify', 'To-modify', 'To-modify', NULL, NULL, NULL, NULL, 1),
+(15, 14, 'en', 'category', 1, 'Theme', NULL, 'modify-theme', 'modify-theme', 'To-modify/modify-theme', NULL, NULL, NULL, NULL, 2),
+(16, 14, 'en', 'category', 1, 'Module', NULL, 'modify-module', 'modify-module', 'To-modify/modify-module', NULL, NULL, NULL, NULL, 2),
+(17, 0, 'en', 'tag', 2, 'theme', NULL, 'theme', 'theme', 'theme', NULL, NULL, NULL, NULL, 1),
+(18, 0, 'en', 'tag', 2, 'module', NULL, 'module', 'module', 'module', NULL, NULL, NULL, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -901,7 +718,7 @@ CREATE TABLE IF NOT EXISTS `an_themes` (
   `theme_settings` text,
   PRIMARY KEY (`theme_id`),
   UNIQUE KEY `theme_system_name` (`theme_system_name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `an_themes`
@@ -909,7 +726,7 @@ CREATE TABLE IF NOT EXISTS `an_themes` (
 
 INSERT INTO `an_themes` (`theme_id`, `theme_system_name`, `theme_name`, `theme_url`, `theme_version`, `theme_description`, `theme_enable`, `theme_default`, `theme_default_admin`, `theme_settings`) VALUES
 (1, 'system', 'System', 'http://www.agnicms.org', '1.0', 'Agni system theme.', 1, 1, 1, NULL),
-(4, 'quick-start', 'quick-start', NULL, NULL, NULL, 1, 0, 0, NULL);
+(2, 'quick-start', 'Quick Start', 'http://www.agnicms.org', '1.0', 'For theme designer quick start theme.', 1, 0, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -925,43 +742,43 @@ CREATE TABLE IF NOT EXISTS `an_url_alias` (
   `uri_encoded` tinytext,
   `language` varchar(5) DEFAULT NULL,
   PRIMARY KEY (`alias_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=40 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=34 ;
 
 --
 -- Dumping data for table `an_url_alias`
 --
 
 INSERT INTO `an_url_alias` (`alias_id`, `c_type`, `c_id`, `uri`, `uri_encoded`, `language`) VALUES
-(1, 'category', 15, 'หน้าแรก', '%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B9%81%E0%B8%A3%E0%B8%81', 'th'),
-(2, 'category', 16, 'cat1', 'cat1', 'th'),
-(3, 'category', 17, 'cat1.1', 'cat1.1', 'th'),
-(4, 'category', 18, 'cat1.1.1', 'cat1.1.1', 'th'),
-(5, 'category', 19, 'cat2', 'cat2', 'th'),
-(6, 'tag', 20, 'แท็กไทย', '%E0%B9%81%E0%B8%97%E0%B9%87%E0%B8%81%E0%B9%84%E0%B8%97%E0%B8%A2', 'th'),
-(7, 'tag', 21, 'tag1', 'tag1', 'th'),
-(8, 'tag', 22, 'tag2', 'tag2', 'th'),
-(9, 'article', 43, 'บทความไทย', '%E0%B8%9A%E0%B8%97%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1%E0%B9%84%E0%B8%97%E0%B8%A2', 'th'),
-(10, 'article', 44, '2nd-บทความ', '2nd-%E0%B8%9A%E0%B8%97%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1', 'th'),
-(11, 'article', 45, 'กำหนดธีมในบทความ', '%E0%B8%81%E0%B8%B3%E0%B8%AB%E0%B8%99%E0%B8%94%E0%B8%98%E0%B8%B5%E0%B8%A1%E0%B9%83%E0%B8%99%E0%B8%9A%E0%B8%97%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1', 'th'),
-(12, 'article', 46, 'ใช้ธีมที่อยู่กับหมวดหมู่', '%E0%B9%83%E0%B8%8A%E0%B9%89%E0%B8%98%E0%B8%B5%E0%B8%A1%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%AD%E0%B8%A2%E0%B8%B9%E0%B9%88%E0%B8%81%E0%B8%B1%E0%B8%9A%E0%B8%AB%E0%B8%A1%E0%B8%A7%E0%B8%94%E0%B8%AB%E0%B8%A1%E0%B8%B9%E0%B9%88', 'th'),
-(13, 'tag', 23, 'tag3', 'tag3', 'th'),
-(14, 'article', 47, 'เพิ่มแทกจากในบทความ', '%E0%B9%80%E0%B8%9E%E0%B8%B4%E0%B9%88%E0%B8%A1%E0%B9%81%E0%B8%97%E0%B8%81%E0%B8%88%E0%B8%B2%E0%B8%81%E0%B9%83%E0%B8%99%E0%B8%9A%E0%B8%97%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1', 'th'),
-(15, 'article', 48, 'test', 'test', 'th'),
-(16, 'article', 49, 'p', 'p', 'th'),
-(20, 'article', 53, 'p-4', 'p-4', 'th'),
-(22, 'article', 55, 'p-6', 'p-6', 'th'),
-(23, 'page', 56, 'เกี่ยวกับเรา', '%E0%B9%80%E0%B8%81%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%A7%E0%B8%81%E0%B8%B1%E0%B8%9A%E0%B9%80%E0%B8%A3%E0%B8%B2', 'th'),
-(26, 'article', 57, 'asdf', 'asdf', 'th'),
-(27, 'category', 24, 'category1', 'category1', 'en'),
-(28, 'category', 25, 'category1.1', 'category1.1', 'en'),
-(29, 'category', 26, 'category1.1.1', 'category1.1.1', 'en'),
-(30, 'category', 27, 'category1.1.1-1', 'category1.1.1-1', 'en'),
-(31, 'category', 28, 'category2', 'category2', 'en'),
-(32, 'category', 29, 'category3', 'category3', 'en'),
-(33, 'page', 58, 'ข้อตกลง', '%E0%B8%82%E0%B9%89%E0%B8%AD%E0%B8%95%E0%B8%81%E0%B8%A5%E0%B8%87', 'th'),
-(34, 'page', 59, 'นโยบาย', '%E0%B8%99%E0%B9%82%E0%B8%A2%E0%B8%9A%E0%B8%B2%E0%B8%A2', 'th'),
-(35, 'article', 60, 'ทดสอบใช้ฟิลด์-script-style', '%E0%B8%97%E0%B8%94%E0%B8%AA%E0%B8%AD%E0%B8%9A%E0%B9%83%E0%B8%8A%E0%B9%89%E0%B8%9F%E0%B8%B4%E0%B8%A5%E0%B8%94%E0%B9%8C-script-style', 'th'),
-(36, 'article', 61, 'test-style-script-2', 'test-style-script-2', 'th'),
-(37, 'page', 62, 'ทดลองกำหนดสไตล์', '%E0%B8%97%E0%B8%94%E0%B8%A5%E0%B8%AD%E0%B8%87%E0%B8%81%E0%B8%B3%E0%B8%AB%E0%B8%99%E0%B8%94%E0%B8%AA%E0%B9%84%E0%B8%95%E0%B8%A5%E0%B9%8C', 'th'),
-(38, 'article', 63, 'ไก่กับไข่', '%E0%B9%84%E0%B8%81%E0%B9%88%E0%B8%81%E0%B8%B1%E0%B8%9A%E0%B9%84%E0%B8%82%E0%B9%88', 'th'),
-(39, 'article', 64, 'test-richtext', 'test-richtext', 'th');
+(1, 'category', 1, 'หน้าแรก', '%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B9%81%E0%B8%A3%E0%B8%81', 'th'),
+(2, 'category', 2, 'การใช้งาน', '%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%83%E0%B8%8A%E0%B9%89%E0%B8%87%E0%B8%B2%E0%B8%99', 'th'),
+(3, 'category', 3, 'โมดูล', '%E0%B9%82%E0%B8%A1%E0%B8%94%E0%B8%B9%E0%B8%A5', 'th'),
+(4, 'category', 4, 'ธีม', '%E0%B8%98%E0%B8%B5%E0%B8%A1', 'th'),
+(5, 'category', 5, 'การปรับแต่ง', '%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%9B%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B9%81%E0%B8%95%E0%B9%88%E0%B8%87', 'th'),
+(6, 'category', 6, 'ปรับแต่ง-ธีม', '%E0%B8%9B%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B9%81%E0%B8%95%E0%B9%88%E0%B8%87-%E0%B8%98%E0%B8%B5%E0%B8%A1', 'th'),
+(7, 'category', 7, 'ปรับแต่ง-โมดูล', '%E0%B8%9B%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B9%81%E0%B8%95%E0%B9%88%E0%B8%87-%E0%B9%82%E0%B8%A1%E0%B8%94%E0%B8%B9%E0%B8%A5', 'th'),
+(8, 'tag', 8, 'ธีม', '%E0%B8%98%E0%B8%B5%E0%B8%A1', 'th'),
+(9, 'article', 1, 'การเลือกใช้ธีม', '%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%80%E0%B8%A5%E0%B8%B7%E0%B8%AD%E0%B8%81%E0%B9%83%E0%B8%8A%E0%B9%89%E0%B8%98%E0%B8%B5%E0%B8%A1', 'th'),
+(10, 'tag', 9, 'โมดูล', '%E0%B9%82%E0%B8%A1%E0%B8%94%E0%B8%B9%E0%B8%A5', 'th'),
+(11, 'article', 2, 'การใช้งานโมดูล', '%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%83%E0%B8%8A%E0%B9%89%E0%B8%87%E0%B8%B2%E0%B8%99%E0%B9%82%E0%B8%A1%E0%B8%94%E0%B8%B9%E0%B8%A5', 'th'),
+(12, 'article', 3, 'การสร้างธีม', '%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%AA%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%87%E0%B8%98%E0%B8%B5%E0%B8%A1', 'th'),
+(13, 'article', 4, 'การสร้างโมดูล', '%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%AA%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%87%E0%B9%82%E0%B8%A1%E0%B8%94%E0%B8%B9%E0%B8%A5', 'th'),
+(14, 'page', 5, 'เกี่ยวกับเรา', '%E0%B9%80%E0%B8%81%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%A7%E0%B8%81%E0%B8%B1%E0%B8%9A%E0%B9%80%E0%B8%A3%E0%B8%B2', 'th'),
+(15, 'page', 6, 'การอนุญาต', '%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%AD%E0%B8%99%E0%B8%B8%E0%B8%8D%E0%B8%B2%E0%B8%95', 'th'),
+(16, 'article', 7, 'ยินดีต้อนรับ', '%E0%B8%A2%E0%B8%B4%E0%B8%99%E0%B8%94%E0%B8%B5%E0%B8%95%E0%B9%89%E0%B8%AD%E0%B8%99%E0%B8%A3%E0%B8%B1%E0%B8%9A', 'th'),
+(17, 'category', 10, 'Front-page', 'Front-page', 'en'),
+(18, 'category', 11, 'To-use', 'To-use', 'en'),
+(19, 'category', 12, 'Theme', 'Theme', 'en'),
+(20, 'category', 13, 'Module', 'Module', 'en'),
+(21, 'category', 14, 'To-modify', 'To-modify', 'en'),
+(22, 'category', 15, 'modify-theme', 'modify-theme', 'en'),
+(23, 'category', 16, 'modify-module', 'modify-module', 'en'),
+(24, 'article', 8, 'Choose-theme', 'Choose-theme', 'en'),
+(25, 'tag', 17, 'theme', 'theme', 'en'),
+(26, 'tag', 18, 'module', 'module', 'en'),
+(27, 'tag', 19, 'module-1', 'module-1', 'en'),
+(28, 'article', 9, 'How-to-use-module', 'How-to-use-module', 'en'),
+(29, 'article', 10, 'Create-a-theme', 'Create-a-theme', 'en'),
+(30, 'article', 11, 'Create-a-module', 'Create-a-module', 'en'),
+(31, 'article', 12, 'Welcome', 'Welcome', 'en'),
+(32, 'page', 13, 'About-us', 'About-us', 'en'),
+(33, 'page', 14, 'License', 'License', 'en');
