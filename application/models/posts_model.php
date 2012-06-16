@@ -125,11 +125,27 @@ class posts_model extends CI_Model {
 	 */
 	function delete( $post_id = '' ) {
 		if ( !is_numeric( $post_id ) ) {return false;}
-		// delete from menu items
+		// delete from menu items ------------------------------------------------------------------------------------
+		// move child of this menu item to upper parent item
+		$this->db->where( 'mi_type', $this->post_type );
+		$this->db->where( 'type_id', $post_id );
+		$this->db->where( 'language', $this->language );
+		$query = $this->db->get( 'menu_items' );
+		foreach ( $query->result() as $row ) {
+			$this->db->set( 'parent_id', $row->parent_id );
+			$this->db->where( 'parent_id', $row->mi_id );
+			$this->db->update( 'menu_items' );
+		}
+		$query->free_result();
+		// do delete
 		$this->db->where( 'mi_type', $this->post_type );
 		$this->db->where( 'type_id', $post_id );
 		$this->db->where( 'language', $this->language );
 		$this->db->delete( 'menu_items' );
+		// rebuild menu items
+		$this->load->model( 'menu_model' );
+		$this->menu_model->rebuild();
+		// end delete from menu items -------------------------------------------------------------------------------
 		// delete from url alias
 		$this->db->where( 'c_type', $this->post_type );
 		$this->db->where( 'c_id', $post_id );
