@@ -881,6 +881,7 @@ class account_model extends CI_Model {
 		$cm_account = $this->get_account_cookie( 'member' );
 		if ( isset( $cm_account['id'] ) && isset( $cm_account['username'] ) && isset( $cm_account['email'] ) ) {
 			$this->modules_plug->do_action( 'account_logout', $cm_account );
+			$this->config_model->delete_cache( 'chkacc_'.$cm_account['id'].'_' );
 		}
 		$this->load->helper( array( 'cookie' ) );
 		delete_cookie( 'admin_account' );
