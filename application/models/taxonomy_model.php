@@ -267,10 +267,11 @@ class taxonomy_model extends CI_Model {
 	 * @return null 
 	 */
 	function list_taxterm_index( $post_id = '', $nohome_category = false ) {
+		$home_category_id = $this->config_model->load_single( 'content_frontpage_category', $this->lang->get_current_lang() );
+		//
 		$this->db->join( 'taxonomy_term_data', 'taxonomy_index.tid = taxonomy_term_data.tid', 'inner' );
 		$this->db->where( 'post_id', $post_id );
-		if ( $nohome_category ) {
-			$home_category_id = $this->config_model->load_single( 'content_frontpage_category', $this->lang->get_current_lang() );
+		if ( $nohome_category && $home_category_id != null ) {
 			$this->db->where( 'taxonomy_term_data.tid !=', $home_category_id );
 		}
 		$this->db->where( 't_type', $this->tax_type );
