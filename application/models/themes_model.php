@@ -484,6 +484,7 @@ class themes_model extends CI_Model {
 						$dir[$i]['theme_front'] = ( file_exists( $this->theme_dir.$item.'/front' ) ? true : false );
 						$dir[$i]['theme_admin'] = ( file_exists( $this->theme_dir.$item.'/site-admin' ) ? true : false );
 						$dir[$i]['theme_screenshot'] = ( file_exists( $this->theme_dir.$item.'/screenshot.png' ) ? base_url().$this->theme_dir.$item.'/screenshot.png' : base_url().'public/images/no-screenshot.png' );
+						$dir[$i]['theme_screenshot_large'] = ( file_exists( $this->theme_dir.$item.'/screenshot-large.png' ) ? base_url().$this->theme_dir.$item.'/screenshot-large.png' : '' );
 						$dir[$i]['theme_enabled'] = $this->is_enabled( $item );
 						unset( $pdata );
 					}
@@ -556,15 +557,21 @@ class themes_model extends CI_Model {
 	 * @param string $theme_system_name
 	 * @return string 
 	 */
-	function show_theme_screenshot( $theme_system_name = '' ) {
+	function show_theme_screenshot( $theme_system_name = '', $size = 'normal' ) {
 		if ( $theme_system_name == null ) {
 			return base_url().'public/images/no-screenshot.png';
 		}
-		//
-		if ( file_exists( $this->theme_dir.$theme_system_name.'/screenshot.png' ) ) {
-			return base_url().$this->theme_dir.$theme_system_name.'/screenshot.png';
+		// normal size
+		if ( $size == 'normal' ) {
+			if ( file_exists( $this->theme_dir.$theme_system_name.'/screenshot.png' ) ) {
+				return base_url().$this->theme_dir.$theme_system_name.'/screenshot.png';
+			}
+			return base_url().'public/images/no-screenshot.png';
+		} elseif ( $size == 'large' ) {
+			if ( file_exists( $this->theme_dir.$theme_system_name.'/screenshot-large.png' ) ) {
+				return base_url().$this->theme_dir.$theme_system_name.'/screenshot-large.png';
+			}
 		}
-		return base_url().'public/images/no-screenshot.png';
 	}// show_theme_screenshot
 	
 	
