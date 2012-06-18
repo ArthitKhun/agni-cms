@@ -120,6 +120,8 @@ class config_model extends CI_Model {
 	
 	
 	function save_frontpage_category( $data = array() ) {
+		if ( !isset( $data['content_frontpage_category'] ) ) {return false;}
+		//
 		$this->db->where( 'language', $this->lang->get_current_lang() );
 		$query = $this->db->get( 'frontpage_category' );
 		if ( $query->num_rows() > 0 ) {
