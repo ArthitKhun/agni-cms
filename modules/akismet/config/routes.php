@@ -1,0 +1,3 @@
+<?php
+
+$route['akismet'] = 'akismet';
