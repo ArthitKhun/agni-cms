@@ -287,6 +287,10 @@ class comments_model extends CI_Model {
 		if ( $filter != null && $filter_val != null && $list_for == 'admin' ) {
 			$sql .= ' and ' . $filter . ' = ' . $this->db->escape( $filter_val );
 		}
+		// filter out spam
+		if ( $filter == null || $filter != 'comment_spam_status' ) {
+			$sql .= ' and comment_spam_status = \'normal\'';
+		}
 		$q = htmlspecialchars( trim( $this->input->get( 'q' ) ) );
 		if ( $q != null ) {
 			$sql .= ' and (';
