@@ -66,7 +66,7 @@
 			<?php
 			$count_comment = $this->db->where( 'comment_status', '0' )->where( 'comment_spam_status', 'normal' )->count_all_results( 'comments' );
 			if ( $count_comment > 0 ) {
-				echo sprintf( lang( 'admin_block_new_comment' ), $count );
+				echo sprintf( lang( 'admin_block_new_comment' ), $count_comment );
 			} else {
 				echo lang( 'admin_block_nonew_comment' );
 			}
