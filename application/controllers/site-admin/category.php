@@ -86,7 +86,7 @@ class category extends admin_controller {
 		// script tags
 		// end head tags output ##############################
 		// output
-		$this->generate_page( 'site-admin/category/category_ae_view', $output );
+		$this->generate_page( 'site-admin/templates/category/category_ae_view', $output );
 	}// add
 	
 	
@@ -211,7 +211,7 @@ class category extends admin_controller {
 		// script tags
 		// end head tags output ##############################
 		// output
-		$this->generate_page( 'site-admin/category/category_ae_view', $output );
+		$this->generate_page( 'site-admin/templates/category/category_ae_view', $output );
 	}// edit
 	
 	
@@ -248,7 +248,7 @@ class category extends admin_controller {
 		unset( $script );
 		// end head tags output ##############################
 		// output
-		$this->generate_page( 'site-admin/category/category_view', $output );
+		$this->generate_page( 'site-admin/templates/category/category_view', $output );
 	}// index
 	
 	

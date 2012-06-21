@@ -269,7 +269,7 @@ class media extends admin_controller {
 		// output
 		$this->output->set_header( 'Cache-Control: no-store, no-cache, must-revalidate' );
 		$this->output->set_header( 'Pragma: no-cache' );
-		$this->generate_page( 'site-admin/media/media_e_view', $output );
+		$this->generate_page( 'site-admin/templates/media/media_e_view', $output );
 	}// edit
 	
 	
@@ -315,10 +315,10 @@ class media extends admin_controller {
 		if ( $this->input->is_ajax_request() ) {
 			$this->output->set_header( 'Cache-Control: no-store, no-cache, must-revalidate' );
 			$this->output->set_header( 'Pragma: no-cache' );
-			$this->load->view( 'site-admin/media/media_ajax_list_view', $output );
+			$this->load->view( 'site-admin/templates/media/media_ajax_list_view', $output );
 			return true;
 		} else {
-			$this->generate_page( 'site-admin/media/media_view', $output );
+			$this->generate_page( 'site-admin/templates/media/media_view', $output );
 		}
 	}// index
 	
@@ -359,10 +359,10 @@ class media extends admin_controller {
 		if ( $this->input->is_ajax_request() ) {
 			$this->output->set_header( 'Cache-Control: no-store, no-cache, must-revalidate' );
 			$this->output->set_header( 'Pragma: no-cache' );
-			$this->load->view( 'site-admin/media/media_popup_ajax_list_view', $output );
+			$this->load->view( 'site-admin/templates/media/media_popup_ajax_list_view', $output );
 			return true;
 		} else {
-			$this->load->view( 'site-admin/media/media_popup_view', $output );
+			$this->load->view( 'site-admin/templates/media/media_popup_view', $output );
 		}
 	}// popup
 	

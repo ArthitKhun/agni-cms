@@ -118,7 +118,7 @@ class comment extends admin_controller {
 		// script tags
 		// end head tags output ##############################
 		// output
-		$this->generate_page( 'site-admin/comment/comment_e_view', $output );
+		$this->generate_page( 'site-admin/templates/comment/comment_e_view', $output );
 	}// edit
 	
 	
@@ -154,7 +154,7 @@ class comment extends admin_controller {
 		// script tags
 		// end head tags output ##############################
 		// output
-		$this->generate_page( 'site-admin/comment/comment_view', $output );
+		$this->generate_page( 'site-admin/templates/comment/comment_view', $output );
 	}// index
 	
 	
@@ -239,7 +239,7 @@ class comment extends admin_controller {
 				// script tags
 				// end head tags output ##############################
 				// output
-				$this->generate_page( 'site-admin/comment/comment_delete_view', $output );
+				$this->generate_page( 'site-admin/templates/comment/comment_delete_view', $output );
 				return;
 			}
 		} else {

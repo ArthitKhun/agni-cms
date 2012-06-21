@@ -83,7 +83,7 @@ class account extends admin_controller {
 		// script tags
 		// end head tags output ##############################
 		// output
-		$this->generate_page( 'site-admin/account/account_ae_view', $output );
+		$this->generate_page( 'site-admin/templates/account/account_ae_view', $output );
 	}// add
 	
 	
@@ -242,7 +242,7 @@ class account extends admin_controller {
 		// script tags
 		// end head tags output ##############################
 		// output
-		$this->generate_page( 'site-admin/account/account_ae_view', $output );
+		$this->generate_page( 'site-admin/templates/account/account_ae_view', $output );
 	}// edit
 	
 	
@@ -270,7 +270,7 @@ class account extends admin_controller {
 		// script tags
 		// end head tags output ##############################
 		// output
-		$this->generate_page( 'site-admin/account/account_view', $output );
+		$this->generate_page( 'site-admin/templates/account/account_view', $output );
 	}// index
 	
 	
@@ -332,7 +332,7 @@ class account extends admin_controller {
 		// script tags
 		// end head tags output ##############################
 		// output
-		$this->generate_page( 'site-admin/account/account_viewlog_view', $output );
+		$this->generate_page( 'site-admin/templates/account/account_viewlog_view', $output );
 	}// viewlog
 	
 

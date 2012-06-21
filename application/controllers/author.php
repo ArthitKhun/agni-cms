@@ -94,7 +94,7 @@ class author extends MY_Controller {
 		// script tags
 		// end head tags output ##############################
 		// output
-		$this->generate_page( 'front/templates/author_view', $output );
+		$this->generate_page( 'front/templates/author/author_view', $output );
 	}// index
 	
 	

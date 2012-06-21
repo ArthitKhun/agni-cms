@@ -138,7 +138,7 @@ class config extends admin_controller {
 		// script tags
 		// end head tags output ##############################
 		// output
-		$this->generate_page( 'site-admin/config/config_view', $output );
+		$this->generate_page( 'site-admin/templates/config/config_view', $output );
 	}// index
 	
 

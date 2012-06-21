@@ -50,7 +50,7 @@
 					<?php foreach( $list_block_in_area[$area['area_system_name']] as $block ): ?> 
 					<?php 
 					$data['block'] = $block;
-					$this->load->view( 'site-admin/block/block_each', $data ); 
+					$this->load->view( 'site-admin/templates/block/block_each', $data ); 
 					?> 
 					<?php endforeach; ?> 
 					<?php endif; ?> 

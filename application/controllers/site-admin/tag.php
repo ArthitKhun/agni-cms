@@ -94,7 +94,7 @@ class tag extends admin_controller {
 		// script tags
 		// end head tags output ##############################
 		// output
-		$this->generate_page( 'site-admin/tag/tag_ae_view', $output );
+		$this->generate_page( 'site-admin/templates/tag/tag_ae_view', $output );
 	}// add
 	
 	
@@ -196,7 +196,7 @@ class tag extends admin_controller {
 		// script tags
 		// end head tags output ##############################
 		// output
-		$this->generate_page( 'site-admin/tag/tag_ae_view', $output );
+		$this->generate_page( 'site-admin/templates/tag/tag_ae_view', $output );
 	}// edit
 	
 	
@@ -225,7 +225,7 @@ class tag extends admin_controller {
 		// script tags
 		// end head tags output ##############################
 		// output
-		$this->generate_page( 'site-admin/tag/tag_view', $output );
+		$this->generate_page( 'site-admin/templates/tag/tag_view', $output );
 	}// index
 	
 	

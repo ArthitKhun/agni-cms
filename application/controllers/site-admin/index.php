@@ -32,7 +32,7 @@ class index extends admin_controller {
 		// link tags
 		// script tags
 		// end head tags output ##############################
-		$this->generate_page( 'site-admin/index/index_view', $output );
+		$this->generate_page( 'site-admin/templates/index/index_view', $output );
 	}// index
 	
 

@@ -66,7 +66,7 @@ class module extends admin_controller {
 		// link tags
 		// script tags
 		// end head tags output ##############################
-		$this->generate_page( 'site-admin/modules/modules_add_view', $output );
+		$this->generate_page( 'site-admin/templates/modules/modules_add_view', $output );
 	}// add
 	
 	
@@ -125,7 +125,7 @@ class module extends admin_controller {
 		// link tags
 		// script tags
 		// end head tags output ##############################
-		$this->generate_page( 'site-admin/modules/modules_view', $output );
+		$this->generate_page( 'site-admin/templates/modules/modules_view', $output );
 	}// index
 	
 	

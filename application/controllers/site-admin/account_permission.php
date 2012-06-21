@@ -50,7 +50,7 @@ class account_permission extends admin_controller {
 		// output
 		$this->output->set_header( 'Cache-Control: no-store, no-cache, must-revalidate' );
 		$this->output->set_header( 'Pragma: no-cache' );
-		$this->generate_page( 'site-admin/account/account_permission_view', $output );
+		$this->generate_page( 'site-admin/templates/account/account_permission_view', $output );
 		unset( $output );
 	}// index
 	

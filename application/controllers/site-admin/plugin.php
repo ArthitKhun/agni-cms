@@ -72,7 +72,7 @@ class plugin extends admin_controller {
 		unset( $link );
 		// script tags
 		// end head tags output ##############################
-		$this->generate_page( 'site-admin/plugins/plugins_add_view', $output );
+		$this->generate_page( 'site-admin/templates/plugins/plugins_add_view', $output );
 	}
 	
 	
@@ -136,7 +136,7 @@ class plugin extends admin_controller {
 		unset( $link );
 		// script tags
 		// end head tags output ##############################
-		$this->generate_page( 'site-admin/plugins/plugins_view', $output );
+		$this->generate_page( 'site-admin/templates/plugins/plugins_view', $output );
 	}// index
 	
 	
@@ -213,7 +213,7 @@ class plugin extends admin_controller {
 		// script tags
 		// end head tags output ##############################
 		$output['page_content'] = $this->modules_plug->do_action( 'plugin_settings_'.$plugin_name );
-		$this->load->view( 'site-admin/template', $output );
+		$this->load->view( 'site-admin/templates/template', $output );
 	}// settings
 	
 */

@@ -117,7 +117,7 @@ class tag extends MY_Controller {
 		// script tags
 		// end head tags output ##############################
 		// output
-		$this->generate_page( 'front/templates/tag_view', $output );
+		$this->generate_page( 'front/templates/taxterm/tag_view', $output );
 	}// index
 	
 	

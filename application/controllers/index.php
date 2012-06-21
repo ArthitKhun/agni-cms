@@ -119,7 +119,7 @@ class index extends MY_Controller {
 		// script tags
 		// end head tags output ##############################
 		// output
-		$this->generate_page( 'front/templates/index_view', $output );
+		$this->generate_page( 'front/templates/index/index_view', $output );
 	}// index
 	
 	

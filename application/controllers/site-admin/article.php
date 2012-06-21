@@ -144,7 +144,7 @@ class article extends admin_controller {
 		unset( $script_tags );
 		// end head tags output ##############################
 		// output
-		$this->generate_page( 'site-admin/article/article_ae_view', $output );
+		$this->generate_page( 'site-admin/templates/article/article_ae_view', $output );
 	}// add
 	
 	
@@ -195,7 +195,7 @@ class article extends admin_controller {
 			// script tags
 			// end head tags output ##############################
 			// output
-			$this->generate_page( 'site-admin/post/del_rev_view', $output );
+			$this->generate_page( 'site-admin/templates/post/del_rev_view', $output );
 		} else {
 			// check if revision_id match post_id in revision table and not current
 			$this->db->join( 'posts', 'posts.post_id = post_revision.post_id', 'left' );
@@ -407,7 +407,7 @@ class article extends admin_controller {
 		unset( $script_tags );
 		// end head tags output ##############################
 		// output
-		$this->generate_page( 'site-admin/article/article_ae_view', $output );
+		$this->generate_page( 'site-admin/templates/article/article_ae_view', $output );
 	}// edit
 	
 	
@@ -445,7 +445,7 @@ class article extends admin_controller {
 		// script tags
 		// end head tags output ##############################
 		// output
-		$this->generate_page( 'site-admin/article/article_view', $output );
+		$this->generate_page( 'site-admin/templates/article/article_view', $output );
 	}// index
 	
 	
@@ -608,7 +608,7 @@ class article extends admin_controller {
 			// script tags
 			// end head tags output ##############################
 			// output
-			$this->generate_page( 'site-admin/post/revert_view', $output );
+			$this->generate_page( 'site-admin/templates/post/revert_view', $output );
 		} else {
 			// check if revision_id match post_id in revision table
 			$this->db->where( 'post_id', $post_id )->where( 'revision_id', $revision_id );

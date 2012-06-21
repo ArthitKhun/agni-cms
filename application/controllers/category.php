@@ -122,7 +122,7 @@ class category extends MY_Controller {
 		// script tags
 		// end head tags output ##############################
 		// output
-		$this->generate_page( 'front/templates/category_view', $output );
+		$this->generate_page( 'front/templates/taxterm/category_view', $output );
 	}// index
 	
 	

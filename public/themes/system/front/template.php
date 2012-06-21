@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="<?php echo strtolower( config_item( 'charset' ) ); ?>" />
 		<title><?php echo $page_title; ?></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<?php if ( isset( $page_meta ) ) {echo $page_meta;} ?> 
 		<!--[if lt IE 9]>
 			<script src="<?php echo $this->base_url; ?>public/js/html5.js"></script>

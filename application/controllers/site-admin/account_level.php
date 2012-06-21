@@ -60,7 +60,7 @@ class account_level extends admin_controller {
 		// script tags
 		// end head tags output ##############################
 		// output
-		$this->generate_page( 'site-admin/account/account_level_ae_view', $output );
+		$this->generate_page( 'site-admin/templates/account/account_level_ae_view', $output );
 	}// add
 	
 	
@@ -139,7 +139,7 @@ class account_level extends admin_controller {
 		// script tags
 		// end head tags output ##############################
 		// output
-		$this->generate_page( 'site-admin/account/account_level_ae_view', $output );
+		$this->generate_page( 'site-admin/templates/account/account_level_ae_view', $output );
 	}// edit
 	
 	
@@ -162,7 +162,7 @@ class account_level extends admin_controller {
 		// script tags
 		// end head tags output ##############################
 		// output
-		$this->generate_page( 'site-admin/account/account_level_view', $output );
+		$this->generate_page( 'site-admin/templates/account/account_level_view', $output );
 	}// index
 	
 	

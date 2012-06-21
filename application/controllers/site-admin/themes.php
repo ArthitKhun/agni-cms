@@ -49,7 +49,7 @@ class themes extends admin_controller {
 		// link tags
 		// script tags
 		// end head tags output ##############################
-		$this->generate_page( 'site-admin/themes/themes_add_view', $output );
+		$this->generate_page( 'site-admin/templates/themes/themes_add_view', $output );
 	}// add
 	
 	
@@ -115,7 +115,7 @@ class themes extends admin_controller {
 		// link tags
 		// script tags
 		// end head tags output ##############################
-		$this->generate_page( 'site-admin/themes/themes_del_view', $output );
+		$this->generate_page( 'site-admin/templates/themes/themes_del_view', $output );
 	}// delete
 	
 	
@@ -181,7 +181,7 @@ class themes extends admin_controller {
 		// link tags
 		// script tags
 		// end head tags output ##############################
-		$this->generate_page( 'site-admin/themes/themes_view', $output );
+		$this->generate_page( 'site-admin/templates/themes/themes_view', $output );
 	}// index
 	
 

@@ -112,7 +112,7 @@ class post extends MY_Controller {
 		}
 		// end head tags output ##############################
 		// output
-		$this->generate_page( 'front/templates/post_view', $output );
+		$this->generate_page( 'front/templates/post/post_view', $output );
 	}// preview
 	
 	
@@ -214,9 +214,9 @@ class post extends MY_Controller {
 		// end head tags output ##############################
 		// output
 		if ( $row->post_type == 'page' ) {
-			$this->generate_page( 'front/templates/page_view', $output );
+			$this->generate_page( 'front/templates/post/page_view', $output );
 		} else {
-			$this->generate_page( 'front/templates/post_view', $output );
+			$this->generate_page( 'front/templates/post/post_view', $output );
 		}
 	}// revision
 	
@@ -334,9 +334,9 @@ class post extends MY_Controller {
 		// end head tags output ##############################
 		// output
 		if ( $row->post_type == 'page' ) {
-			$this->generate_page( 'front/templates/page_view', $output );
+			$this->generate_page( 'front/templates/post/page_view', $output );
 		} else {
-			$this->generate_page( 'front/templates/post_view', $output );
+			$this->generate_page( 'front/templates/post/post_view', $output );
 		}
 	}// view
 	

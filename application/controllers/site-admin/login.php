@@ -154,7 +154,7 @@ class login extends MY_Controller {
 		// end head tags output ##############################
 		// output
 		if ( !$this->input->is_ajax_request() ) {
-			$this->load->view( 'site-admin/login/login_view', $output );
+			$this->load->view( 'site-admin/templates/login/login_view', $output );
 		} else {
 			$this->output->set_content_type( 'application/json' );
 			$this->output->set_output( json_encode( $output ) );

@@ -1,13 +1,9 @@
-<?php $this->load->view( 'site-admin/inc_html_head' ); ?> 
-
-
-
+<h1><?php echo lang( 'media_media' ); ?></h1>
 
 <div class="cmds">
 	<div class="cmd-left">
-		<?php echo anchor( 'site-admin/media/popup', sprintf( lang( 'admin_total' ), $list_item['total'] ) ); ?> 
-		| <?php echo anchor( 'site-admin/media/popup?orders='.$orders.'&amp;sort='.$cur_sort.'&amp;filter=f.account_id&amp;filter_val='.$my_account_id, lang( 'media_my_file_only' ) ); ?> 
-		| <span class="ico16-reload" onclick="window.location.reload();"><?php echo lang( 'media_reload' ); ?></span>
+		<?php echo sprintf( lang( 'admin_total' ), $list_item['total'] ); ?> 
+		| <?php echo anchor( 'site-admin/media?orders='.$orders.'&amp;sort='.$cur_sort.'&amp;filter=f.account_id&amp;filter_val='.$my_account_id, lang( 'media_my_file_only' ) ); ?> 
 		
 		
 		<?php if ( $this->account_model->check_admin_permission( 'media_perm', 'media_upload_perm' ) ): ?> 
@@ -36,38 +32,35 @@
 	<div class="clear"></div>
 </div>
 
-<div class="list-items-placeholder">
-	<?php $this->load->view( 'site-admin/media/media_popup_ajax_list_view' ); ?> 
-</div>
-
-<div class="cmds">
-	<div class="cmd-right">
-		<?php if ( isset( $pagination ) ) {echo $pagination;} ?>
-	</div>
-	<div class="clear"></div>
-</div>
-<script type="text/javascript" src="<?php echo base_url(); ?>public/js/tiny_mce/tiny_mce_custom_popup.js"></script>
-<script type="text/javascript">
-	$(document).ready(function() {
-		// remove tinymce class and stylesheet
-		$('html, body').removeClass( 'forceColors' );
-		var styleSheets = document.styleSheets;
-		var href = base_url+'public/js/tiny_mce/themes/advanced/skins/default/dialog.css';
-		for (var i = 0; i < styleSheets.length; i++) {
-			if (styleSheets[i].href == href) {
-				// go away tinymce stylesheet.
-				styleSheets[i].disabled = true;
-				break;
-			}
-		}
-		// end remove tinymce class and stylesheet
-	});// jquery
+<?php echo form_open( 'site-admin/media/process_bulk' ); ?> 
+	<?php if ( isset( $form_status ) ) {echo $form_status;} ?> 
 	
+	<div class="list-items-placeholder">
+		<?php $this->load->view( 'site-admin/templates/media/media_ajax_list_view' ); ?> 
+	</div>
+
+	<div class="cmds">
+		<div class="cmd-left">
+			<select name="act">
+				<option value="" selected="selected"></option>
+				<option value="del"><?php echo lang( 'admin_delete' ); ?></option>
+			</select>
+			<button type="submit" class="bb-button"><?php echo lang( 'admin_submit' ); ?></button>
+		</div>
+		<div class="cmd-right">
+			<?php if ( isset( $pagination ) ) {echo $pagination;} ?>
+		</div>
+		<div class="clear"></div>
+	</div>
+
+<?php echo form_close(); ?> 
+
+<script type="text/javascript">
 	
 	function clear_status() {
 		$('#upload-msg').html('');
 		// reload list
-		$.get( site_url+'site-admin/media/popup', function(data) {
+		$.get( site_url+'site-admin/media', function(data) {
 			$('.list-items-placeholder').html(data);
 		});
 	}// clear_status
@@ -92,11 +85,4 @@
 		$('#file-selector').replaceWith($('#file-selector').clone(true));// for ie
 		$('#upload-button').removeAttr('disabled');
 	}// upload_status
-	
-	
 </script>
-
-
-
-
-<?php $this->load->view( 'site-admin/inc_html_foot' ); ?> 

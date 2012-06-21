@@ -77,7 +77,7 @@ class menu extends admin_controller {
 		// script tags
 		// end head tags output ##############################
 		// output
-		$this->generate_page( 'site-admin/menu/menu_aegroup_view', $output );
+		$this->generate_page( 'site-admin/templates/menu/menu_aegroup_view', $output );
 	}// addgroup
 	
 	
@@ -196,9 +196,9 @@ class menu extends admin_controller {
 			}
 			// output
 			if ( $row->mi_type == 'custom_link' ) {
-				$this->load->view( 'site-admin/menu/menu_ajax_inlineedit_customlink', $output );
+				$this->load->view( 'site-admin/templates/menu/menu_ajax_inlineedit_customlink', $output );
 			} else {
-				$this->load->view( 'site-admin/menu/menu_ajax_inlineedit_link', $output );
+				$this->load->view( 'site-admin/templates/menu/menu_ajax_inlineedit_link', $output );
 			}
 		}
 	}// ajax_edititem
@@ -320,7 +320,7 @@ class menu extends admin_controller {
 		// script tags
 		// end head tags output ##############################
 		// output
-		$this->generate_page( 'site-admin/menu/menu_aegroup_view', $output );
+		$this->generate_page( 'site-admin/templates/menu/menu_aegroup_view', $output );
 	}// editgroup
 	
 	
@@ -349,7 +349,7 @@ class menu extends admin_controller {
 		// script tags
 		// end head tags output ##############################
 		// output
-		$this->generate_page( 'site-admin/menu/menu_allgroup_view', $output );
+		$this->generate_page( 'site-admin/templates/menu/menu_allgroup_view', $output );
 	}// index
 	
 	
@@ -390,7 +390,7 @@ class menu extends admin_controller {
 		// output
 		$this->output->set_header( 'Cache-Control: no-store, no-cache, must-revalidate' );
 		$this->output->set_header( 'Pragma: no-cache' );
-		$this->generate_page( 'site-admin/menu/menu_allitem_view', $output );
+		$this->generate_page( 'site-admin/templates/menu/menu_allitem_view', $output );
 	}// item
 	
 	

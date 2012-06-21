@@ -97,7 +97,7 @@ class block extends admin_controller {
 			if ( isset( $list_block_in_area[$area_name] ) ) {
 				foreach( $list_block_in_area[$area_name] as $block ) {
 					$data['block'] = $block;
-					$output .= $this->load->view( 'site-admin/block/block_each', $data );
+					$output .= $this->load->view( 'site-admin/templates/block/block_each', $data );
 				}
 			}
 			return $output;
@@ -165,7 +165,7 @@ class block extends admin_controller {
 		// script tags
 		// end head tags output ##############################
 		// output
-		$this->generate_page( 'site-admin/block/block_edit_view', $output );
+		$this->generate_page( 'site-admin/templates/block/block_edit_view', $output );
 	}// edit
 	
 	
@@ -199,7 +199,7 @@ class block extends admin_controller {
 		// output
 		$this->output->set_header( 'Cache-Control: no-store, no-cache, must-revalidate' );
 		$this->output->set_header( 'Pragma: no-cache' );
-		$this->generate_page( 'site-admin/block/block_view', $output );
+		$this->generate_page( 'site-admin/templates/block/block_view', $output );
 	}// index
 	
 	
