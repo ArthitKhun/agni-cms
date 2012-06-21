@@ -216,6 +216,10 @@ class media_model extends CI_Model {
 			// config
 			$config['upload_path'] = $this->config->item( 'agni_upload_path' ).'media/'.$this->lang->get_current_lang().'/';
 			$config['allowed_types'] = $this->config_model->load_single( 'media_allowed_types' );
+			if ( !preg_match( "/^[A-Za-z 0-9~_\-.+={}\"'()]+$/", $_FILES['file']['name'] ) ) {
+				// this file has not safe file name. encrypt it.
+				$config['encrypt_name'] = true;
+			}
 			$this->load->library('upload', $config);
 			if ( ! $this->upload->do_upload("file") ) {
 				return $this->upload->display_errors( '<div>', '</div>' );
