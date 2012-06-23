@@ -133,17 +133,132 @@ class MY_Lang extends MX_Lang {
 	 * @return string 
 	 */
 	function line($line = '') {
-		$linetr = ($line == '' OR ! isset($this->language[$line])) ? FALSE : $this->language[$line];
+		$value = ($line == '' OR ! isset($this->language[$line])) ? FALSE : $this->language[$line];
 
 		// Because killer robots like unicorns!
-		if ($linetr === FALSE)
+		if ($value === FALSE)
 		{
 			log_message('error', 'Could not find the language line "'.$line.'"');
-			$linetr = $line;
+			$value = $line;
 		}
 
-		return $linetr;
+		return $value;
 	}// line
+	
+	
+	/**
+	 * this copy from MX lang load.
+	 * 
+	 * modify: not show error when language file not found by use $this->ci_load instead of parent::load which call load method in CI_Lang.
+	 */
+	public function load($langfile, $lang = '', $return = FALSE, $add_suffix = TRUE, $alt_path = '', $_module = '')	{
+		
+		if (is_array($langfile)) {
+			foreach($langfile as $_lang) $this->load($_lang);
+			return $this->language;
+		}
+			
+		$deft_lang = CI::$APP->config->item('language');
+		$idiom = ($lang == '') ? $deft_lang : $lang;
+	
+		if (in_array($langfile.'_lang'.EXT, $this->is_loaded, TRUE))
+			return $this->language;
+
+		$_module OR $_module = CI::$APP->router->fetch_module();
+		list($path, $_langfile) = Modules::find($langfile.'_lang', $_module, 'language/'.$idiom.'/');
+
+		if ($path === FALSE) {
+			
+			if ($lang = $this->ci_load($langfile, $lang, $return, $add_suffix, $alt_path)) return $lang;
+		
+		} else {
+
+			if($lang = Modules::load_file($_langfile, $path, 'lang')) {
+				if ($return) return $lang;
+				$this->language = array_merge($this->language, $lang);
+				$this->is_loaded[] = $langfile.'_lang'.EXT;
+				unset($lang);
+			}
+		}
+		
+		return $this->language;
+	}// load
+	
+	
+	/**
+	 * ci_load
+	 * this method copy from CI_Lang.
+	 * 
+	 * modify: not show error when language file not found by comment 'show_error' line out.
+	 */
+	function ci_load($langfile = '', $idiom = '', $return = FALSE, $add_suffix = TRUE, $alt_path = '')
+	{
+		$langfile = str_replace('.php', '', $langfile);
+
+		if ($add_suffix == TRUE)
+		{
+			$langfile = str_replace('_lang.', '', $langfile).'_lang';
+		}
+
+		$langfile .= '.php';
+
+		if (in_array($langfile, $this->is_loaded, TRUE))
+		{
+			return;
+		}
+
+		$config =& get_config();
+
+		if ($idiom == '')
+		{
+			$deft_lang = ( ! isset($config['language'])) ? 'english' : $config['language'];
+			$idiom = ($deft_lang == '') ? 'english' : $deft_lang;
+		}
+
+		// Determine where the language file is and load it
+		if ($alt_path != '' && file_exists($alt_path.'language/'.$idiom.'/'.$langfile))
+		{
+			include($alt_path.'language/'.$idiom.'/'.$langfile);
+		}
+		else
+		{
+			$found = FALSE;
+
+			foreach (get_instance()->load->get_package_paths(TRUE) as $package_path)
+			{
+				if (file_exists($package_path.'language/'.$idiom.'/'.$langfile))
+				{
+					include($package_path.'language/'.$idiom.'/'.$langfile);
+					$found = TRUE;
+					break;
+				}
+			}
+
+			if ($found !== TRUE)
+			{
+				//show_error('Unable to load the requested language file: language/'.$idiom.'/'.$langfile);
+			}
+		}
+
+
+		if ( ! isset($lang))
+		{
+			log_message('error', 'Language file contains no data: language/'.$idiom.'/'.$langfile);
+			return;
+		}
+
+		if ($return == TRUE)
+		{
+			return $lang;
+		}
+
+		$this->is_loaded[] = $langfile;
+		$this->language = array_merge($this->language, $lang);
+		unset($lang);
+
+		log_message('debug', 'Language file loaded: language/'.$idiom.'/'.$langfile);
+		return TRUE;
+	}// ci_load
 	
 	
 }

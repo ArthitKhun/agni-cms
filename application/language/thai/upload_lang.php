@@ -1,7 +1,4 @@
 <?php
-/**translate by mr.v automatic
- *www.okvee.net
- */
 
 $lang['upload_userfile_not_set'] = "ไม่พบตัวแปรการโพสต์ที่เรียกว่า userfile.";
 $lang['upload_file_exceeds_limit'] = "ไฟล์ที่อัพโหลดเกินขนาดสูงสุดที่อนุญาตในไฟล์ตั้งค่า PHP ของคุณ.";

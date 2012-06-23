@@ -1,7 +1,4 @@
 <?php
-/**translate by mr.v automatic
- *www.okvee.net
- */
 
 $lang['ut_test_name']		= 'ชื่อทดสอบ';
 $lang['ut_test_datatype']	= 'ทดสอบประเภทข้อมูล';

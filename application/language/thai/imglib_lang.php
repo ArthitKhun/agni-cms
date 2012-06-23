@@ -1,7 +1,4 @@
 <?php
-/**translate by mr.v automatic
- *www.okvee.net
- */
 
 $lang['imglib_source_image_required'] = "คุณต้องกำหนดไฟล์ต้นฉบับในการตั้งค่า.";
 $lang['imglib_gd_required'] = "The GD image library is required for this feature.";

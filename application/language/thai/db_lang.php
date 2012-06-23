@@ -1,7 +1,4 @@
 <?php
-/**translate by mr.v automatic
- *www.okvee.net
- */
 
 $lang['db_invalid_connection_str'] = 'ไม่สามารถกำหนดค่าฐานข้อมูลจากสตริงการเชื่อมต่อที่คุณส่ง';
 $lang['db_unable_to_connect'] = 'ไม่สามารถเชื่อมต่อเซิร์ฟเวอร์ฐานข้อมูลของคุณตามค่าที่ตั้งไว้.';

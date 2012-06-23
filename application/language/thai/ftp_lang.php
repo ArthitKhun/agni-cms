@@ -1,7 +1,4 @@
 <?php
-/**translate by mr.v automatic
- *www.okvee.net
- */
 
 $lang['ftp_no_connection']			= "ไม่พบ ID การเชื่อมต่อ.  โปรดตรวจให้แน่ใจว่าทำการเชื่อมต่อแล้วก่อนทำการใดๆ.";
 $lang['ftp_unable_to_connect']		= "ไม่สามารถเชื่อมต่อ FTP server ของคุณตามข้อมูลที่ให้มา.";

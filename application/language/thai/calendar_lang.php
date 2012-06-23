@@ -1,7 +1,4 @@
 <?php
-/**translate by mr.v automatic
- *www.okvee.net
- */
 
 $lang['cal_su']			= "อา";
 $lang['cal_mo'] 		= "จ";

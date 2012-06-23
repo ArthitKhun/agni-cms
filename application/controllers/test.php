@@ -17,13 +17,18 @@ class test extends MY_Controller {
 	
 	function __construct() {
 		parent::__construct();
+		$this->load->helper( array( 'language' ) );
 	}// __construct
 	
 	
 	function index() {
-		show_404();// should enable this function in production site for not showing test page to public.
-		$this->theme_path = base_url().config_item( 'agni_theme_path' ).'test/';// ค่านี้ ถ้าไม่เซ็ค ระบบจะโหลดจาก theme หลักมาแทน โดยเฉพาะ css จะโหลดจาก theme หลัก
+		//show_404();// should enable this function in production site for not showing test page to public.
+		$this->theme_path = base_url().config_item( 'agni_theme_path' ).'quick-start/';// ค่านี้ ถ้าไม่เซ็ค ระบบจะโหลดจาก theme หลักมาแทน โดยเฉพาะ css จะโหลดจาก theme หลัก
 		//$this->theme_system_name = 'test';// ค่านี้ ถ้าไม่เซ็ต ระบบจะโหลดจาก theme หลักมาแทน, ถ้าเซ็ต ก็ไม่จำเป็นต้องเซ็ตตรง generate_page ก็ได้
+		
+		// test load not exists language file not not exists language line.
+		//$this->lang->load( 'postss' );
+		//echo '&gt; '.$this->lang->line( 'postss_delete_revision_nothig' );
 		
 		// head tags output ##############################
 		$output['page_title'] = $this->html_model->gen_title( 'test' );
@@ -32,7 +37,7 @@ class test extends MY_Controller {
 		// script tags
 		// end head tags output ##############################
 		// output
-		$this->generate_page( 'front/templates/test_view', $output, 'test' );
+		$this->generate_page( 'front/templates/index/index_view', $output, 'quick-start' );
 	}// index
 	
 

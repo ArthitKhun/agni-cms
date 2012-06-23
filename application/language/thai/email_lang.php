@@ -1,7 +1,4 @@
 <?php
-/**translate by mr.v automatic
- *www.okvee.net
- */
 
 $lang['email_must_be_array'] = "การตรวจสอบอีเมลต้องผ่านมาเป็น array.";
 $lang['email_invalid_address'] = "ที่อยู่อีเมลไม่ถูกต้อง: %s";

@@ -1,7 +1,4 @@
 <?php
-/**translate by mr.v automatic
- *www.okvee.net
- */
 
 $lang['required'] 			= "ต้องกรอกช่อง %s .";
 $lang['isset']				= "ช่อง %s ต้องมีค่า.";
@@ -20,6 +17,7 @@ $lang['is_numeric']			= "ช่อง %s จะต้องมีได้แค
 $lang['integer']			= "ช่อง %s ต้องมีเลขจำนวนเต็ม.";
 $lang['regex_match']		= "ช่อง %s ไม่ใช่รูปแบบที่ถูกต้อง.";
 $lang['matches']			= "ช่อง %s ไม่ตรงกับช่อง %s .";
+$lang['is_unique'] 			= "ช่อง %s ต้องมีค่าเป็นเอกลักษณ์.";
 $lang['is_natural']			= "ช่อง %s ต้องมีแต่เลขจำนวนเต็มบวก.";
 $lang['is_natural_no_zero']	= "ช่อง %s ต้องมีตัวเลขมากกว่าศูนย์.";
 $lang['decimal']			= "ช่อง %s ต้องมีตัวเลขที่เป็นทศนิยม.";
