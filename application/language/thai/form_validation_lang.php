@@ -26,4 +26,4 @@ $lang['greater_than']		= "ช่อง %s ต้องมีตัวเลข�
 
 
 /* End of file form_validation_lang.php */
-/* Location: ./system/language/english/form_validation_lang.php */
+/* Location: ./application/language/english/form_validation_lang.php */

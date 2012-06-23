@@ -26,4 +26,4 @@ $lang['db_unable_to_set_charset'] = 'ไม่สามารถกำหนด 
 $lang['db_error_heading'] = 'ข้อผิดพลาดที่ฐานข้อมูลเกิดขึ้น';
 
 /* End of file db_lang.php */
-/* Location: ./system/language/english/db_lang.php */
+/* Location: ./application/language/english/db_lang.php */

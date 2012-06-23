@@ -15,4 +15,4 @@ $lang['ftp_unable_to_move']			= "ไม่สามารถย้ายไฟ�
 
 
 /* End of file ftp_lang.php */
-/* Location: ./system/language/english/ftp_lang.php */
+/* Location: ./application/language/english/ftp_lang.php */

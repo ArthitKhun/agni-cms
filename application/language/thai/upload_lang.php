@@ -19,4 +19,4 @@ $lang['upload_not_writable'] = "โฟลเดอร์ปลายทางอ
 
 
 /* End of file upload_lang.php */
-/* Location: ./system/language/english/upload_lang.php */
+/* Location: ./application/language/english/upload_lang.php */

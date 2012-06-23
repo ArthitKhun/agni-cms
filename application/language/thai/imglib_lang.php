@@ -21,4 +21,4 @@ $lang['imglib_save_failed'] = "ไม่สามารถบันทึกภ�
 
 
 /* End of file imglib_lang.php */
-/* Location: ./system/language/english/imglib_lang.php */
+/* Location: ./application/language/english/imglib_lang.php */
