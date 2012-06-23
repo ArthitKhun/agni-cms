@@ -250,7 +250,7 @@ class menu extends admin_controller {
 	}// ajax_searchtag
 	
 	
-	function ajax_sortitem() {
+	function ajax_sortitem( $mg_id = '' ) {
 		// check permission
 		if ( $this->account_model->check_admin_permission( 'menu_perm', 'menu_sort_perm' ) != true ) {exit;}
 		if ( $this->input->is_ajax_request() ) {
@@ -261,7 +261,8 @@ class menu extends admin_controller {
 						$item1 = str_replace( array( 'root', 'null' ), '0', $item1 );
 						$this->db->set("parent_id", $item1);
 						$this->db->set( 'position', $position );
-						$this->db->where("mi_id", $key1);
+						$this->db->where( 'mi_id', $key1 );
+						$this->db->where( 'mg_id', $mg_id );
 						$this->db->update( 'menu_items' );
 						$position++;
 					}

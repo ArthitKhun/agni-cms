@@ -323,7 +323,7 @@ class menu_model extends CI_Model {
 	 * @return  array   An indexed array of fields to select
 	 */
 	function _getFields() {
-		return array($this->fields['id'], $this->fields['parent'], 'nlevel');
+		return array($this->fields['id'], $this->fields['parent'], 'mg_id', 'nlevel');
 	}
 	
 	
@@ -337,6 +337,7 @@ class menu_model extends CI_Model {
 		$parentField = $this->fields['parent'];
 
 		$query = sprintf('select %s from %s', join(',', $this->_getFields()), $this->db->dbprefix( 'menu_items' ));
+		$query .= ' where mg_id = '.$this->db->escape( $this->uri->segment( 4 ) ).'';
 
 		$result = $this->db->query($query);
 

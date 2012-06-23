@@ -65,7 +65,7 @@
 			update: function( e, ui ) {
 				order = $(this).nestedSortable('serialize');
 				$.ajax({
-					url: site_url+'site-admin/menu/ajax_sortitem',
+					url: site_url+'site-admin/menu/ajax_sortitem/<?php echo $mg_id; ?>',
 					type: 'POST',
 					data: csrf_name+'='+csrf_value+'&'+order,
 					dataType: 'html',

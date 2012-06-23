@@ -448,7 +448,7 @@ class taxonomy_model extends CI_Model {
 	 * @return  array   An indexed array of fields to select
 	 */
 	function _getFields() {
-		return array($this->fields['id'], $this->fields['parent'], 'nlevel');
+		return array($this->fields['id'], $this->fields['parent'], 't_type', 'nlevel');
 	}
 	
 	
@@ -462,6 +462,8 @@ class taxonomy_model extends CI_Model {
 		$parentField = $this->fields['parent'];
 
 		$query = sprintf('select %s from %s', join(',', $this->_getFields()), $this->db->dbprefix( 'taxonomy_term_data' ));
+		$query .= ' where t_type = '.$this->db->escape( $this->tax_type ).'';
+		$query .= ' and language = '.$this->db->escape( $this->lang->get_current_lang() ).'';
 
 		$result = $this->db->query($query);
 
