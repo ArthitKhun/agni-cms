@@ -5,6 +5,18 @@
 			$post_url = (isset( $cat ) ? $cat->t_uris.'/'.$row->post_uri_encoded : 'post/'.$row->post_uri_encoded );
 			?> 
 	<article class="each-post post-id-<?php echo $row->post_id; ?>">
+		<?php if ( $this->posts_model->is_allow_edit_post( $row ) || $this->posts_model->is_allow_delete_post( $row ) ): ?> 
+		<div class="article-tools">
+			<div class="tools-start">
+				<div class="tools-container">
+					<ul>
+						<?php if ( $this->posts_model->is_allow_edit_post( $row ) ): ?><li><?php echo anchor( 'site-admin/'.($row->post_type == 'article' ? 'article' : 'page').'/edit/'.$row->post_id, '<span class="ico16-edit"></span>' ); ?></li><?php endif; ?> 
+						<?php if ( $this->posts_model->is_allow_delete_post( $row ) ): ?><li><?php echo anchor( 'site-admin/'.($row->post_type == 'article' ? 'article' : 'page').'/delete/'.$row->post_id, '<span class="ico16-delete"></span>' ); ?></li><?php endif; ?> 
+					</ul>
+				</div>
+			</div>
+		</div>
+		<?php endif; ?> 
 		<header>
 			<h2><?php echo anchor( $post_url, $row->post_name ); ?></h2>
 			<small>

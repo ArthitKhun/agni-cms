@@ -154,9 +154,19 @@ class posts_model extends CI_Model {
 		// delete from comment
 		$this->db->where( 'post_id', $post_id );
 		$this->db->delete( 'comments' );
-		// delete from taxonomy_index
+		// delete from taxonomy_index--------------------------------------------------------------------------------
+		// update total posts in taxonomy term
+		$this->db->where( 'post_id', $post_id );
+		$query = $this->db->get( 'taxonomy_index' );
+		$query_result = $query->result();
+		// delete
 		$this->db->where( 'post_id', $post_id );
 		$this->db->delete( 'taxonomy_index' );
+		// then update
+		foreach ( $query_result as $row ) {
+			$this->taxonomy_model->update_total_post( $row->tid );
+		}
+		// end delete from taxonomy_index---------------------------------------------------------------------------
 		// delete from post_revision
 		$this->db->where( 'post_id', $post_id );
 		$this->db->delete( 'post_revision' );
@@ -211,7 +221,7 @@ class posts_model extends CI_Model {
 		}
 		$this->db->set( 'post_update', time() );
 		$this->db->set( 'post_update_gmt', local_to_gmt( time() ) );
-		if ( $row->post_publish_date == null && $row->post_publish_date_gmt == null && $data['post_status'] == '1' ) {
+		if ( $row->post_publish_date == null && $row->post_publish_date_gmt == null && ( isset( $data['post_status'] ) && $data['post_status'] == '1' ) ) {
 			$this->db->set( 'post_publish_date', time() );
 			$this->db->set( 'post_publish_date_gmt', local_to_gmt( time() ) );
 			// publish plugin
@@ -370,6 +380,70 @@ class posts_model extends CI_Model {
 		unset( $query, $row );
 		return '1';
 	}// get_last_tax_position
+	
+	
+	/**
+	 * is_allow_delete_post
+	 * check permission if user allowed to delete post.
+	 * @param object $row
+	 * @return boolean 
+	 */
+	function is_allow_delete_post( $row = '' ) {
+		if ( !is_object( $row ) || $row == null ) {return false;}
+		// get my account id
+		$cm_account = $this->account_model->get_account_cookie( 'member' );
+		$my_account_id = ( isset( $cm_account['id'] ) ? $cm_account['id'] : 0 );
+		if ( $row->post_type == 'article' ) {
+			if ( ( $this->account_model->check_admin_permission( 'post_article_perm', 'post_article_delete_own_perm' ) && $row->account_id == $my_account_id ) || ( $this->account_model->check_admin_permission( 'post_article_perm', 'post_article_delete_other_perm' ) && $row->account_id != $my_account_id ) ) {
+				return true;
+			}
+			return false;
+		} elseif ( $row->post_type == 'page' ) {
+			 if ( ( $this->account_model->check_admin_permission( 'post_page_perm', 'post_page_delete_own_perm' ) && $row->account_id == $my_account_id ) || ( $this->account_model->check_admin_permission( 'post_page_perm', 'post_page_delete_other_perm' ) && $row->account_id != $my_account_id ) ) {
+				return true;
+			}
+			return false;
+		} else {
+			// check other types
+			$result = $this->modules_plug->do_action( 'post_is_allow_delete', $row );
+			if ( is_bool( $result ) ) {
+				return $result;
+			}
+			return false;
+		}
+	}// is_allow_delete_post
+	
+	
+	/**
+	 * is_allow_edit_post
+	 * check permission if user allowed to edit post.
+	 * @param object $row
+	 * @return boolean 
+	 */
+	function is_allow_edit_post( $row = '' ) {
+		if ( !is_object( $row ) || $row == null ) {return false;}
+		// get my account id
+		$cm_account = $this->account_model->get_account_cookie( 'member' );
+		$my_account_id = ( isset( $cm_account['id'] ) ? $cm_account['id'] : 0 );
+		if ( $row->post_type == 'article' ) {
+			if ( ( $this->account_model->check_admin_permission( 'post_article_perm', 'post_article_edit_own_perm' ) && $row->account_id == $my_account_id ) || ( $this->account_model->check_admin_permission( 'post_article_perm', 'post_article_edit_other_perm' ) && $row->account_id != $my_account_id ) ) {
+				return true;
+			}
+			return false;
+		} elseif ( $row->post_type == 'page' ) {
+			if ( ( $this->account_model->check_admin_permission( 'post_page_perm', 'post_page_edit_own_perm' ) && $row->account_id == $my_account_id ) || ( $this->account_model->check_admin_permission( 'post_page_perm', 'post_page_edit_other_perm' ) && $row->account_id != $my_account_id ) ) {
+				return true;
+			}
+			return false;
+		} else {
+			// check other types
+			$result = $this->modules_plug->do_action( 'post_is_allow_edit', $row );
+			if ( is_bool( $result ) ) {
+				return $result;
+			}
+			return false;
+		}
+	}// is_allow_edit_post
 	
 	
 	/**

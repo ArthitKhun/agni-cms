@@ -1,7 +1,18 @@
 
 
 <article class="post-page post-id-<?php echo $row->post_id; ?>">
-	
+	<?php if ( $this->posts_model->is_allow_edit_post( $row ) || $this->posts_model->is_allow_delete_post( $row ) ): ?> 
+		<div class="article-tools">
+			<div class="tools-start">
+				<div class="tools-container">
+					<ul>
+						<?php if ( $this->posts_model->is_allow_edit_post( $row ) ): ?><li><?php echo anchor( 'site-admin/'.($row->post_type == 'article' ? 'article' : 'page').'/edit/'.$row->post_id, '<span class="ico16-edit"></span>' ); ?></li><?php endif; ?> 
+						<?php if ( $this->posts_model->is_allow_delete_post( $row ) ): ?><li><?php echo anchor( 'site-admin/'.($row->post_type == 'article' ? 'article' : 'page').'/delete/'.$row->post_id, '<span class="ico16-delete"></span>' ); ?></li><?php endif; ?> 
+					</ul>
+				</div>
+			</div>
+		</div>
+		<?php endif; ?> 
 	<?php if ( $content_show_title == 1 || $content_show_time == 1 || $content_show_author == 1 ): ?> 
 	<header class="post-page-header">
 		<?php if ( $content_show_title == 1 ): ?><h1><?php echo $post_name; ?></h1><?php endif; ?> 

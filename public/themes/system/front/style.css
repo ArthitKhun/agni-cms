@@ -28,9 +28,12 @@ input[type=text], input[type=password], input[type=search], input[type=tel], inp
 
 .demo-area {background: #ff0; background-color: rgba(255,255,0,0.5); outline: #ff4200 1px dotted;}
 
-.ico-no {background: url('images/check-icons.png') no-repeat -17px 0; display: inline-block; height: 16px; width: 16px;}
-.ico-unknow {background: url('images/check-icons.png') no-repeat -34px 0;display: inline-block; height: 16px; width: 16px;}
-.ico-yes {background: url('images/check-icons.png') no-repeat; display: inline-block; height: 16px; width: 16px;}
+.ico16-delete {background: url('../share-images/web-icons.png') no-repeat -16px -20px; cursor: pointer; display: inline-block; height: 16px; text-indent: -999999px; width: 16px;}
+.ico16-edit {background: url('../share-images/web-icons.png') no-repeat -64px -20px; cursor: pointer; display: inline-block; height: 16px; text-indent: -999999px; width: 16px;}
+
+.ico-no {background: url('../share-images/check-icons.png') no-repeat -17px 0; display: inline-block; height: 16px; width: 16px;}
+.ico-unknow {background: url('../share-images/check-icons.png') no-repeat -34px 0;display: inline-block; height: 16px; width: 16px;}
+.ico-yes {background: url('../share-images/check-icons.png') no-repeat; display: inline-block; height: 16px; width: 16px;}
 
 .list-items {border:1px solid #eee; border-collapse: separate; margin-bottom: 10px; overflow: hidden; width: 100%;}
 .list-items * {word-wrap: break-word;}
@@ -151,3 +154,15 @@ input[type=text], input[type=password], input[type=search], input[type=tel], inp
 .area-navigation ul ul li {background: #ff8358 !important; margin: 0; min-width: 160px;}
 .area-navigation ul ul li:hover {background: #ffa281 !important;}
 .area-navigation ul ul ul {left: 100%; top: 0;}
+
+/* article tools (edit, delete article) */
+.each-post:hover > .article-tools {display: block;}
+.post-page:hover > .article-tools {display: block;}
+.article-tools {display: none; height: 0; margin: 0; padding: 0; position: relative;}
+.article-tools .tools-start {background: url('../share-images/web-icons.png') -112px -20px no-repeat; cursor: pointer; height: 16px; position: absolute; right: 0; width: 16px; z-index: 5;}
+.article-tools .tools-start:hover {background: url('../share-images/web-icons.png') -112px -36px no-repeat;}
+.article-tools .tools-start:hover > .tools-container {display: block;}
+.article-tools .tools-start .tools-container {display: none; height:16px; padding-top: 3px; position: relative;}
+.article-tools .tools-start ul {background: #eee; border-radius: 5px; box-shadow: 0 1px 3px #555; list-style: none; margin: 16px 0 0 0; padding: 0; width: 26px;}
+.article-tools .tools-start ul li {margin: 0; padding: 5px 5px 0 5px;}
+.article-tools .tools-start ul li:last-child {padding-bottom: 3px;}

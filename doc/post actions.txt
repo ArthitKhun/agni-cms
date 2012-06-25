@@ -11,3 +11,5 @@ post_postname		เรียกการทำงานเข้ามาทำเกี่ยวกับชื่อโพสต์ในหน้าโพสต์แสดงข้อความ/หน้
 post_publish_date_gmt	เรียกการทำงานเกี่ยวกับเวลา publish gmt ในหน้าแสดงข้อความ/หน้าโพสต์		ส่งวันที่ timestamp แบบ gmt0 เข้าไป
 post_postauthor		เรียกการทำงานเกี่ยวกับผู้เขียนในหน้าโพสต์ที่แสดงบทความ/หน้า		ส่ง account_username, account_id ผู้โพสต์เข้าไปเป็น array
 post_modifybody_value	เรียกการทำงานเกี่ยวกับเนือหาในหน้าโพสต์ที่แสดงบทความ/หน้า			ส่งค่าเนื้อหาหลัก body_value, post_type เข้าไป
+post_is_allow_edit		ตรวจหาว่าโพสต์ที่กำลังเห็นอยู่แก้ไขได้หรือไม่ตาม permission			ส่งค่า $row object ไป ให้ return เป็น boolean
+post_is_allow_delete	ตรวจหาว่าโพสต์ที่กำลังเห็นอยู่ลบได้หรือไม่				ส่งค่า $row object ไป ให้ return เป็น boolean

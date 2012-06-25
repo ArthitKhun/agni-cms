@@ -102,14 +102,14 @@ textarea:focus {border: 1px solid #bbb; outline: none;}
 /* nav bar */
 .header .navigations {background: #e5e5e5; margin: 0 0 10px 0; overflow: visible; width: 100%;}
 
-.ico16-delete {background: url('images/web-icons.png') no-repeat -16px -20px; cursor: pointer; display: inline-block; height: 16px; text-indent: -999999px; width: 16px;}
-.ico16-edit {background: url('images/web-icons.png') no-repeat -64px -20px; cursor: pointer; display: inline-block; height: 16px; text-indent: -999999px; width: 16px;}
-.ico16-media-insert {background: url('images/web-icons.png') no-repeat -80px -20px; cursor: pointer; display: inline-block; height: 16px; text-indent: -999999px; width: 16px;}
-.ico16-reload {background: url('images/web-icons.png') no-repeat -96px -20px; cursor: pointer; display: inline-block; height: 16px; text-indent: -999999px; width: 16px;}
+.ico16-delete {background: url('../share-images/web-icons.png') no-repeat -16px -20px; cursor: pointer; display: inline-block; height: 16px; text-indent: -999999px; width: 16px;}
+.ico16-edit {background: url('../share-images/web-icons.png') no-repeat -64px -20px; cursor: pointer; display: inline-block; height: 16px; text-indent: -999999px; width: 16px;}
+.ico16-media-insert {background: url('../share-images/web-icons.png') no-repeat -80px -20px; cursor: pointer; display: inline-block; height: 16px; text-indent: -999999px; width: 16px;}
+.ico16-reload {background: url('../share-images/web-icons.png') no-repeat -96px -20px; cursor: pointer; display: inline-block; height: 16px; text-indent: -999999px; width: 16px;}
 
-.ico-no {background: url('images/check-icons.png') no-repeat -17px 0; display: inline-block; height: 16px; width: 16px;}
-.ico-unknow {background: url('images/check-icons.png') no-repeat -34px 0;display: inline-block; height: 16px; width: 16px;}
-.ico-yes {background: url('images/check-icons.png') no-repeat; display: inline-block; height: 16px; width: 16px;}
+.ico-no {background: url('../share-images/check-icons.png') no-repeat -17px 0; display: inline-block; height: 16px; width: 16px;}
+.ico-unknow {background: url('../share-images/check-icons.png') no-repeat -34px 0;display: inline-block; height: 16px; width: 16px;}
+.ico-yes {background: url('../share-images/check-icons.png') no-repeat; display: inline-block; height: 16px; width: 16px;}
 
 .iframe-in-dialog {border: none; height: 98%; margin: 0; padding: 0; width: 100%;}
 
@@ -226,8 +226,8 @@ textarea:focus {border: 1px solid #bbb; outline: none;}
 .post-article-tabs .revision-log {height: 100px;}
 
 .reorder {display: inline-block; vertical-align: top;}
-.reorder .down {background: url('images/web-icons.png') no-repeat -48px -20px; display: block; height: 8px; margin: 3px 0 0 0; text-indent: -9999999px; width: 16px;}
-.reorder .up {background: url('images/web-icons.png') no-repeat -32px -20px; display: block; height: 8px; margin: 0 0 3px 0; text-indent: -9999999px; width: 16px;}
+.reorder .down {background: url('../share-images/web-icons.png') no-repeat -48px -20px; display: block; height: 8px; margin: 3px 0 0 0; text-indent: -9999999px; width: 16px;}
+.reorder .up {background: url('../share-images/web-icons.png') no-repeat -32px -20px; display: block; height: 8px; margin: 0 0 3px 0; text-indent: -9999999px; width: 16px;}
 
 .search input[type=search], .search input[type=text] {display: inline; width: 200px;}
 
@@ -244,7 +244,7 @@ textarea:focus {border: 1px solid #bbb; outline: none;}
 .tree-sortable li {margin: 10px 0 0 2em;}
 .tree-sortable li > div {background: #eee; overflow: auto; padding: 3px 3px 3px 10px; -moz-transition: all 0.2s;-webkit-transition: all 0.2s;-o-transition: all 0.2s;-ms-transition: all 0.2s;transition: all 0.2s;}
 .tree-sortable li > div:hover {box-shadow: 0 1px 5px #aaa;}
-.tree-sortable li div .sort-handle {background: url('images/web-icons.png') no-repeat 0 0; cursor: move; display: inline-block; height: 20px; vertical-align: middle; width: 20px;}
+.tree-sortable li div .sort-handle {background: url('../share-images/web-icons.png') no-repeat 0 0; cursor: move; display: inline-block; height: 20px; vertical-align: middle; width: 20px;}
 .tree-sortable li div .item-actions {float: right;}
 .tree-sortable ol {list-style: none; margin: 0; padding: 0;}
 

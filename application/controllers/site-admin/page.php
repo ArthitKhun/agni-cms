@@ -189,6 +189,72 @@ class page extends admin_controller {
 	}// del_rev
 	
 	
+	function delete( $post_id = '' ) {
+		// check permission (both canNOT delete own and delete other => get out)
+		if ( $this->account_model->check_admin_permission( 'post_page_perm', 'post_page_delete_own_perm' ) != true && $this->account_model->check_admin_permission( 'post_page_perm', 'post_page_delete_other_perm' ) != true ) {redirect( 'site-admin' );}
+		// get account id
+		$ca_account = $this->account_model->get_account_cookie( 'admin' );
+		$my_account_id = $ca_account['id'];
+		unset( $ca_account );
+		// open posts table for check permission and delete.
+		$this->db->join( 'post_fields', 'posts.post_id = post_fields.post_id', 'left outer' );
+		$this->db->join( 'accounts', 'posts.account_id = accounts.account_id', 'left' );
+		$this->db->join( 'post_revision', 'posts.revision_id = post_revision.revision_id', 'inner' );
+		$this->db->where( 'post_type', $this->posts_model->post_type );
+		$this->db->where( 'language', $this->posts_model->language );
+		$this->db->where( 'posts.post_id', $post_id );
+		$query = $this->db->get( 'posts' );
+		if ( $query->num_rows() <= 0 ) {$query->free_result(); redirect( 'site-admin/page' );}// not found
+		$row = $query->row();
+		// check permissions-----------------------------------------------------------
+		if ( $this->account_model->check_admin_permission( 'post_page_perm', 'post_page_delete_own_perm' ) && $row->account_id != $my_account_id ) {
+			// this user has permission to delete own post, but NOT deleting own post
+			if ( !$this->account_model->check_admin_permission( 'post_page_perm', 'post_page_delete_other_perm' ) ) {
+				// this user has NOT permission to delete other's post, but deleting other's post
+				$query->free_result();
+				unset( $row, $query, $my_account_id );
+				redirect( 'site-admin' );
+			}
+		} elseif ( !$this->account_model->check_admin_permission( 'post_page_perm', 'post_page_delete_own_perm' ) && $row->account_id == $my_account_id ) {
+			// this user has NOT permission to delete own post, but deleting own post.
+			$query->free_result();
+			unset( $row, $query, $my_account_id );
+			redirect( 'site-admin' );
+		}
+		// end check permissions-----------------------------------------------------------
+		// redirect back value
+		$this->load->library( 'user_agent' );
+		if ( $this->input->get( 'rdr' ) == null ) {
+			$output['rdr'] = $this->agent->referrer();
+		} else {
+			$output['rdr'] = trim( $this->input->get( 'rdr' ) );
+		}
+		// send row for other use.
+		$output['row'] = $row;
+		$query->free_result();
+		// save action
+		if ( $this->input->post() ) {
+			if ( $this->input->post( 'confirm' ) == 'yes' ) {
+				$this->posts_model->delete( $post_id );
+				// go back
+				if ( $this->input->get( 'rdr' ) != null ) {
+					redirect( $this->input->get( 'rdr' ) );
+				} else {
+					redirect( 'site-admin/page' );
+				}
+			}
+		}
+		// head tags output ##############################
+		$output['page_title'] = $this->html_model->gen_title( $this->lang->line( 'post_pages' ) );
+		// meta tags
+		// link tags
+		// script tags
+		// end head tags output ##############################
+		// output
+		$this->generate_page( 'site-admin/templates/page/page_delete_view', $output );
+	}// delete
+	
+	
 	function edit( $post_id = '' ) {
 		// check permission (both canNOT edit own and edit other => get out)
 		if ( $this->account_model->check_admin_permission( 'post_page_perm', 'post_page_edit_own_perm' ) != true && $this->account_model->check_admin_permission( 'post_page_perm', 'post_page_edit_other_perm' ) != true ) {redirect( 'site-admin' );}
